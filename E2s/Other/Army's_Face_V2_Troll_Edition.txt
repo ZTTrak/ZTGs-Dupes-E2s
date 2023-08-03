@@ -1,0 +1,2362 @@
+@name Army's Face V2
+@inputs Up Down Left Right EyeRoll Smile Frown OFace Sad Angry Confused Blink SmallPupils HalfClosed HalfClosed2 Whistle Blush ResetEyes BPTexture_Tongueout
+@outputs 
+@persist EyeType EyesY FreeEyeMovement EyeWidth EyeHeight PupilWidth PupilHeight EyeX EyeY EyeMaxX EyeMaxY Scale EyeRollZ EyeLash MouthType BPTEXTUREPACK_Randomized
+@model models/props_trainstation/trainstation_clock001.mdl
+if(first() | duped()){setName("Army's Face V2: Patch 9 - Black Pearl Community Textures WIP! Edition")
+    #Patch 9 - Black Pearl Community Textures WIP! Edition
+    #Made by Armystuntman, please treat this as a PUBLIC, FREE E2. Don't trade it or anything silly like that! Think of the fans!
+FaceType=2 #0 is round, 1 is square, 2 is a smoother circle for textures, 3 is no face.
+    FaceAdjustmentX=1 #To adjust the face size. (Default: 1)
+    FaceAdjustmentY=1 #To adjust the face size. (Default: 1)
+    FaceYAxis=0 #To adjust how far up/down the face base is. (Useful for the square face.)  (Default: 0)
+    FaceXAxis=0 #To adjust left/right of the face. (Default:0) (Why would you change this???)
+    FaceTexture="icegt/loco/ice_trainmetal_white" #Texture of the basic face. Default:"bobsters_trains/base"
+    SkinTone=vec(200,200,200) #Default:190,190,200
+    
+Scale=1 #This scales EVERYTHING. Default: 1
+
+EyebrowStyle=0 #0-Thin #1-Rectangle #2-THICC #3-Thomas #4-Thin&Small #5-Train Face V1 #6-Bushy
+    EyebrowSpace=0 #Default 0, this changes how spaced the eyebrows are.
+    EyebrowHeight=0 #Default 0, this raises or lowers the eyebrows.
+    EyebrowColor=vec(0,0,0) #Color of the eyebrows and moustache.
+    EyebrowTexture="bobsters_trains/base" #Texture of the eyebrows and moustache.
+    Moustache=0 #0-Disabled #1-Triangle #2-Pointy #3-Thicc #4-Evil    
+    MoustacheHeight=0
+    
+EyeType=2 #0-Round/Classic #1-Side Stretched #2-Black_Pearl_Community_Texture_Pack #3 A++ Bootleg Train Face (Glitchy)
+    EyeSpaced=0 #Default 0, this changes how spaced the eyes are. -1 recommended for EyeType 1. Also moves eyebrows.
+    EyesY=0 #Multiplier value, default 1. Makes the eyes go up or down.
+    EyeWidth=0.18 #Default: 0.18
+    EyeHeight=0.14 #Default: 0.14
+    
+    #For EyeType=2 (Black_Pearl_Community_Texture_Pack) then skip to #BPCommunityTexturePack_Editing because these values have will no effect)
+        EyeBags=0 #0-Disabled. 1-Enabled.
+    EyeBagColor=vec(170,170,170) #Default: 170,170,170
+    
+    EyeShadow=0 #0-Disabled. 1-Normal. 2-Thick. 3-Goth 4-Cute
+    EyeShadowColor=vec(10,10,10)
+    EyeShadowTexture="bobsters_trains/base"
+    
+    EyeLash=0 #0-Disabled. 1-Normal. 2-Upper Eyelid Only (Eyelash Might look weird on extreme scale!)
+    EyeLashTexture="bobsters_trains/base"
+    EyeLashColor=vec(10,10,10)
+    
+    EyelidTexture="icegt/loco/ice_trainmetal_white"
+    UpperLidColor=vec(200,200,200) #If no eyeshadow is applied, set to the same as Skintone.
+    LowerLidColor=vec(200,200,200)
+    
+#######################################
+    #BPCommunityTexturePack_Editing ONLY FOR EYETYPE=2
+BPCommunityTexturePack_Eyestyle=2 #1-6 (Not all may work, is still experimental!!!)
+BPCommunityTexturePack_Female=0 #0 or 1 for the eyeliner version.
+#######################################
+    
+PupilType=0 #0-Classic #1-Colored
+    PupilWhite=0 #0-Disabled. 1-Normal.
+    Eyecolor=vec(10,100,200)         #Edit this to change eyecolor.
+    PupilWidth=0.06 #Default: 0.07
+    PupilHeight=0.063 #Default: 0.08
+#Eye Positions. You especially need to edit this for small eyes or when using colored eyes.
+    EyeMaxY=0.9 #Maximum amount the eye can go up and down. #Default: 0.9
+    EyeMaxX=1 #Maximum amount the eye can go left and right. #Default: 1
+    FreeEyeMovement=0 #0-disabled. 1-Free movement of eyes without resetting to default position. Make sure to use a numpad with NO toggle!
+
+NoseType=0 #0-Pointy #1-Triangle #2-Fat #3-Cylinder #4-Oval #5-Squidward
+    NoseHeight=0 #Default: 0
+    NoseScale=1 #Multiplier, default 1.
+MouthType=5 #0-Thin curves. #1-Triangles. #2-Normal #3-Fat Cheeks #4-Train Face V1 #5-BPCommunityTexturePack #6-TinyMouth
+    MouthHeight=0 #Default: 0
+    MouthSide=0 #Default: 0
+    MouthScale=1 #Multiplier, default 1.
+    
+#######################################
+    #BPCommunityTexturePack_Editing ONLY FOR MOUTHTYPE=5
+            BPTEXTUREPACK_Randomized=0 #Tongue-Out only works in Randomized mode for now.
+    BPTEXTUREPACK_Neutral_Expression="bptexturepack/mouths/pressed3"
+    BPTEXTUREPACK_Smile_Expression="bptexturepack/mouths/smile1"
+    BPTEXTUREPACK_Frown_Expression="bptexturepack/mouths/frown1"
+    BPTEXTUREPACK_OFace_Expression="bptexturepack/mouths/omouth1"
+    BPTEXTUREPACK_OpenSmile_Expression="decals/smile_model"
+    BPTEXTUREPACK_OpenFrown_Expression="bptexturepack/mouths/frownopen1"
+#######################################
+    
+BlushColor=vec(255,0,100)
+    BlushSide=0 #Distance of the blush. Default: 0
+    BlushHeight=1 #Height of the blush. Default: 0
+
+    BlushSizeY=1 #Height scale multiplier - Default: 1
+    BlushSizeX=1 #Width scale multiplier - Default: 1
+    
+    #Accessories
+Glasses=0 #1-3
+    GlassesScale=1 #1 - 1.3, very glitchy.
+    Texture="sprops/textures/sprops_rubber2"
+    GlassTexture=""
+
+#########################DEVELOPERS ONLY#########################
+#Available HOLO IDs:
+#0-19 Eye, Eyebags, Eyelashes.
+#20-29 Pupils, eyewhite, iris.
+#30-47 Mouth and cheeks.
+#48&49 Blush
+#50-99 Eyebrows.
+#100-101 Nose
+#102-109 Moustache
+#110 Eye Roll Holo
+#111-119 Glasses
+#111-200 ??? (Available slots for future updates)
+
+
+
+
+
+####ACCESSORIES####.
+if(Glasses==1){#Glasses1
+holoCreate(111)
+holoModel(111,"models/props_phx/construct/glass/glass_angle360.mdl")
+holoPos(111,entity():toWorld(vec(2,12,3.5)*GlassesScale*Scale))
+holoAng(111, entity():toWorld(ang(90,0,0)))
+holoParent(111,entity())
+holoEntity(111):setSubMaterial(1,Texture)
+holoEntity(111):setSubMaterial(3,Texture)
+holoScale(111,vec(0.2,0.2,0.8)*GlassesScale*Scale)
+holoCreate(112)
+holoModel(112,"models/props_phx/construct/glass/glass_angle360.mdl")
+holoPos(112,entity():toWorld(vec(2,-12,3.5)*GlassesScale*Scale))
+holoAng(112, entity():toWorld(ang(90,0,0)))
+holoParent(112,entity())
+holoEntity(112):setSubMaterial(1,Texture)
+holoEntity(112):setSubMaterial(3,Texture)
+holoScale(112,vec(0.2,0.2,0.8)*GlassesScale*Scale)
+holoCreate(113)
+holoModel(113,"models/props_phx/construct/glass/glass_angle180.mdl")
+holoPos(113,entity():toWorld(vec(0.5,0,0)*GlassesScale*Scale))
+holoAng(113, entity():toWorld(ang(150,0,0)))
+holoParent(113,entity())
+holoEntity(113):setSubMaterial(1,Texture)
+holoEntity(113):setSubMaterial(2,"magtrains/invisible")
+holoScale(113,vec(0.1,0.08,0.5)*GlassesScale*Scale)
+}
+if(Glasses==2){holoCreate(111)
+holoModel(111,"models/props_phx/construct/glass/glass_angle180.mdl")
+holoPos(111,entity():toWorld(vec(4,12,3.5)*GlassesScale*Scale))
+holoAng(111, entity():toWorld(ang(-90,0,0)))
+holoParent(111,entity())
+holoEntity(111):setSubMaterial(1,Texture)
+holoEntity(111):setSubMaterial(3,Texture)
+holoScale(111,vec(0.2,0.2,0.8)*GlassesScale*Scale)
+holoCreate(112)
+holoModel(112,"models/props_phx/construct/glass/glass_angle180.mdl")
+holoPos(112,entity():toWorld(vec(4,-12,3.5)*GlassesScale*Scale))
+holoAng(112, entity():toWorld(ang(-90,0,0)))
+holoParent(112,entity())
+holoEntity(112):setSubMaterial(1,Texture)
+holoEntity(112):setSubMaterial(3,Texture)
+holoScale(112,vec(0.2,0.2,0.8)*GlassesScale*Scale)
+holoCreate(113)
+holoModel(113,"models/props_phx/construct/glass/glass_angle180.mdl")
+holoPos(113,entity():toWorld(vec(0.5,0,0)*GlassesScale*Scale))
+holoAng(113, entity():toWorld(ang(150,0,0)))
+holoParent(113,entity())
+holoEntity(113):setSubMaterial(1,Texture)
+holoEntity(112):setSubMaterial(2,"magtrains/invisible")
+holoScale(113,vec(0.1,0.08,0.5)*GlassesScale*Scale)
+}
+if(Glasses==3){holoCreate(111)
+holoModel(111,"models/props_phx/construct/glass/glass_angle180.mdl")
+holoPos(111,entity():toWorld(vec(4,13+EyeSpaced,12)*GlassesScale*Scale))
+holoAng(111, entity():toWorld(ang(-90,0,0)))
+holoParent(111,entity())
+holoEntity(111):setSubMaterial(1,Texture)
+holoEntity(111):setSubMaterial(3,Texture)
+holoScale(111,vec(2*EyeHeight,1.2*EyeWidth,0.8)*GlassesScale*Scale)
+holoCreate(112)
+holoModel(112,"models/props_phx/construct/glass/glass_angle180.mdl")
+holoPos(112,entity():toWorld(vec(4,-13-EyeSpaced,12)*GlassesScale*Scale))
+holoAng(112, entity():toWorld(ang(-90,0,0)))
+holoParent(112,entity())
+holoEntity(112):setSubMaterial(1,Texture)
+holoEntity(112):setSubMaterial(3,Texture)
+holoScale(112,vec(2*EyeHeight,1.2*EyeWidth,0.8)*GlassesScale*Scale)
+    holoCreate(113)
+holoModel(113,"models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(113,entity():toWorld(vec(1,0,13)*GlassesScale*Scale))
+holoAng(113, entity():toWorld(ang(0,90,90)))
+holoParent(113,entity())
+holoEntity(113):setSubMaterial(1,Texture)
+holoScale(113,vec(1.2,0.3,1)*GlassesScale*Scale)
+}
+
+
+#Eye Roll
+holoCreate(110)
+holoPos(110,entity():toWorld(vec(-0.5,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(110, entity():toWorld(ang(0,0,EyeRollZ)) )
+holoParent(110, entity())
+holoAlpha(110,0)
+
+if(FaceType==0){
+entity():setAlpha(0)
+holoCreate(0)
+holoModel(0, "models/props_trainstation/trainstation_clock001.mdl")
+holoPos(0,entity():toWorld(vec(-0.2,FaceXAxis,FaceYAxis)*Scale))
+holoAng(0, entity():toWorld(ang(0,0,0)) )
+holoScale(0, vec(1,FaceAdjustmentX,FaceAdjustmentY)*Scale)
+holoMaterial(0,FaceTexture)
+holoColor(0,SkinTone)
+holoParent(0, entity())}
+if(FaceType==1){
+entity():setAlpha(0)
+holoCreate(0)
+holoModel(0, "models/hunter/plates/plate1x1.mdl")
+holoPos(0,entity():toWorld(vec(0,FaceXAxis,FaceYAxis)*Scale))
+holoAng(0, entity():toWorld(ang(90,0,0)) )
+holoScale(0, vec(FaceAdjustmentY,FaceAdjustmentX,1.2)*Scale)
+holoMaterial(0,FaceTexture)
+holoParent(0, entity())
+holoColor(0,SkinTone)}
+if(FaceType==2){
+entity():setAlpha(0)
+holoCreate(0)
+holoModel(0, "models/sprops/geometry/fdisc_72.mdl")
+holoPos(0,entity():toWorld(vec(-0.2,FaceXAxis,FaceYAxis)*Scale))
+holoAng(0, entity():toWorld(ang(90,0,90)) )
+holoScale(0, vec(0.88*FaceAdjustmentX,1.3,0.88*FaceAdjustmentY)*Scale)
+holoMaterial(0,FaceTexture)
+holoColor(0,SkinTone)
+holoParent(0, entity())}
+
+if(EyeType==0){#Eye Left
+holoCreate(1)
+holoModel(1, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(1,entity():toWorld(vec(-1,(12+EyeSpaced),7+EyesY)*Scale))
+holoAng(1, entity():toWorld(ang(0,90,90)) )
+holoScale(1, vec(EyeWidth,EyeHeight,1.03)*Scale)
+holoMaterial(1,"bobsters_trains/base")
+holoColor(1, vec(255))
+holoParent(1, entity())
+#Eye Left
+holoCreate(3)
+holoModel(3, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(3,entity():toWorld(vec(-1,(-12-EyeSpaced),7+EyesY)*Scale))
+holoAng(3, entity():toWorld(ang(0,-90,-90)) )
+holoScale(3, vec(EyeWidth,EyeHeight,1.03)*Scale)
+holoMaterial(3,"bobsters_trains/base")
+holoColor(3, vec(255))
+holoParent(3, entity())
+
+if(EyeLash){
+#Eyelash Left
+holoCreate(13)
+holoModel(13, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(13,entity():toWorld(vec(0.8,(13+EyeSpaced),7+EyesY)*Scale))
+holoAng(13, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(13, vec((EyeHeight*0.1),(EyeWidth*1.3),1)*Scale)
+holoMaterial(13,EyeLashTexture)
+holoColor(13,EyeLashColor)
+holoParent(13, entity())
+#Eyelash Right
+holoCreate(14)
+holoModel(14, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(14,entity():toWorld(vec(0.8,(-13-EyeSpaced),7+EyesY)*Scale))
+holoAng(14, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(14, vec((EyeHeight*0.1),(EyeWidth*1.3),1)*Scale)
+holoMaterial(14,EyeLashTexture)
+holoColor(14,EyeLashColor)
+holoParent(14, entity())
+}
+#Eyelid Left
+holoCreate(15)
+holoModel(15, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(15,entity():toWorld(vec(0.5,(12+EyeSpaced),7+EyesY)*Scale))
+holoAng(15, entity():toWorld(ang(90,90,90)) )
+holoScale(15, vec((EyeHeight*1.05),(EyeWidth*1.05),1)*Scale)
+holoMaterial(15,EyelidTexture)
+holoColor(15, UpperLidColor)
+holoParent(15, entity())
+holoAlpha(15,0)
+#Eyelid Left
+holoCreate(16)
+holoModel(16, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(16,entity():toWorld(vec(0.5,(-12-EyeSpaced),7+EyesY)*Scale))
+holoAng(16, entity():toWorld(ang(90,-90,-90)) )
+holoScale(16, vec(EyeHeight*1.05,EyeWidth*1.05,1)*Scale)
+holoMaterial(16,EyelidTexture)
+holoColor(16, UpperLidColor)
+holoParent(16, entity())
+holoAlpha(16,0)
+#Eyelid Left
+holoCreate(17)
+holoModel(17, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(17,entity():toWorld(vec(0.5,(12+EyeSpaced),7+EyesY)*Scale))
+holoAng(17, entity():toWorld(ang(-90,90,90)) )
+holoScale(17, vec((EyeHeight*1.05),(EyeWidth*1.05),1)*Scale)
+holoMaterial(17,EyelidTexture)
+holoColor(17, LowerLidColor)
+holoParent(17, entity())
+holoAlpha(17,0)
+#Eyelid Left
+holoCreate(18)
+holoModel(18, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(18,entity():toWorld(vec(0.5,(-12-EyeSpaced),7+EyesY)*Scale))
+holoAng(18, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(18, vec(EyeHeight*1.05,EyeWidth*1.05,1)*Scale)
+holoMaterial(18,EyelidTexture)
+holoColor(18, LowerLidColor)
+holoParent(18, entity())
+holoAlpha(18,0)
+if(EyeBags==1){#Eye Left
+holoCreate(2)
+holoModel(2, "models/hunter/blocks/cube025x025x025.mdl")
+holoPos(2,entity():toWorld(vec(-1.3,12.2+EyeSpaced,6.1+EyesY)*Scale))
+holoAng(2, entity():toWorld(ang(0,0,0)) )
+holoScale(2, vec(EyeWidth,EyeHeight*1.05,1)*Scale)
+holoMaterial(2,FaceTexture)
+holoColor(2, EyeBagColor)
+holoParent(2, entity())
+#Eye Left
+holoCreate(4)
+holoModel(4, "models/hunter/blocks/cube025x025x025.mdl")
+holoPos(4,entity():toWorld(vec(-1.3,-12.2-EyeSpaced,6.1+EyesY)*Scale))
+holoAng(4, entity():toWorld(ang(0,0,0)) )
+holoScale(4, vec(EyeWidth,EyeHeight*1.05,1)*Scale)
+holoMaterial(4,FaceTexture)
+holoColor(4, EyeBagColor)
+holoParent(4, entity())
+}
+
+if(EyeShadow==1){#EyeShadow
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(5,entity():toWorld(vec(-1.3,12.5+EyeSpaced,8+EyesY)*Scale))
+holoAng(5, entity():toWorld(ang(90,90,90)) )
+holoScale(5, vec(EyeHeight*1,EyeWidth*1.1,1)*Scale)
+holoMaterial(5,EyeShadowTexture)
+holoColor(5, EyeShadowColor)
+holoParent(5, holoEntity(1))
+#EyeShadow
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(6,entity():toWorld(vec(-1.3,-12.5-EyeSpaced,8+EyesY)*Scale))
+holoAng(6, entity():toWorld(ang(90,90,90)) )
+holoScale(6, vec(EyeHeight*1,EyeWidth*1.1,1)*Scale)
+holoMaterial(6,EyeShadowTexture)
+holoColor(6, EyeShadowColor)
+holoParent(6, holoEntity(3))}
+if(EyeShadow==2){#EyeShadow
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(5,entity():toWorld(vec(-1.3,13+EyeSpaced,8+EyesY)*Scale))
+holoAng(5, entity():toWorld(ang(0,90,90)) )
+holoScale(5, vec(EyeWidth*1.2,EyeHeight*1.15,1)*Scale)
+holoMaterial(5,EyeShadowTexture)
+holoColor(5, EyeShadowColor)
+holoParent(5, holoEntity(1))
+#EyeShadow
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(6,entity():toWorld(vec(-1.3,-13-EyeSpaced,8+EyesY)*Scale))
+holoAng(6, entity():toWorld(ang(0,90,90)) )
+holoScale(6, vec(EyeWidth*1.2,EyeHeight*1.15,1)*Scale)
+holoMaterial(6,EyeShadowTexture)
+holoColor(6, EyeShadowColor)
+holoParent(6, holoEntity(3))}
+if(EyeShadow==3){#EyeShadow
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(5,entity():toWorld(vec(-1.3,12.5+EyeSpaced,8+EyesY)*Scale))
+holoAng(5, entity():toWorld(ang(0,90,90)) )
+holoScale(5, vec(EyeWidth*1.1,EyeHeight*1.3,1)*Scale)
+holoMaterial(5,EyeShadowTexture)
+holoColor(5, EyeShadowColor)
+holoParent(5, holoEntity(1))
+#EyeShadow
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(6,entity():toWorld(vec(-1.3,-12.5-EyeSpaced,8+EyesY)*Scale))
+holoAng(6, entity():toWorld(ang(0,90,90)) )
+holoScale(6, vec(EyeWidth*1.1,EyeHeight*1.3,1)*Scale)
+holoMaterial(6,EyeShadowTexture)
+holoColor(6, EyeShadowColor)
+holoParent(6, holoEntity(3))}
+if(EyeShadow==4){#EyeShadow
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(5,entity():toWorld(vec(-1.3,12.3+EyeSpaced,8.3+EyesY)*Scale))
+holoAng(5, entity():toWorld(ang(0,90,90)) )
+holoScale(5, vec(EyeWidth*1.07,EyeHeight*1.1,1)*Scale)
+holoMaterial(5,EyeShadowTexture)
+holoColor(5, EyeShadowColor)
+holoParent(5, holoEntity(1))
+#EyeShadow
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(6,entity():toWorld(vec(-1.3,-12.3-EyeSpaced,8.3+EyesY)*Scale))
+holoAng(6, entity():toWorld(ang(0,90,90)) )
+holoScale(6, vec(EyeWidth*1.07,EyeHeight*1.1,1)*Scale)
+holoMaterial(6,EyeShadowTexture)
+holoColor(6, EyeShadowColor)
+holoParent(6, holoEntity(3))}
+}
+if(EyeType==1){#Eye Left
+holoCreate(1)
+holoModel(1, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(1,entity():toWorld(vec(-1,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(1, entity():toWorld(ang(0,90,90)) )
+holoScale(1, vec(EyeWidth*0.8,EyeHeight,1.03)*Scale)
+holoMaterial(1,"bobsters_trains/base")
+holoColor(1, vec(255,255,255))
+holoParent(1, entity())
+#Eye Left
+holoCreate(2)
+holoModel(2, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(2,entity():toWorld(vec(-1,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(2, entity():toWorld(ang(0,-90,-90)) )
+holoScale(2, vec(EyeWidth,EyeHeight,1.03)*Scale)
+holoMaterial(2,"bobsters_trains/base")
+holoColor(2, vec(255,255,255))
+holoParent(2, entity())
+#Eye Left
+holoCreate(3)
+holoModel(3, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(3,entity():toWorld(vec(-1,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(3, entity():toWorld(ang(0,-90,-90)) )
+holoScale(3, vec(EyeWidth*0.8,EyeHeight,1.03)*Scale)
+holoMaterial(3,"bobsters_trains/base")
+holoColor(3, vec(255,255,255))
+holoParent(3, entity())
+#Eye Left
+holoCreate(4)
+holoModel(4, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(4,entity():toWorld(vec(-1,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(4, entity():toWorld(ang(0,90,90)) )
+holoScale(4, vec(EyeWidth,EyeHeight,1.03)*Scale)
+holoMaterial(4,"bobsters_trains/base")
+holoColor(4, vec(255,255,255))
+holoParent(4, entity())
+
+if(EyeLash){
+#Eyelash Left
+holoCreate(13)
+holoModel(13, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(13,holoEntity(1):toWorld(vec(EyeWidth*12,0,2)*Scale))
+holoAng(13, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(13, vec((EyeHeight*0.1),(EyeWidth*1.1),1)*Scale)
+holoMaterial(13,EyeLashTexture)
+holoColor(13,EyeLashColor)
+holoParent(13, entity())
+#Eyelash Right
+holoCreate(14)
+holoModel(14, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(14,holoEntity(4):toWorld(vec(-EyeWidth*12,0,2)*Scale))
+holoAng(14, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(14, vec((EyeHeight*0.1),(EyeWidth*1.1),1)*Scale)
+holoMaterial(14,EyeLashTexture)
+holoColor(14,EyeLashColor)
+holoParent(14, entity())
+}
+#Top Eyelids
+#Eye Left
+holoCreate(15)
+holoModel(15, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(15,entity():toWorld(vec(0.5,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(15, entity():toWorld(ang(90,90,90)) )
+holoScale(15, vec(EyeHeight*1.05,EyeWidth*0.82,1)*Scale)
+holoMaterial(15,EyelidTexture)
+holoColor(15, UpperLidColor)
+holoParent(15, entity())
+#Eye Left
+holoCreate(16)
+holoModel(16, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(16,entity():toWorld(vec(0.5,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(16, entity():toWorld(ang(0,-90,-90)) )
+holoScale(16, vec(EyeWidth*1.05,EyeHeight*1.05,1)*Scale)
+holoMaterial(16,EyelidTexture)
+holoColor(16, UpperLidColor)
+holoParent(16, entity())
+#Eye Left
+holoCreate(17)
+holoModel(17, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(17,entity():toWorld(vec(4,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(17, entity():toWorld(ang(90,90,-90)) )
+holoScale(17, vec(EyeHeight*1.05,EyeWidth*0.82,1)*Scale)
+holoMaterial(17,EyelidTexture)
+holoColor(17, UpperLidColor)
+holoParent(17, entity())
+#Eye Left
+holoCreate(18)
+holoModel(18, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(18,entity():toWorld(vec(4,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(18, entity():toWorld(ang(-180,-90,90)) )
+holoScale(18, vec(EyeWidth*1.05,EyeHeight*1.05,1)*Scale)
+holoMaterial(18,EyelidTexture)
+holoColor(18, UpperLidColor)
+holoParent(18, entity())
+
+#Bottom lids
+#Eye Left
+holoCreate(26)
+holoModel(26, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(26,entity():toWorld(vec(0.47,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(26, entity():toWorld(ang(0,90,90)) )
+holoScale(26, vec(EyeWidth*0.82,EyeHeight*1.05,1)*Scale)
+holoMaterial(26,EyelidTexture)
+holoColor(26, LowerLidColor)
+holoParent(26, entity())
+#Eye Left
+holoCreate(27)
+holoModel(27, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(27,entity():toWorld(vec(4,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(27, entity():toWorld(ang(0,-90,90)) )
+holoScale(27, vec(EyeWidth*1.05,EyeHeight*1.05,1)*Scale)
+holoMaterial(27,EyelidTexture)
+holoColor(27, LowerLidColor)
+holoParent(27, entity())
+#Eye Left
+holoCreate(28)
+holoModel(28, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(28,entity():toWorld(vec(4,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(28, entity():toWorld(ang(180,90,-90)) )
+holoScale(28, vec(EyeWidth*0.82,EyeHeight*1.05,1)*Scale)
+holoMaterial(28,EyelidTexture)
+holoColor(28, LowerLidColor)
+holoParent(28, entity())
+#Eye Left
+holoCreate(29)
+holoModel(29, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(29,entity():toWorld(vec(0.47,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(29, entity():toWorld(ang(-180,-90,-90)) )
+holoScale(29, vec(EyeWidth*1.05,EyeHeight*1.05,1.0345)*Scale)
+holoMaterial(29,EyelidTexture)
+holoColor(29, LowerLidColor)
+holoParent(29, entity())
+
+
+if(EyeBags==1){
+#WRINKLESSSSSS
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(5,entity():toWorld(vec(-1.3,12+EyeSpaced,6+EyesY)*Scale))
+holoAng(5, entity():toWorld(ang(0,90,90)) )
+holoScale(5, vec(EyeWidth*0.82,EyeHeight,1)*Scale)
+holoMaterial(5,FaceTexture)
+holoColor(5, EyeBagColor)
+holoParent(5, entity())
+#Eye Left
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(6,entity():toWorld(vec(-1.3,12+EyeSpaced,6+EyesY)*Scale))
+holoAng(6, entity():toWorld(ang(0,-90,-90)) )
+holoScale(6, vec(EyeWidth*1.05,EyeHeight,1)*Scale)
+holoMaterial(6,FaceTexture)
+holoColor(6, EyeBagColor)
+holoParent(6, entity())
+#Eye Left
+holoCreate(7)
+holoModel(7, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(7,entity():toWorld(vec(-1.3,-12-EyeSpaced,6+EyesY)*Scale))
+holoAng(7, entity():toWorld(ang(0,-90,-90)) )
+holoScale(7, vec(EyeWidth*0.82,EyeHeight,1)*Scale)
+holoMaterial(7,FaceTexture)
+holoColor(7, EyeBagColor)
+holoParent(7, entity())
+#Eye Left
+holoCreate(8)
+holoModel(8, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(8,entity():toWorld(vec(-1.3,-12-EyeSpaced,6+EyesY)*Scale))
+holoAng(8, entity():toWorld(ang(0,90,90)) )
+holoScale(8, vec(EyeWidth*1.05,EyeHeight,1)*Scale)
+holoMaterial(8,FaceTexture)
+holoColor(8, EyeBagColor)
+holoParent(8, entity())}
+
+if(EyeShadow==1){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.3,12.8+EyeSpaced,8+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.9,EyeHeight*1,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.3,12.8+EyeSpaced,8+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*1.05,EyeHeight*1,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.3,-12.8-EyeSpaced,8+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.9,EyeHeight*1,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.3,-12.8-EyeSpaced,8+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*1.05,EyeHeight*1,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+if(EyeShadow==2){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.2,13+EyeSpaced,8.2+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*1,EyeHeight*1.1,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.2,13+EyeSpaced,8.2+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*1.2,EyeHeight*1.1,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.2+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*1,EyeHeight*1.1,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.2+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*1.2,EyeHeight*1.1,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+if(EyeShadow==3){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.2,13+EyeSpaced,8+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.95,EyeHeight*1.2,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.2,13+EyeSpaced,8+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*0.98,EyeHeight*1.2,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.2,-13-EyeSpaced,8+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.95,EyeHeight*1.2,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.2,-13-EyeSpaced,8+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*0.98,EyeHeight*1.2,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+if(EyeShadow==4){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.2,13+EyeSpaced,8.1+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.95,EyeHeight*1.1,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.2,13+EyeSpaced,8.1+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*0.98,EyeHeight*1.1,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.1+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.95,EyeHeight*1.1,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.1+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*0.98,EyeHeight*1.1,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+}
+if(EyeType==2){#Texture version.
+        #Eye Left
+holoCreate(1)
+holoModel(1, "plane")
+holoPos(1,entity():toWorld(vec(2.2,(-13.5-EyeSpaced),7.7+EyesY)*Scale))
+holoAng(1, entity():toWorld(ang(90,0,0)) )
+holoScale(1, vec(EyeHeight*11,EyeWidth*8,1)*Scale)
+if(BPCommunityTexturePack_Female==0){holoMaterial(1,"decals/eye_model")}
+if(BPCommunityTexturePack_Female==1){holoMaterial(1,"bptexturepack/eyes/eye"+"f"+BPCommunityTexturePack_Eyestyle+"l")}
+holoColor(1, vec(255))
+holoParent(1, entity())
+#Eye Left
+holoCreate(3)
+holoModel(3, "plane")
+holoPos(3,entity():toWorld(vec(2.2,(13.5+EyeSpaced),7.7+EyesY)*Scale))
+holoAng(3, entity():toWorld(ang(90,0,0)) )
+holoScale(3, vec(EyeHeight*11,EyeWidth*8,1)*Scale)
+if(BPCommunityTexturePack_Female==0){holoMaterial(3,"decals/eye_model")}
+if(BPCommunityTexturePack_Female==1){holoMaterial(3,"bptexturepack/eyes/eye"+"f"+BPCommunityTexturePack_Eyestyle+"r")}
+holoColor(3, vec(255))
+holoParent(3, entity())
+
+}
+if(EyeType==3){#Eye Left
+holoCreate(1)
+holoModel(1, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(1,entity():toWorld(vec(-1,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(1, entity():toWorld(ang(0,90,90)) )
+holoScale(1, vec(EyeWidth*0.6,EyeHeight,1.03)*Scale)
+holoMaterial(1,"bobsters_trains/base")
+holoColor(1, vec(255,255,255))
+holoParent(1, entity())
+#Eye Left
+holoCreate(2)
+holoModel(2, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(2,entity():toWorld(vec(-1,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(2, entity():toWorld(ang(0,-90,-90)) )
+holoScale(2, vec(EyeWidth,EyeHeight,1.03)*Scale)
+holoMaterial(2,"bobsters_trains/base")
+holoColor(2, vec(255,255,255))
+holoParent(2, entity())
+#Eye Left
+holoCreate(3)
+holoModel(3, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(3,entity():toWorld(vec(-1,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(3, entity():toWorld(ang(0,-90,-90)) )
+holoScale(3, vec(EyeWidth*0.6,EyeHeight,1.03)*Scale)
+holoMaterial(3,"bobsters_trains/base")
+holoColor(3, vec(255,255,255))
+holoParent(3, entity())
+#Eye Left
+holoCreate(4)
+holoModel(4, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(4,entity():toWorld(vec(-1,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(4, entity():toWorld(ang(0,90,90)) )
+holoScale(4, vec(EyeWidth,EyeHeight,1.03)*Scale)
+holoMaterial(4,"bobsters_trains/base")
+holoColor(4, vec(255,255,255))
+holoParent(4, entity())
+
+if(EyeLash){
+#Eyelash Left
+holoCreate(13)
+holoModel(13, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(13,holoEntity(1):toWorld(vec(EyeWidth*12,0,2)*Scale))
+holoAng(13, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(13, vec((EyeHeight*0.1),(EyeWidth*1),1)*Scale)
+holoMaterial(13,EyeLashTexture)
+holoColor(13,EyeLashColor)
+holoParent(13, entity())
+#Eyelash Right
+holoCreate(14)
+holoModel(14, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(14,holoEntity(4):toWorld(vec(-EyeWidth*12,0,2)*Scale))
+holoAng(14, entity():toWorld(ang(-90,-90,-90)) )
+holoScale(14, vec((EyeHeight*0.1),(EyeWidth*1),1)*Scale)
+holoMaterial(14,EyeLashTexture)
+holoColor(14,EyeLashColor)
+holoParent(14, entity())
+}
+#Top Eyelids
+#Eye Left
+holoCreate(15)
+holoModel(15, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(15,entity():toWorld(vec(0.5,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(15, entity():toWorld(ang(90,90,90)) )
+holoScale(15, vec(EyeHeight*1.05,EyeWidth*0.62,1)*Scale)
+holoMaterial(15,EyelidTexture)
+holoColor(15, UpperLidColor)
+holoParent(15, entity())
+#Eye Left
+holoCreate(16)
+holoModel(16, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(16,entity():toWorld(vec(0.5,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(16, entity():toWorld(ang(0,-90,-90)) )
+holoScale(16, vec(EyeWidth*1.05,EyeHeight*1.05,1)*Scale)
+holoMaterial(16,EyelidTexture)
+holoColor(16, UpperLidColor)
+holoParent(16, entity())
+#Eye Left
+holoCreate(17)
+holoModel(17, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(17,entity():toWorld(vec(4,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(17, entity():toWorld(ang(90,90,-90)) )
+holoScale(17, vec(EyeHeight*1.05,EyeWidth*0.62,1)*Scale)
+holoMaterial(17,EyelidTexture)
+holoColor(17, UpperLidColor)
+holoParent(17, entity())
+#Eye Left
+holoCreate(18)
+holoModel(18, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(18,entity():toWorld(vec(4,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(18, entity():toWorld(ang(-180,-90,90)) )
+holoScale(18, vec(EyeWidth*1.05,EyeHeight*1.05,1)*Scale)
+holoMaterial(18,EyelidTexture)
+holoColor(18, UpperLidColor)
+holoParent(18, entity())
+
+#Bottom lids
+#Eye Left
+holoCreate(26)
+holoModel(26, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(26,entity():toWorld(vec(0.47,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(26, entity():toWorld(ang(0,90,90)) )
+holoScale(26, vec(EyeWidth*0.62,EyeHeight*1.05,1)*Scale)
+holoMaterial(26,EyelidTexture)
+holoColor(26, LowerLidColor)
+holoParent(26, entity())
+#Eye Left
+holoCreate(27)
+holoModel(27, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(27,entity():toWorld(vec(4,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(27, entity():toWorld(ang(0,-90,90)) )
+holoScale(27, vec(EyeWidth*1.05,EyeHeight*1.05,1)*Scale)
+holoMaterial(27,EyelidTexture)
+holoColor(27, LowerLidColor)
+holoParent(27, entity())
+#Eye Left
+holoCreate(28)
+holoModel(28, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(28,entity():toWorld(vec(4,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(28, entity():toWorld(ang(180,90,-90)) )
+holoScale(28, vec(EyeWidth*0.62,EyeHeight*1.05,1)*Scale)
+holoMaterial(28,EyelidTexture)
+holoColor(28, LowerLidColor)
+holoParent(28, entity())
+#Eye Left
+holoCreate(29)
+holoModel(29, "models/props_phx/construct/plastic/plastic_angle_90.mdl")
+holoPos(29,entity():toWorld(vec(0.47,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(29, entity():toWorld(ang(-180,-90,-90)) )
+holoScale(29, vec(EyeWidth*1.05,EyeHeight*1.05,1.0345)*Scale)
+holoMaterial(29,EyelidTexture)
+holoColor(29, LowerLidColor)
+holoParent(29, entity())
+
+
+if(EyeBags==1){
+#WRINKLESSSSSS
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(5,entity():toWorld(vec(-1.3,12+EyeSpaced,6+EyesY)*Scale))
+holoAng(5, entity():toWorld(ang(0,90,90)) )
+holoScale(5, vec(EyeWidth*0.62,EyeHeight,1)*Scale)
+holoMaterial(5,FaceTexture)
+holoColor(5, EyeBagColor)
+holoParent(5, entity())
+#Eye Left
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(6,entity():toWorld(vec(-1.3,12+EyeSpaced,6+EyesY)*Scale))
+holoAng(6, entity():toWorld(ang(0,-90,-90)) )
+holoScale(6, vec(EyeWidth*1.05,EyeHeight,1)*Scale)
+holoMaterial(6,FaceTexture)
+holoColor(6, EyeBagColor)
+holoParent(6, entity())
+#Eye Left
+holoCreate(7)
+holoModel(7, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(7,entity():toWorld(vec(-1.3,-12-EyeSpaced,6+EyesY)*Scale))
+holoAng(7, entity():toWorld(ang(0,-90,-90)) )
+holoScale(7, vec(EyeWidth*0.62,EyeHeight,1)*Scale)
+holoMaterial(7,FaceTexture)
+holoColor(7, EyeBagColor)
+holoParent(7, entity())
+#Eye Left
+holoCreate(8)
+holoModel(8, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(8,entity():toWorld(vec(-1.3,-12-EyeSpaced,6+EyesY)*Scale))
+holoAng(8, entity():toWorld(ang(0,90,90)) )
+holoScale(8, vec(EyeWidth*1.05,EyeHeight,1)*Scale)
+holoMaterial(8,FaceTexture)
+holoColor(8, EyeBagColor)
+holoParent(8, entity())}
+
+if(EyeShadow==1){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.3,12.8+EyeSpaced,8+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.7,EyeHeight*1,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.3,12.8+EyeSpaced,8+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*1.05,EyeHeight*1,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.3,-12.8-EyeSpaced,8+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.7,EyeHeight*1,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.3,-12.8-EyeSpaced,8+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*1.05,EyeHeight*1,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+if(EyeShadow==2){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.2,13+EyeSpaced,8.2+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.8,EyeHeight*1.1,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.2,13+EyeSpaced,8.2+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*1.2,EyeHeight*1.1,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.2+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.8,EyeHeight*1.1,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.2+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*1.2,EyeHeight*1.1,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+if(EyeShadow==3){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.2,13+EyeSpaced,8+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.8,EyeHeight*1.2,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.2,13+EyeSpaced,8+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*1.1,EyeHeight*1.2,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.2,-13-EyeSpaced,8+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.8,EyeHeight*1.2,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.2,-13-EyeSpaced,8+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*1.1,EyeHeight*1.2,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+if(EyeShadow==4){holoCreate(9)
+holoModel(9, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(9,entity():toWorld(vec(-1.2,13+EyeSpaced,8.1+EyesY)*Scale))
+holoAng(9, entity():toWorld(ang(0,90,90)) )
+holoScale(9, vec(EyeWidth*0.7,EyeHeight*1.1,1)*Scale)
+holoMaterial(9,EyeShadowTexture)
+holoColor(9, EyeShadowColor)
+holoParent(9, entity())
+#Eye Left
+holoCreate(10)
+holoModel(10, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(10,entity():toWorld(vec(-1.2,13+EyeSpaced,8.1+EyesY)*Scale))
+holoAng(10, entity():toWorld(ang(0,-90,-90)) )
+holoScale(10, vec(EyeWidth*0.98,EyeHeight*1.1,1)*Scale)
+holoMaterial(10,EyeShadowTexture)
+holoColor(10, EyeShadowColor)
+holoParent(10, entity())
+#Eye Left
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(11,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.1+EyesY)*Scale))
+holoAng(11, entity():toWorld(ang(0,-90,-90)) )
+holoScale(11, vec(EyeWidth*0.7,EyeHeight*1.1,1)*Scale)
+holoMaterial(11,EyeShadowTexture)
+holoColor(11, EyeShadowColor)
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_180.mdl")
+holoPos(12,entity():toWorld(vec(-1.2,-13-EyeSpaced,8.1+EyesY)*Scale))
+holoAng(12, entity():toWorld(ang(0,90,90)) )
+holoScale(12, vec(EyeWidth*0.98,EyeHeight*1.1,1)*Scale)
+holoMaterial(12,EyeShadowTexture)
+holoColor(12, EyeShadowColor)
+holoParent(12, entity())}
+}
+if(EyeType==0|EyeType==1|EyeType==2|EyeType==3){
+#PupilL
+holoCreate(20)
+holoModel(20, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(20,entity():toWorld(vec(-0.8,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(20, entity():toWorld(ang(0,90,90)) )
+holoScale(20, vec(PupilWidth,PupilHeight,1)*Scale)
+holoMaterial(20,"bobsters_trains/base")
+holoColor(20, vec(0))
+holoParent(20, holoEntity(110))
+#PupilR
+holoCreate(21)
+holoModel(21, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(21,entity():toWorld(vec(-0.8,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(21, entity():toWorld(ang(0,90,90)) )
+holoScale(21, vec(PupilWidth,PupilHeight,1)*Scale)
+holoMaterial(21,"bobsters_trains/base")
+holoColor(21, vec(0))
+holoParent(21, holoEntity(20))
+if(PupilType==1){
+holoCreate(22)
+holoModel(22, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(22,entity():toWorld(vec(-1,-12-EyeSpaced,7+EyesY)*Scale))
+holoAng(22, entity():toWorld(ang(0,90,90)) )
+holoScale(22, vec(PupilWidth*1.4,PupilHeight*1.4,1)*Scale)
+holoMaterial(22,"bobsters_trains/base")
+holoColor(22, Eyecolor)
+holoParent(22, holoEntity(20))
+holoCreate(23)
+holoModel(23, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(23,entity():toWorld(vec(-1,12+EyeSpaced,7+EyesY)*Scale))
+holoAng(23, entity():toWorld(ang(0,90,90)) )
+holoScale(23, vec(PupilWidth*1.4,PupilHeight*1.4,1)*Scale)
+holoMaterial(23,"bobsters_trains/base")
+holoColor(23, Eyecolor)
+holoParent(23, holoEntity(21))}
+if(PupilWhite==1){
+holoCreate(24)
+holoModel(24, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(24,holoEntity(20):toWorld(vec(PupilWidth*25,PupilHeight*25,0.3)*Scale))
+holoAng(24, entity():toWorld(ang(0,90,90)) )
+holoScale(24, vec(PupilWidth*0.5,PupilHeight*0.5,1)*Scale)
+holoMaterial(24,"bobsters_trains/base")
+holoColor(24, vec(255))
+holoParent(24, holoEntity(20))
+holoCreate(25)
+holoModel(25, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(25,holoEntity(21):toWorld(vec(PupilWidth*25,PupilHeight*25,0.3)*Scale))
+holoAng(25, entity():toWorld(ang(0,90,90)) )
+holoScale(25, vec(PupilWidth*0.5,PupilHeight*0.5,1)*Scale)
+holoMaterial(25,"bobsters_trains/base")
+holoColor(25, vec(255))
+holoParent(25, holoEntity(21))
+}
+}
+if(MouthType==0){#Mouth Neutral
+holoCreate(30)
+holoModel(30, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(30,entity():toWorld(vec(-0.8,0+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(-2,90,90)) )
+holoScale(30, vec(0.3,0.18,1)*MouthScale*Scale)
+holoColor(30, vec(0,0,0))
+holoMaterial(30,"bobsters_trains/base")
+holoParent(30, entity())
+holoAlpha(30,255)
+#Mouth Smile
+holoCreate(31)
+holoModel(31, "models/XQM/deg45single.mdl")
+holoPos(31,entity():toWorld(vec(2.2,-5.7+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(0,0,-128)) )
+holoScale(31, vec(1,1,0.5)*MouthScale*Scale)
+holoColor(31, vec(0,0,0))
+holoMaterial(31,"bobsters_trains/base")
+holoParent(31, entity())
+holoAlpha(31,0)
+#Mouth Frown
+holoCreate(32)
+holoModel(32, "models/XQM/deg45single.mdl")
+holoPos(32,entity():toWorld(vec(2.2,5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(0,0,50)) )
+holoScale(32, vec(1,1,0.5)*MouthScale*Scale)
+holoColor(32, vec(0,0,0))
+holoMaterial(32,"bobsters_trains/base")
+holoParent(32, entity())
+holoAlpha(32,0)
+#MouthO
+holoCreate(33)
+holoModel(33, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(33,entity():toWorld(vec(-1,0+MouthSide,-19+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(0,90,90)) )
+holoScale(33, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(33, vec(0))
+holoMaterial(33,"bobsters_trains/base")
+holoParent(33, entity())
+holoAlpha(33,0)
+#BigmouthA
+holoCreate(34)
+holoModel(34, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(34,entity():toWorld(vec(1,-1+MouthSide,-16.1+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(-85,90,90)) )
+holoScale(34, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(34, vec(0))
+holoMaterial(34,"bobsters_trains/base")
+holoParent(34, entity())
+holoAlpha(34,0)
+#BigmouthB
+holoCreate(35)
+holoModel(35, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(35,entity():toWorld(vec(1.2,-1+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(35, entity():toWorld(ang(-85,90,90)) )
+holoScale(35, vec(0.02,0.09,1)*MouthScale*Scale)
+holoMaterial(35,"bobsters_trains/base")
+holoParent(35, entity())
+holoAlpha(35,0)
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(36,entity():toWorld(vec(1,-0.5+MouthSide,-22+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(95,90,90)) )
+holoScale(36, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(36, vec(0))
+holoMaterial(36,"bobsters_trains/base")
+holoParent(36, entity())
+holoAlpha(36,0)
+}
+
+if(MouthType==1){#Mouth Neutral
+holoCreate(30)
+holoModel(30, "models/PHXtended/bar1x45a.mdl")
+holoPos(30,entity():toWorld(vec(-3,7.5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(0,0,180)) )
+holoScale(30, vec(1,0.3,0.3)*MouthScale*Scale)
+holoColor(30, vec(0,0,0))
+holoMaterial(30,"bobsters_trains/base")
+holoParent(30, entity())
+holoAlpha(30,255)
+#mouthSmile
+holoCreate(31)
+holoModel(31, "models/hunter/triangles/025x025.mdl")
+holoPos(31,entity():toWorld(vec(1,0+MouthSide,-10+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(44,90,90)) )
+holoScale(31, vec(0.8,0.8,1)*MouthScale*Scale)
+holoColor(31, vec(0,0,0))
+holoMaterial(31,"bobsters_trains/base")
+holoParent(31, entity())
+holoAlpha(31,0)
+#mouthFrown
+holoCreate(32)
+holoModel(32, "models/hunter/triangles/025x025.mdl")
+holoPos(32,entity():toWorld(vec(1,-5+MouthSide,-25+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(-120,90,90)) )
+holoScale(32, vec(0.4,1,1.4)*MouthScale*Scale)
+holoColor(32, vec(0,0,0))
+holoMaterial(32,"bobsters_trains/base")
+holoParent(32, entity())
+holoAlpha(32,0)
+#MouthO
+holoCreate(33)
+holoModel(33, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(33,entity():toWorld(vec(-1,0+MouthSide,-19+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(0,90,90)) )
+holoScale(33, vec(0.13,0.08,1)*MouthScale*Scale)
+holoColor(33, vec(0))
+holoMaterial(33,"bobsters_trains/base")
+holoParent(33, entity())
+holoAlpha(33,0)
+#BigmouthA
+holoCreate(34)
+holoModel(34, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(34,entity():toWorld(vec(1,-1+MouthSide,-16.1+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(-85,90,90)) )
+holoScale(34, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(34, vec(0))
+holoMaterial(34,"bobsters_trains/base")
+holoParent(34, entity())
+holoAlpha(34,0)
+#BigmouthB
+holoCreate(35)
+holoModel(35, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(35,entity():toWorld(vec(1.2,-1+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(35, entity():toWorld(ang(-85,90,90)) )
+holoScale(35, vec(0.02,0.09,1)*MouthScale*Scale)
+holoMaterial(35,"bobsters_trains/base")
+holoParent(35, entity())
+holoAlpha(35,0)
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(36,entity():toWorld(vec(1,-0.5+MouthSide,-22+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(95,90,90)) )
+holoScale(36, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(36, vec(0))
+holoMaterial(36,"bobsters_trains/base")
+holoParent(36, entity())
+holoAlpha(36,0)
+}
+if(MouthType==2){
+#Mouth Neutral
+holoCreate(30)
+holoModel(30, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(30,entity():toWorld(vec(-0.8,0+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(-2,90,90)) )
+holoScale(30, vec(0.4,0.2,1)*MouthScale*Scale)
+holoColor(30, vec(0,0,0))
+holoMaterial(30,"bobsters_trains/base")
+holoParent(30, entity())
+holoAlpha(30,255)
+    
+#Mouth
+holoCreate(31)
+holoModel(31, "models/XQM/deg45single.mdl")
+holoPos(31,entity():toWorld(vec(3,-9.5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(0,0,-110)) )
+holoScale(31, vec(1,1,1)*MouthScale*Scale)
+holoColor(31, vec(0,0,0))
+holoMaterial(31,"bobsters_trains/base")
+holoParent(31, entity())
+
+#Mouth
+holoCreate(32)
+holoModel(32, "models/XQM/deg45single.mdl")
+holoPos(32,entity():toWorld(vec(3,9.5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(0,0,70)) )
+holoScale(32, vec(1,1,1)*MouthScale*Scale)
+holoColor(32, vec(0,0,0))
+holoMaterial(32,"bobsters_trains/base")
+holoParent(32, entity())
+#MouthO
+holoCreate(33)
+holoModel(33, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(33,entity():toWorld(vec(-1,0+MouthSide,-19+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(0,90,90)) )
+holoScale(33, vec(0.13,0.08,1)*MouthScale*Scale)
+holoColor(33, vec(0))
+holoMaterial(33,"bobsters_trains/base")
+holoParent(33, entity())
+holoAlpha(33,0)
+#BigmouthA
+holoCreate(34)
+holoModel(34, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(34,entity():toWorld(vec(1,-1+MouthSide,-16.1+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(-85,90,90)) )
+holoScale(34, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(34, vec(0))
+holoMaterial(34,"bobsters_trains/base")
+holoParent(34, entity())
+holoAlpha(34,0)
+#BigmouthB
+holoCreate(35)
+holoModel(35, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(35,entity():toWorld(vec(1.2,-1+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(35, entity():toWorld(ang(-85,90,90)) )
+holoScale(35, vec(0.02,0.09,1)*MouthScale*Scale)
+holoMaterial(35,"bobsters_trains/base")
+holoParent(35, entity())
+holoAlpha(35,0)
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(36,entity():toWorld(vec(1,-0.5+MouthSide,-22+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(95,90,90)) )
+holoScale(36, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(36, vec(0))
+holoMaterial(36,"bobsters_trains/base")
+holoParent(36, entity())
+holoAlpha(36,0)
+}
+if(MouthType==3){#Chubby Tubby Waifu
+    #Mouth Neutral
+holoCreate(30)
+holoModel(30, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(30,entity():toWorld(vec(-0.8,0+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(-2,90,90)) )
+holoScale(30, vec(0.3,0.1,1)*MouthScale*Scale)
+holoColor(30, vec(0,0,0))
+holoMaterial(30,"bobsters_trains/base")
+holoParent(30, entity())
+holoAlpha(30,255)
+#Mouth Smile
+holoCreate(31)
+holoModel(31, "models/XQM/deg45single.mdl")
+holoPos(31,entity():toWorld(vec(2.2,-6.5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(0,0,-124)) )
+holoScale(31, vec(1,1,0.6)*MouthScale*Scale)
+holoColor(31, vec(0,0,0))
+holoMaterial(31,"bobsters_trains/base")
+holoParent(31, entity())
+holoAlpha(31,0)
+#Mouth Frown
+holoCreate(32)
+holoModel(32, "models/XQM/deg45single.mdl")
+holoPos(32,entity():toWorld(vec(2.2,7.5+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(0,0,60)) )
+holoScale(32, vec(1,1,0.7)*MouthScale*Scale)
+holoColor(32, vec(0,0,0))
+holoMaterial(32,"bobsters_trains/base")
+holoParent(32, entity())
+holoAlpha(32,0)
+#MouthO
+holoCreate(33)
+holoModel(33, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(33,entity():toWorld(vec(-1,0+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(0,90,90)) )
+holoScale(33, vec(0.14,0.08,1)*MouthScale*Scale)
+holoColor(33, vec(0))
+holoMaterial(33,"bobsters_trains/base")
+holoParent(33, entity())
+holoAlpha(33,0)
+#BigmouthA
+holoCreate(34)
+holoModel(34, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(34,entity():toWorld(vec(1,-1+MouthSide,-16.1+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(-85,90,90)) )
+holoScale(34, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(34, vec(0))
+holoMaterial(34,"bobsters_trains/base")
+holoParent(34, entity())
+holoAlpha(34,0)
+#BigmouthB
+holoCreate(35)
+holoModel(35, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(35,entity():toWorld(vec(1.2,-1+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(35, entity():toWorld(ang(-85,90,90)) )
+holoScale(35, vec(0.02,0.09,1)*MouthScale*Scale)
+holoMaterial(35,"bobsters_trains/base")
+holoParent(35, entity())
+holoAlpha(35,0)
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(36,entity():toWorld(vec(1,-1.5+MouthSide,-20+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(95,90,90)) )
+holoScale(36, vec(0.07,0.1,1)*MouthScale*Scale)
+holoColor(36, vec(0))
+holoMaterial(36,"bobsters_trains/base")
+holoParent(36, entity())
+holoAlpha(36,0)
+#fatmouth
+holoCreate(44)
+holoModel(44, "models/sprops/misc/alphanum/alphanum_lpar.mdl")
+holoPos(44,entity():toWorld(vec(1,9+MouthSide,-17.3+MouthHeight)*MouthScale*Scale))
+holoAng(44, entity():toWorld(ang(-210,90,0)) )
+holoScale(44, vec(1,1,0.6)*MouthScale*Scale)
+holoMaterial(44,"bobsters_trains/base")
+holoColor(44, vec(0,0,0))
+holoParent(44, entity())
+holoCreate(45)
+holoModel(45, "models/sprops/misc/alphanum/alphanum_lpar.mdl")
+holoPos(45,entity():toWorld(vec(1,-8+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(45, entity():toWorld(ang(25,90,0)) )
+holoScale(45, vec(1,1,0.6)*MouthScale*Scale)
+holoMaterial(45,"bobsters_trains/base")
+holoColor(45, vec(0,0,0))
+holoParent(45, entity())
+#fatmouth models/sprops/misc/alphanum/alphanum_l_c.mdl
+holoCreate(46)
+holoModel(46, "models/sprops/misc/alphanum/alphanum_lpar.mdl")
+holoPos(46,entity():toWorld(vec(1,9+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(46, entity():toWorld(ang(-230,90,0)) )
+holoScale(46, vec(0.7,1,0.6)*MouthScale*Scale)
+holoMaterial(46,"bobsters_trains/base")
+holoColor(46, vec(0,0,0))
+holoParent(46, entity())
+holoCreate(47)
+holoModel(47, "models/sprops/misc/alphanum/alphanum_lpar.mdl")
+holoPos(47,entity():toWorld(vec(1,-10+MouthSide,-14+MouthHeight)*MouthScale*Scale))
+holoAng(47, entity():toWorld(ang(50,90,0)) )
+holoScale(47, vec(0.7,1,0.6)*MouthScale*Scale)
+holoMaterial(47,"bobsters_trains/base")
+holoColor(47, vec(0,0,0))
+holoParent(47, entity())}
+
+if(MouthType==4){ #give me merri
+#Mouth Neutral
+holoCreate(30)
+holoModel(30, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(30,entity():toWorld(vec(-0.8,0+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(-2,90,90)) )
+holoScale(30, vec(0.4,0.2,1)*MouthScale*Scale)
+holoColor(30, vec(0,0,0))
+holoMaterial(30,"bobsters_trains/base")
+holoParent(30, entity())
+holoAlpha(30,255)
+    
+#Mouth
+holoCreate(31)
+holoModel(31, "models/XQM/deg45single.mdl")
+holoPos(31,entity():toWorld(vec(3,-9.5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(0,0,-110)) )
+holoScale(31, vec(1,1,1)*MouthScale*Scale)
+holoColor(31, vec(0,0,0))
+holoMaterial(31,"bobsters_trains/base")
+holoParent(31, entity())
+
+#Mouth
+holoCreate(32)
+holoModel(32, "models/XQM/deg45single.mdl")
+holoPos(32,entity():toWorld(vec(3,9.5+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(0,0,70)) )
+holoScale(32, vec(1,1,1)*MouthScale*Scale)
+holoColor(32, vec(0,0,0))
+holoMaterial(32,"bobsters_trains/base")
+holoParent(32, entity())
+#MouthO
+holoCreate(33)
+holoModel(33, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(33,entity():toWorld(vec(-1,0+MouthSide,-19+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(0,90,90)) )
+holoScale(33, vec(0.13,0.08,1)*MouthScale*Scale)
+holoColor(33, vec(0))
+holoMaterial(33,"bobsters_trains/base")
+holoParent(33, entity())
+holoAlpha(33,0)
+#BigmouthA
+holoCreate(34)
+holoModel(34, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(34,entity():toWorld(vec(1,-1+MouthSide,-16.1+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(-85,90,90)) )
+holoScale(34, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(34, vec(0))
+holoMaterial(34,"bobsters_trains/base")
+holoParent(34, entity())
+holoAlpha(34,0)
+#BigmouthB
+holoCreate(35)
+holoModel(35, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(35,entity():toWorld(vec(1.2,-1+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(35, entity():toWorld(ang(-85,90,90)) )
+holoScale(35, vec(0.02,0.09,1)*MouthScale*Scale)
+holoMaterial(35,"bobsters_trains/base")
+holoParent(35, entity())
+holoAlpha(35,0)
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(36,entity():toWorld(vec(1,-0.5+MouthSide,-22+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(95,90,90)) )
+holoScale(36, vec(0.07,0.09,1)*MouthScale*Scale)
+holoColor(36, vec(0))
+holoMaterial(36,"bobsters_trains/base")
+holoParent(36, entity())
+holoAlpha(36,0)
+}
+if(MouthType==5){#BP_TEXTURE_PACK
+    #Mouth Neutral
+holoCreate(30)
+holoModel(30, "plane")
+holoPos(30,entity():toWorld(vec(2.2,0+MouthSide,-18+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(90,0,0)) )
+holoScale(30, vec(2,2,1)*MouthScale*Scale)
+holoMaterial(30,BPTEXTUREPACK_Neutral_Expression)
+holoColor(30, vec(255))
+holoParent(30, entity())
+#Mouth Smile
+holoCreate(31)
+holoModel(31, "plane")
+holoPos(31,entity():toWorld(vec(2.2,0+MouthSide,-16+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(90,0,0)) )
+holoScale(31, vec(3,3,1)*MouthScale*Scale)
+holoMaterial(31,BPTEXTUREPACK_Smile_Expression)
+holoColor(31, vec(255))
+holoParent(31, entity())
+#Mouth Frown
+holoCreate(32)
+holoModel(32, "plane")
+holoPos(32,entity():toWorld(vec(2.2,0+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(90,0,0)) )
+holoScale(32, vec(2.5,2.5,1)*MouthScale*Scale)
+holoMaterial(32,BPTEXTUREPACK_Frown_Expression)
+holoColor(32, vec(255))
+holoParent(32, entity())
+#MouthO
+holoCreate(33)
+holoModel(33, "plane")
+holoPos(33,entity():toWorld(vec(2.2,0+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(90,0,0)) )
+holoScale(33, vec(1.5,1.5,1)*MouthScale*Scale)
+holoMaterial(33,BPTEXTUREPACK_OFace_Expression)
+holoColor(33, vec(255))
+holoParent(33, entity())
+#BigmouthA
+holoCreate(34)
+holoModel(34, "plane")
+holoPos(34,entity():toWorld(vec(2.2,0+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(90,0,0)) )
+holoScale(34, vec(2,2,1)*MouthScale*Scale)
+holoMaterial(34,BPTEXTUREPACK_OpenSmile_Expression)
+holoColor(34, vec(255))
+holoParent(34, entity())
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "plane")
+holoPos(36,entity():toWorld(vec(2.2,0+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(90,0,0)) )
+holoScale(36, vec(2,2,1)*MouthScale*Scale)
+holoMaterial(36,BPTEXTUREPACK_OpenFrown_Expression)
+holoColor(36, vec(255))
+holoParent(36, entity())
+}
+if(MouthType==6){#merri aquired
+holoCreate(30)
+holoModel(30, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(30,entity():toWorld(vec(-0.8,0+MouthSide,-15+MouthHeight)*MouthScale*Scale))
+holoAng(30, entity():toWorld(ang(-2,90,90)) )
+holoScale(30, vec(0.15,0.1,1)*MouthScale*Scale)
+holoColor(30, vec(0,0,0))
+holoMaterial(30,"bobsters_trains/base")
+holoParent(30, entity())
+holoAlpha(30,255)
+#Mouth Smile
+holoCreate(31)
+holoModel(31, "models/XQM/deg45single.mdl")
+holoPos(31,entity():toWorld(vec(2.2,-3+MouthSide,-15+MouthHeight)*MouthScale*Scale))
+holoAng(31, entity():toWorld(ang(0,0,-128)) )
+holoScale(31, vec(0.8,0.5,0.3)*MouthScale*Scale)
+holoColor(31, vec(0,0,0))
+holoMaterial(31,"bobsters_trains/base")
+holoParent(31, entity())
+holoAlpha(31,0)
+#Mouth Frown
+holoCreate(32)
+holoModel(32, "models/XQM/deg45single.mdl")
+holoPos(32,entity():toWorld(vec(2.2,4+MouthSide,-15+MouthHeight)*MouthScale*Scale))
+holoAng(32, entity():toWorld(ang(0,0,60)) )
+holoScale(32, vec(1,0.5,0.3)*MouthScale*Scale)
+holoColor(32, vec(0,0,0))
+holoMaterial(32,"bobsters_trains/base")
+holoParent(32, entity())
+holoAlpha(32,0)
+#MouthO
+holoCreate(33)
+holoModel(33, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(33,entity():toWorld(vec(-1,0+MouthSide,-15+MouthHeight)*MouthScale*Scale))
+holoAng(33, entity():toWorld(ang(0,90,90)) )
+holoScale(33, vec(0.06,0.07,1)*MouthScale*Scale)
+holoColor(33, vec(0))
+holoMaterial(33,"bobsters_trains/base")
+holoParent(33, entity())
+holoAlpha(33,0)
+#BigmouthA
+holoCreate(34)
+holoModel(34, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(34,entity():toWorld(vec(1,0+MouthSide,-12.1+MouthHeight)*MouthScale*Scale))
+holoAng(34, entity():toWorld(ang(-85,90,90)) )
+holoScale(34, vec(0.06,0.06,1)*MouthScale*Scale)
+holoColor(34, vec(0))
+holoMaterial(34,"bobsters_trains/base")
+holoParent(34, entity())
+holoAlpha(34,0)
+#BigmouthB
+holoCreate(35)
+holoModel(35, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(35,entity():toWorld(vec(1.2,0+MouthSide,-12+MouthHeight)*MouthScale*Scale))
+holoAng(35, entity():toWorld(ang(-85,90,90)) )
+holoScale(35, vec(0.013,0.06,1)*MouthScale*Scale)
+holoMaterial(35,"bobsters_trains/base")
+holoParent(35, entity())
+holoAlpha(35,0)
+#BigmouthScared
+holoCreate(36)
+holoModel(36, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(36,entity():toWorld(vec(1,-0.5+MouthSide,-17+MouthHeight)*MouthScale*Scale))
+holoAng(36, entity():toWorld(ang(95,90,90)) )
+holoScale(36, vec(0.05,0.07,1)*MouthScale*Scale)
+holoColor(36, vec(0))
+holoMaterial(36,"bobsters_trains/base")
+holoParent(36, entity())
+holoAlpha(36,0)
+}
+#Blush
+holoCreate(48)
+holoModel(48, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(48,entity():toWorld(vec(-1,15+BlushSide,-7+BlushHeight)*Scale))
+holoAng(48, entity():toWorld(ang(0,90,90)) )
+holoScale(48, vec(0.15*BlushSizeX,0.08*BlushSizeY,1)*Scale)
+holoColor(48, BlushColor)
+holoMaterial(48,"bobsters_trains/base")
+holoParent(48, entity())
+#Blush
+holoCreate(49)
+holoModel(49, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(49,entity():toWorld(vec(-1,-15-BlushSide,-7+BlushHeight)*Scale))
+holoAng(49, entity():toWorld(ang(0,90,90)) )
+holoScale(49, vec(0.15*BlushSizeX,0.08*BlushSizeY,1)*Scale)
+holoColor(49, BlushColor)
+holoMaterial(49,"bobsters_trains/base")
+holoParent(49, entity())
+if(EyebrowStyle==0){#Eyebrow Left
+holoCreate(50)
+holoModel(50, "models/XQM/deg45single.mdl")
+holoPos(50,entity():toWorld(vec(2.2,-5-EyeSpaced-EyebrowSpace,19+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(0,0,75)) )
+holoScale(50, vec(1,0.6,0.8)*Scale)
+holoColor(50, EyebrowColor)
+holoMaterial(50,EyebrowTexture)
+holoParent(50, entity())
+#Eyebrow Right
+holoCreate(51)
+holoModel(51, "models/XQM/deg45single.mdl")
+holoPos(51,entity():toWorld(vec(2.2,20+EyeSpaced+EyebrowSpace,18.7+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(0,0,70)) )
+holoScale(51, vec(1,0.6,0.8)*Scale)
+holoColor(51,EyebrowColor)
+holoMaterial(51,EyebrowTexture)
+holoParent(51, entity())
+
+#AngryLeft
+holoCreate(52)
+holoModel(52, "models/XQM/deg45single.mdl")
+holoPos(52,entity():toWorld(vec(2.2,-3-EyeSpaced-EyebrowSpace,15+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(0,0,55)) )
+holoScale(52, vec(1,0.4,0.8)*Scale)
+holoColor(52, EyebrowColor)
+holoMaterial(52,EyebrowTexture)
+holoParent(52, entity())
+holoAlpha(52,0)
+#AngryRight
+holoCreate(53)
+holoModel(53, "models/XQM/deg45single.mdl")
+holoPos(53,entity():toWorld(vec(2.2,16+EyeSpaced+EyebrowSpace,20+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(0,0,100)) )
+holoScale(53, vec(1,0.4,0.8)*Scale)
+holoColor(53, EyebrowColor)
+holoMaterial(53,EyebrowTexture)
+holoParent(53, entity())
+holoAlpha(53,0)
+
+#SadLeft
+holoCreate(54)
+holoModel(54, "models/XQM/deg45single.mdl")
+holoPos(54,entity():toWorld(vec(2.2,-17-EyeSpaced-EyebrowSpace,19+EyesY)*Scale))
+holoAng(54, entity():toWorld(ang(0,0,-110)) )
+holoScale(54, vec(1,0.8,0.6)*Scale)
+holoColor(54,EyebrowColor)
+holoMaterial(54,EyebrowTexture)
+holoParent(54, entity())
+holoAlpha(54,0)
+#SadRight
+holoCreate(55)
+holoModel(55, "models/XQM/deg45single.mdl")
+holoPos(55,entity():toWorld(vec(2.2,6+EyeSpaced+EyebrowSpace,21+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(0,0,235)) )
+holoScale(55, vec(1,0.8,0.6)*Scale)
+holoColor(55, EyebrowColor)
+holoMaterial(55,EyebrowTexture)
+holoParent(55, entity())
+holoAlpha(55,0)}
+
+if(EyebrowStyle==1){
+#Eyebrow Left
+holoCreate(50)
+holoModel(50, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(50,entity():toWorld(vec(0,-12-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(-1,90,90)) )
+holoScale(50, vec(0.4,0.4,1)*Scale)
+holoColor(50, EyebrowColor)
+holoMaterial(50,EyebrowTexture)
+holoParent(50, entity())
+#Eyebrow Right
+holoCreate(51)
+holoModel(51, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(51,entity():toWorld(vec(0,12+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(1,90,90)) )
+holoScale(51, vec(0.4,0.4,1)*Scale)
+holoColor(51, EyebrowColor)
+holoMaterial(51,EyebrowTexture)
+holoParent(51, entity())
+#Eyebrow Left
+holoCreate(52)
+holoModel(52, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(52,entity():toWorld(vec(0,-12-EyeSpaced-EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(16,90,90)) )
+holoScale(52, vec(0.4,0.4,1)*Scale)
+holoColor(52, EyebrowColor)
+holoMaterial(52,EyebrowTexture)
+holoParent(52, entity())
+#Eyebrow Right
+holoCreate(53)
+holoModel(53, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(53,entity():toWorld(vec(0,12+EyeSpaced+EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(-15,90,90)) )
+holoScale(53, vec(0.4,0.4,1)*Scale)
+holoColor(53, EyebrowColor)
+holoMaterial(53,EyebrowTexture)
+holoParent(53, entity())
+#Eyebrow Left
+holoCreate(54)
+holoModel(54, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(54,entity():toWorld(vec(0,-14-EyeSpaced-EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(54, entity():toWorld(ang(-16,90,90)) )
+holoScale(54, vec(0.4,0.4,1)*Scale)
+holoColor(54, EyebrowColor)
+holoMaterial(54,EyebrowTexture)
+holoParent(54, entity())
+#Eyebrow Right
+holoCreate(55)
+holoModel(55, "models/props_phx/construct/wood/wood_boardx1.mdl")
+holoPos(55,entity():toWorld(vec(0,14+EyeSpaced+EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(15,90,90)) )
+holoScale(55, vec(0.4,0.4,1)*Scale)
+holoColor(55, EyebrowColor)
+holoMaterial(55,EyebrowTexture)
+holoParent(55, entity())
+}
+if(EyebrowStyle==2){
+#Eyebrow Left
+holoCreate(50)
+holoModel(50, "models/XQM/quad3.mdl")
+holoPos(50,entity():toWorld(vec(1.1,-10-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(90,90,90)) )
+holoScale(50, vec(0.2,0.5,1)*Scale)
+holoColor(50, EyebrowColor)
+holoMaterial(50,EyebrowTexture)
+holoParent(50, entity())
+#Eyebrow Right
+holoCreate(51)
+holoModel(51, "models/XQM/quad3.mdl")
+holoPos(51,entity():toWorld(vec(1.3,10+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(90,-90,90)) )
+holoScale(51, vec(0.2,0.5,1)*Scale)
+holoColor(51, EyebrowColor)
+holoMaterial(51,EyebrowTexture)
+holoParent(51, entity())
+#Eyebrow Left
+holoCreate(52)
+holoModel(52, "models/XQM/quad3.mdl")
+holoPos(52,entity():toWorld(vec(1.1,-10-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(100,90,90)) )
+holoScale(52, vec(0.2,0.5,1)*Scale)
+holoColor(52, EyebrowColor)
+holoMaterial(52,EyebrowTexture)
+holoParent(52, entity())
+#Eyebrow Right
+holoCreate(53)
+holoModel(53, "models/XQM/quad3.mdl")
+holoPos(53,entity():toWorld(vec(1.3,10+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(100,-90,90)) )
+holoScale(53, vec(0.2,0.5,1)*Scale)
+holoColor(53, EyebrowColor)
+holoMaterial(53,EyebrowTexture)
+holoParent(53, entity())
+#Eyebrow Left
+holoCreate(54)
+holoModel(54, "models/XQM/quad3.mdl")
+holoPos(54,entity():toWorld(vec(1.1,-10-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(54, entity():toWorld(ang(80,90,90)) )
+holoScale(54, vec(0.2,0.5,1)*Scale)
+holoColor(54, EyebrowColor)
+holoMaterial(54,EyebrowTexture)
+holoParent(54, entity())
+#Eyebrow Right
+holoCreate(55)
+holoModel(55, "models/XQM/quad3.mdl")
+holoPos(55,entity():toWorld(vec(1.3,10+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(80,-90,90)) )
+holoScale(55, vec(0.2,0.5,1)*Scale)
+holoColor(55, EyebrowColor)
+holoMaterial(55,EyebrowTexture)
+holoParent(55, entity())
+}
+if(EyebrowStyle==3){
+#Eyebrow 
+holoCreate(50)
+holoModel(50, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(50,entity():toWorld(vec(1.1,-13-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(85,90,90)) )
+holoScale(50, vec(0.3,0.5,1)*Scale)
+holoColor(50, EyebrowColor)
+holoMaterial(50,EyebrowTexture)
+holoParent(50, entity())
+holoCreate(51)
+holoModel(51, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(51,entity():toWorld(vec(1.1,13+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(95,90,90)) )
+holoScale(51, vec(0.3,0.5,1)*Scale)
+holoColor(51, EyebrowColor)
+holoMaterial(51,EyebrowTexture)
+holoParent(51, entity())
+#Eyebrow 
+holoCreate(52)
+holoModel(52, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(52,entity():toWorld(vec(1.1,-10-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(110,90,90)) )
+holoScale(52, vec(0.3,0.5,1)*Scale)
+holoColor(52, EyebrowColor)
+holoMaterial(52,EyebrowTexture)
+holoParent(52, entity())
+holoCreate(53)
+holoModel(53, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(53,entity():toWorld(vec(1.1,10+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(70,90,90)) )
+holoScale(53, vec(0.3,0.5,1)*Scale)
+holoColor(53, EyebrowColor)
+holoMaterial(53,EyebrowTexture)
+holoParent(53, entity())
+#Eyebrow 
+holoCreate(54)
+holoModel(54, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(54,entity():toWorld(vec(1.1,-14-EyeSpaced-EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(54, entity():toWorld(ang(70,90,90)) )
+holoScale(54, vec(0.3,0.5,1)*Scale)
+holoColor(54, EyebrowColor)
+holoMaterial(54,EyebrowTexture)
+holoParent(54, entity())
+holoCreate(55)
+holoModel(55, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(55,entity():toWorld(vec(1.1,14+EyeSpaced+EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(110,90,90)) )
+holoScale(55, vec(0.3,0.5,1)*Scale)
+holoColor(55, EyebrowColor)
+holoMaterial(55,EyebrowTexture)
+holoParent(55, entity())
+}
+if(EyebrowStyle==4){
+#Eyebrow Left
+holoCreate(50)
+holoModel(50, "models/XQM/deg45single.mdl")
+holoPos(50,entity():toWorld(vec(3,-8.05-EyeSpaced-EyebrowSpace,18.4+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(0,0,70)) )
+holoScale(50, vec(1,0.46,0.46)*Scale)
+holoColor(50, EyebrowColor)
+holoMaterial(50,EyebrowTexture)
+holoParent(50, entity())
+#Eyebrow Right
+holoCreate(51)
+holoModel(51, "models/XQM/deg45single.mdl")
+holoPos(51,entity():toWorld(vec(-19,8.05+EyeSpaced+EyebrowSpace,18.4+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(0,180,70)) )
+holoScale(51, vec(1,0.46,0.46)*Scale)
+holoColor(51, EyebrowColor)
+holoMaterial(51,EyebrowTexture)
+holoParent(51, entity())
+
+#Eyebrow Left
+holoCreate(52)
+holoModel(52, "models/XQM/deg45single.mdl")
+holoPos(52,entity():toWorld(vec(3,-5-EyeSpaced-EyebrowSpace,16+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(0,0,40)) )
+holoScale(52, vec(1,0.46,0.46)*Scale)
+holoColor(52, EyebrowColor)
+holoMaterial(52,EyebrowTexture)
+holoParent(52, entity())
+#Eyebrow Right
+holoCreate(53)
+holoModel(53, "models/XQM/deg45single.mdl")
+holoPos(53,entity():toWorld(vec(-19,5+EyeSpaced+EyebrowSpace,16+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(0,180,40)) )
+holoScale(53, vec(1,0.46,0.46)*Scale)
+holoColor(53, EyebrowColor)
+holoMaterial(53,EyebrowTexture)
+holoParent(53, entity())
+
+#Eyebrow Left
+holoCreate(54)
+holoModel(54, "models/XQM/deg45single.mdl")
+holoPos(54,entity():toWorld(vec(3,-17-EyeSpaced-EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(54, entity():toWorld(ang(0,0,-100)) )
+holoScale(54, vec(1,0.46,0.46)*Scale)
+holoColor(54, EyebrowColor)
+holoMaterial(54,EyebrowTexture)
+holoParent(54, entity())
+#Eyebrow Right
+holoCreate(55)
+holoModel(55, "models/XQM/deg45single.mdl")
+holoPos(55,entity():toWorld(vec(-19,17+EyeSpaced+EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(0,180,-100)) )
+holoScale(55, vec(1,0.46,0.46)*Scale)
+holoColor(55, EyebrowColor)
+holoMaterial(55,EyebrowTexture)
+holoParent(55, entity())
+}
+if(EyebrowStyle==5){#No Devin, you still can't have Merri, she's mine.
+holoCreate(50)
+holoModel(50, "models/XQM/deg45single.mdl")
+holoPos(50,entity():toWorld(vec(3,21+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(0,0,60)) )
+holoScale(50, vec(0.1,0.8,0.8)*Scale)
+holoColor(50, EyebrowColor)
+holoMaterial(50,EyebrowTexture)
+holoParent(50, entity())
+#Eyebrow Right
+holoCreate(51)
+holoModel(51, "models/XQM/deg45single.mdl")
+holoPos(51,entity():toWorld(vec(3,-6-EyeSpaced-EyebrowSpace,20+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(0,0,80)) )
+holoScale(51, vec(0.1,0.8,0.8)*Scale)
+holoColor(51, EyebrowColor)
+holoMaterial(51,EyebrowTexture)
+holoParent(51, entity())
+
+holoCreate(52)
+holoModel(52, "models/XQM/deg45single.mdl")
+holoPos(52,entity():toWorld(vec(3,18+EyeSpaced+EyebrowSpace,20+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(0,0,90)) )
+holoScale(52, vec(0.05,0.8,0.8)*Scale)
+holoColor(52, EyebrowColor)
+holoMaterial(52,EyebrowTexture)
+holoParent(52, entity())
+#Eyebrow Right
+holoCreate(53)
+holoModel(53, "models/XQM/deg45single.mdl")
+holoPos(53,entity():toWorld(vec(2,-18-EyeSpaced-EyebrowSpace,20+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(0,180,90)) )
+holoScale(53, vec(0.05,0.8,0.8)*Scale)
+holoColor(53, EyebrowColor)
+holoMaterial(53,EyebrowTexture)
+holoParent(53, entity())
+
+holoCreate(54)
+holoModel(54, "models/XQM/deg45single.mdl")
+holoPos(54,entity():toWorld(vec(3,4+EyeSpaced+EyebrowSpace,20+EyesY+EyebrowHeight)*Scale))
+holoAng(54, entity():toWorld(ang(0,0,-125)) )
+holoScale(54, vec(0.1,0.8,0.8)*Scale)
+holoColor(54, EyebrowColor)
+holoMaterial(54,EyebrowTexture)
+holoParent(54, entity())
+
+#Eyebrow Right
+holoCreate(55)
+holoModel(55, "models/XQM/deg45single.mdl")
+holoPos(55,entity():toWorld(vec(1,-5-EyeSpaced-EyebrowSpace,20+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(0,180,230)) )
+holoScale(55, vec(0.1,0.8,0.8)*Scale)
+holoColor(55, EyebrowColor)
+holoMaterial(55,EyebrowTexture)
+holoParent(55, entity())
+}
+if(EyebrowStyle==6){
+holoCreate(50)
+holoModel(50, "models/items/item_item_crate_chunk01.mdl")
+holoPos(50,entity():toWorld(vec(2,16+EyeSpaced+EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(50, entity():toWorld(ang(90,-90,90)) )
+holoScale(50, vec(1,0.7,1)*Scale)
+holoMaterial(50,EyebrowTexture)
+holoColor(50, EyebrowColor)
+holoParent(50, entity())
+holoCreate(51)
+holoModel(51, "models/items/item_item_crate_chunk01.mdl")
+holoPos(51,entity():toWorld(vec(2,-16-EyeSpaced-EyebrowSpace,18+EyesY+EyebrowHeight)*Scale))
+holoAng(51, entity():toWorld(ang(90,90,90)) )
+holoScale(51, vec(1,0.7,1)*Scale)
+holoMaterial(51,EyebrowTexture)
+holoColor(51, EyebrowColor)
+holoParent(51, entity())
+
+holoCreate(52)
+holoModel(52, "models/items/item_item_crate_chunk01.mdl")
+holoPos(52,entity():toWorld(vec(2,15+EyeSpaced+EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(52, entity():toWorld(ang(100,-90,90)) )
+holoScale(52, vec(1,0.7,1)*Scale)
+holoMaterial(52,EyebrowTexture)
+holoColor(52, EyebrowColor)
+holoParent(52, entity())
+holoCreate(53)
+holoModel(53, "models/items/item_item_crate_chunk01.mdl")
+holoPos(53,entity():toWorld(vec(2,-15-EyeSpaced-EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(53, entity():toWorld(ang(100,90,90)) )
+holoScale(53, vec(1,0.7,1)*Scale)
+holoMaterial(53,EyebrowTexture)
+holoColor(53, EyebrowColor)
+holoParent(53, entity())
+
+holoCreate(54)
+holoModel(54, "models/items/item_item_crate_chunk01.mdl")
+holoPos(54,entity():toWorld(vec(2,15+EyeSpaced+EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(54, entity():toWorld(ang(85,-90,90)) )
+holoScale(54, vec(1,0.7,1)*Scale)
+holoMaterial(54,EyebrowTexture)
+holoColor(54, EyebrowColor)
+holoParent(54, entity())
+holoCreate(55)
+holoModel(55, "models/items/item_item_crate_chunk01.mdl")
+holoPos(55,entity():toWorld(vec(2,-15-EyeSpaced-EyebrowSpace,17+EyesY+EyebrowHeight)*Scale))
+holoAng(55, entity():toWorld(ang(80,90,90)) )
+holoScale(55, vec(1,0.7,1)*Scale)
+holoMaterial(55,EyebrowTexture)
+holoColor(55, EyebrowColor)
+holoParent(55, entity())
+}
+
+if(NoseType==0){#Nose
+holoCreate(100)
+holoModel(100, "models/sprops/geometry/hhex_18.mdl")
+holoPos(100,entity():toWorld(vec(0,0,-3+NoseHeight)*Scale))
+holoAng(100, entity():toWorld(ang(-20,0,0)) )
+holoScale(100, vec(0.8,1.5,2)*NoseScale*Scale)
+holoMaterial(100,FaceTexture)
+holoColor(100,SkinTone)
+holoParent(100, entity())}
+if(NoseType==1){#Nose
+holoCreate(100)
+holoModel(100, "models/sprops/misc/pyramids/rsize_1/rpyr_12x24.mdl")
+holoPos(100,entity():toWorld(vec(0,0,-10+NoseHeight)*Scale))
+holoAng(100, entity():toWorld(ang(0,45,0)) )
+holoScale(100, vec(1,1,1)*NoseScale*Scale)
+holoMaterial(100,FaceTexture)
+holoColor(100,SkinTone)
+holoParent(100, entity())}
+if(NoseType==2){#nose1
+holoCreate(100)
+holoModel(100,"models/sprops/trans/air/pcone_3b_l.mdl")
+holoPos(100,entity():toWorld(vec(0,0,-5.5+NoseHeight)*Scale))
+holoAng(100, entity():toWorld(ang(90,0,0)) )
+holoScale(100, vec(1,0.8,0.7)*NoseScale*Scale)
+holoMaterial(100,FaceTexture)
+holoColor(100,SkinTone)
+holoParent(100,entity())
+#nose2
+holoCreate(101)
+holoModel(101,"models/sprops/trans/exhaust/tip_5.mdl")
+holoPos(101,entity():toWorld(vec(-7.5,0,11+NoseHeight)*Scale))
+holoAng(101, entity():toWorld(ang(-18,0,0)) )
+holoScale(101, vec(4,3.5,4)*NoseScale*Scale)
+holoMaterial(101,FaceTexture)
+holoColor(101,SkinTone)
+holoParent(101,entity())}
+if(NoseType==3){#Nose
+holoCreate(100)
+holoModel(100, "models/sprops/misc/tubes/size_1/h_tube_12x24.mdl")
+holoPos(100,entity():toWorld(vec(1,0,5+NoseHeight)*Scale))
+holoAng(100, entity():toWorld(ang(0,90,75)) )
+holoScale(100, vec(1,1,1)*NoseScale*Scale)
+holoMaterial(100,FaceTexture)
+holoColor(100,SkinTone)
+holoParent(100, entity())
+#Nose
+holoCreate(101)
+holoModel(101, "models/sprops/geometry/sphere_12.mdl")
+holoPos(101,entity():toWorld(vec(1.1,0,-7+NoseHeight)*Scale))
+holoAng(101, entity():toWorld(ang(0,90,0)) )
+holoScale(101, vec(1.01,1.01,1.01)*NoseScale*Scale)
+holoMaterial(101,FaceTexture)
+holoColor(101,SkinTone)
+holoParent(101, entity())}
+if(NoseType==4){#Nose
+holoCreate(100)
+holoModel(100, "models/sprops/geometry/sphere_9.mdl")
+holoPos(100,entity():toWorld(vec(0,0,-2+NoseHeight)*Scale))
+holoAng(100, entity():toWorld(ang(-30,0,0)) )
+holoScale(100, vec(1.5,1.5,2.5)*NoseScale*Scale)
+holoMaterial(100,FaceTexture)
+holoColor(100,SkinTone)
+holoParent(100, entity())}
+if(NoseType==5){#Nose
+holoCreate(100)
+holoModel(100, "models/sprops/misc/domes/size_1/dome_12x6.mdl")
+holoPos(100,entity():toWorld(vec(3,0,-5+NoseHeight)*Scale))
+holoAng(100, entity():toWorld(ang(170,0,0)) )
+holoScale(100, vec(1,1,1)*NoseScale*Scale)
+holoMaterial(100,"bobsters_trains/br_intercity_grey")
+holoParent(100, entity())
+#Nose
+holoCreate(101)
+holoModel(101, "models/sprops/misc/domes/size_1/dome_12x12.mdl")
+holoPos(101,entity():toWorld(vec(3,0,-5+NoseHeight)*Scale))
+holoAng(101, entity():toWorld(ang(-10,0,0)) )
+holoScale(101, vec(1,1,1)*NoseScale*Scale)
+holoMaterial(101,"bobsters_trains/br_intercity_grey")
+holoParent(101, entity())}
+
+if(Moustache==1){
+holoCreate(102)
+holoModel(102, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-14+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(90,90,90)) )
+holoScale(102, vec(0.8,0.8,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==2){
+holoCreate(102)
+holoModel(102, "models/hunter/plates/platehole1x1.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-26+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(135,90,90)) )
+holoScale(102, vec(0.3,0.3,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==3){
+holoCreate(102)
+holoModel(102, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-14+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(90,90,90)) )
+holoScale(102, vec(0.06,0.1,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==4){
+holoCreate(102)
+holoModel(102, "models/hunter/misc/platehole1x1c.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-3+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(-90,90,90)) )
+holoScale(102, vec(0.3,0.5,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==1){
+holoCreate(102)
+holoModel(102, "models/hunter/triangles/025x025mirrored.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-14+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(90,90,90)) )
+holoScale(102, vec(0.8,0.8,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==2){
+holoCreate(102)
+holoModel(102, "models/hunter/plates/platehole1x1.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-26+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(135,90,90)) )
+holoScale(102, vec(0.3,0.3,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==3){
+holoCreate(102)
+holoModel(102, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-14+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(90,90,90)) )
+holoScale(102, vec(0.06,0.1,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+if(Moustache==4){
+holoCreate(102)
+holoModel(102, "models/hunter/misc/platehole1x1c.mdl")
+holoPos(102,entity():toWorld(vec(1,0,-3+MoustacheHeight)*Scale))
+holoAng(102, entity():toWorld(ang(-90,90,90)) )
+holoScale(102, vec(0.3,0.5,1)*Scale)
+holoMaterial(102,EyebrowTexture)
+holoColor(102,EyebrowColor)
+holoParent(102, entity())}
+}
+
+if(FreeEyeMovement==0|ResetEyes){
+if(Up==0&Down==0&EyeRoll==0){EyeY=0}
+if(Left==0&Right==0&EyeRoll==0){EyeX=0}
+}
+
+if(EyeRoll){Down=1
+    EyeRollZ+=100
+    interval(50)
+    }
+    if(EyeRoll==0){EyeRollZ=0}
+    holoAng(110, entity():toWorld(ang(0,0,EyeRollZ)))
+    holoAng(20, entity():toWorld(ang(0,90,90)) )
+if(Up&EyeY<=EyeMaxY){EyeY+=0.5
+    interval(100)}
+if(Down&EyeY>=-EyeMaxY){EyeY-=0.5
+    interval(100)}
+if(Right&EyeX<=EyeMaxX){EyeX+=0.5
+    interval(100)}
+if(Left&EyeX>=-EyeMaxX){EyeX-=0.5
+    interval(100)}
+holoPos(20,holoEntity(110):toWorld(vec(0,EyeX,EyeY)*Scale))
+
+if(Smile==0&Frown==0){holoAlpha(30,255)
+    holoAlpha(31,0)
+    holoAlpha(32,0)
+holoAlpha(33,0)
+holoAlpha(34,0)
+    holoAlpha(35,0)
+    holoAlpha(36,0)
+    }
+if(OFace==0){holoAlpha(34,0)
+    holoAlpha(35,0)
+    holoAlpha(36,0)
+    holoAlpha(44,255)
+holoAlpha(45,255)
+holoAlpha(46,0)
+holoAlpha(47,0)
+    }
+if(Smile){holoAlpha(30,0)
+    holoAlpha(31,255)
+    holoAlpha(32,0)
+holoAlpha(33,0)
+holoAlpha(44,255)
+holoAlpha(45,255)
+if(OFace==1){holoAlpha(31,0)
+    holoAlpha(34,255)
+    holoAlpha(35,255)
+    holoAlpha(36,0)
+    holoAlpha(44,0)
+holoAlpha(45,0)
+holoAlpha(46,255)
+holoAlpha(47,255)
+}}
+if(Frown){holoAlpha(30,0)
+    holoAlpha(31,0)
+    holoAlpha(32,255)
+holoAlpha(33,0)
+holoAlpha(44,255)
+holoAlpha(45,255)
+if(OFace==1){holoAlpha(32,0)
+    holoAlpha(34,0)
+    holoAlpha(35,0)
+    holoAlpha(36,255)
+    holoAlpha(44,0)
+holoAlpha(45,0)
+holoAlpha(46,255)
+holoAlpha(47,255)
+    }}
+if(OFace==1&Smile==0&Frown==0){holoAlpha(30,0)
+    holoAlpha(31,0)
+    holoAlpha(32,0)
+holoAlpha(33,255)
+holoAlpha(44,255)
+holoAlpha(45,255)
+holoAlpha(46,0)
+holoAlpha(47,0)
+}
+if(SmallPupils==0){holoScale(20, vec(PupilWidth*Scale,PupilHeight*Scale,1*Scale))
+    holoScale(21, vec(PupilWidth*Scale,PupilHeight*Scale,1*Scale))
+    holoScale(22, vec((PupilWidth*1.4)*Scale,(PupilHeight*1.4)*Scale,1*Scale))
+    holoScale(23, vec((PupilWidth*1.4)*Scale,(PupilHeight*1.4)*Scale,1*Scale))
+    }
+if(SmallPupils==1){holoScale(20, vec(PupilWidth*0.4,PupilHeight*0.4,1)*Scale)
+    holoScale(21, vec((PupilWidth*0.4)*Scale,(PupilHeight*0.4*Scale),1*Scale))
+    holoScale(22, vec((PupilWidth*0.5)*Scale,(PupilHeight*0.5*Scale),1*Scale))
+    holoScale(23, vec((PupilWidth*0.5)*Scale,(PupilHeight*0.5*Scale),1*Scale))
+    }
+    if(Sad==0&Angry==0&Confused==0){holoAlpha(50,255)
+        holoAlpha(51,255)
+        holoAlpha(52,0)
+        holoAlpha(53,0)
+        holoAlpha(54,0)
+    holoAlpha(55,0)}
+if(Sad){holoAlpha(50,0)
+        holoAlpha(51,0)
+        holoAlpha(52,0)
+        holoAlpha(53,0)
+        holoAlpha(54,255)
+    holoAlpha(55,255)}
+if(Angry){holoAlpha(50,0)
+        holoAlpha(51,0)
+        holoAlpha(52,255)
+        holoAlpha(53,255)
+        holoAlpha(54,0)
+    holoAlpha(55,0)}
+    if(Angry==1&Sad==1){Confused=1}
+if(Confused){holoAlpha(50,0)
+        holoAlpha(51,255)
+        holoAlpha(52,255)
+        holoAlpha(53,0)
+        holoAlpha(54,0)
+    holoAlpha(55,0)}
+if(EyeType==0){
+    if(Whistle|Blink){HalfClosed=1
+        HalfClosed2=1}
+    if(!HalfClosed){holoAlpha(15,0)
+    holoAlpha(16,0)}
+    if(!HalfClosed2){holoAlpha(17,0)
+    holoAlpha(18,0)}
+    if(!HalfClosed&!HalfClosed2){holoAlpha(13,0)
+    holoAlpha(14,0)}
+    if(HalfClosed){holoAlpha(15,255)
+    holoAlpha(16,255)
+    holoAlpha(13,255)
+    holoAlpha(14,255)}
+    if(HalfClosed2){holoAlpha(17,255)
+    holoAlpha(18,255)
+    if(EyeLash==1){holoAlpha(13,255)
+holoAlpha(14,255)}}
+}
+if(EyeType==1|EyeType==3){
+    if(HalfClosed==0|HalfClosed2==0){holoAlpha(13,0)
+    holoAlpha(14,0)
+        holoAlpha(15,0)
+    holoAlpha(16,0)
+    holoAlpha(17,0)
+holoAlpha(18,0)
+holoAlpha(26,0)
+    holoAlpha(27,0)
+    holoAlpha(28,0)
+holoAlpha(29,0)}
+if(Whistle|Blink){HalfClosed=1
+    HalfClosed2=1}
+if(HalfClosed==1){holoAlpha(15,255)
+    holoAlpha(16,255)
+    holoAlpha(17,255)
+holoAlpha(18,255)
+holoAlpha(13,255)
+    holoAlpha(14,255)}
+if(HalfClosed2==1){holoAlpha(26,255)
+    holoAlpha(27,255)
+    holoAlpha(28,255)
+holoAlpha(29,255)
+if(EyeLash==1){holoAlpha(13,255)
+holoAlpha(14,255)}
+    }
+}
+if(Blush==0){holoAlpha(48,0)
+    holoAlpha(49,0)}
+if(Blush==1){holoAlpha(48,100)
+    holoAlpha(49,100)}
+    
+    
+if(MouthType==5&BPTEXTUREPACK_Randomized==1){#BP_TEXTURE_PACK REQUIRED.
+    if(changed(Smile)|changed(Frown)){holoMaterial(30,"bptexturepack/mouths/pressed"+round(random(1,4),0))}
+        if(changed(Smile)){holoMaterial(31,"bptexturepack/mouths/smile"+round(random(1,2),0))}
+    if(changed(Frown)){holoMaterial(32,"bptexturepack/mouths/frown"+round(random(1,5),0))}
+        if(changed(OFace)){holoMaterial(33,"bptexturepack/mouths/omouth"+round(random(1,6),0))}
+            
+        if(changed(Frown)&Angry==1&Sad==0){holoMaterial(32,"bptexturepack/mouths/frownclosed"+round(random(1,4),0))}
+        if(BPTexture_Tongueout){holoMaterial(30,"bptexturepack/mouths/p1")
+            holoMaterial(31,"bptexturepack/mouths/p3")
+            holoMaterial(32,"bptexturepack/mouths/p2")
+            }
+        if((changed(OFace)&Smile==1)|(changed(Smile)&OFace==1)){holoMaterial(34,"bptexturepack/mouths/smileopen"+round(random(1,6),0))}
+        if((changed(OFace)&Frown==1)|(changed(Frown)&OFace==1)){holoMaterial(36,"bptexturepack/mouths/frownopen"+round(random(1,6),0))}
+    if((changed(OFace)&Sad==1)&Smile==1){holoMaterial(34,"bptexturepack/mouths/smileclosed"+round(random(1,5),0))}
+        }

@@ -1,0 +1,66 @@
+@name Pantograph
+@inputs Up MaxAng
+@outputs Height
+@persist T Color:vector E:entity
+@trigger 
+@model models/hunter/plates/plate025x025.mdl
+if(first() | duped()){
+    
+    runOnTick(1)
+    #The scale factor for the pantograph. Larger numbers means bigger. 1 is a good starting value.
+    S = 1.5
+    
+    E = entity()
+    Color = vec(164,36,36)
+    P = E:pos()
+    A = E:angles()
+    U = E:up()
+    R = E:right()
+    F = E:forward()
+    AR = A:rotateAroundAxis(R,-90)
+    AR2 = A:rotateAroundAxis(F,90)
+    holoCreate(0,P+S*(24*F+2*U),S*vec(0.25,0.25,4),AR,Color,"hq_cylinder")
+    holoCreate(1,P+S*(48*F+4*U),S*vec(0.5),A,Color,"cube")
+    holoCreate(2,P+S*(24*F+6*U),S*vec(0.25,0.25,4),AR,Color,"hq_cylinder")
+    holoCreate(3,P+S*(6*U),S*vec(0.5,0.5,0.25),A,Color,"cube")
+    holoCreate(4,P+S*(8*U+3*F),S*vec(0.25,0.25,4),AR2,Color,"hq_cylinder")
+    holoCreate(5,P+S*(8*U+-3*F),S*vec(0.25,0.25,4),AR2,Color,"hq_cylinder")
+    holoCreate(6,P+S*(6*U+3*F+25.5*R),S*vec(0.25,0.25,0.5),A:rotateAroundAxis(F,-45),Color,"hq_cylinder")
+    holoCreate(7,P+S*(6*U+3*F+-25.5*R),S*vec(0.25,0.25,0.5),A:rotateAroundAxis(F,45),Color,"hq_cylinder")
+    holoCreate(8,P+S*(6*U+-3*F+25.5*R),S*vec(0.25,0.25,0.5),A:rotateAroundAxis(F,-45),Color,"hq_cylinder")
+    holoCreate(9,P+S*(6*U+-3*F+-25.5*R),S*vec(0.25,0.25,0.5),A:rotateAroundAxis(F,45),Color,"hq_cylinder")
+    
+    holoParent(0,E)
+    holoParent(1,0)
+    holoParent(2,1)
+    holoParent(3,2)
+    for(N=4,9){holoParent(N,3)}
+    T = 0
+    
+    for(N=0,9){
+        holoMaterial(N,"sprops/textures/sprops_metal5")
+    }
+
+}
+
+I = (Up - !Up)*0.5
+
+P = E:pos()
+A = E:angles()
+U = E:up()
+R = E:right()
+F = E:forward()
+
+if(!->MaxAng){MaxAng = 35}
+
+T = clamp(T,0,MaxAng)
+
+X = 24*cos(T)*F
+Z = 24*sin(T)*U
+holoPos(0,P+X+Z)
+holoAng(0,A:rotateAroundAxis(R,T-90))
+holoAng(1,A:rotateAroundAxis(R,-T))
+holoAng(3,A)
+
+Height = floor(48*sin(T))
+T += I

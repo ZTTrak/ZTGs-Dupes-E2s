@@ -1,0 +1,28 @@
+@name ZTG's Automatic CowCatcher
+@inputs Connect ButtonEntity:entity
+@outputs Connect1
+@persist 
+@trigger
+@model models/lunatic/cast_pilot1.mdl
+##########################
+ButtonEntity:setAlpha(0)
+Coupler = entity()
+Base = entity()
+Base:setBodygroup(1, 0)
+##########################
+if(Connect){
+ Coupler:setBodygroup(1,1)
+}else{#-SIMPLE E2 what do u expect...?
+ Coupler:setBodygroup(1,0)
+
+}
+if(Connect){Connect1=1
+
+
+
+}else{Connect1=0
+
+}
+
+
+

@@ -1,0 +1,53 @@
+@name RLC SH Shaft system
+@inputs On RealNotch Clag P:entity
+@outputs  
+@persist E:entity RealNotch A2 A1 A
+@trigger 
+E = entity()
+E:setAlpha(0)
+if(first()|dupefinished()){
+
+holoCreate(0,E:toWorld(vec(0,0,0)),vec(1,1,2),E:toWorld(ang(0,0,90)),vec(255),"models/sprops/rectangles/size_1/rect_3x3x3.mdl")
+holoParent(0,E)
+holoMaterial(0,"models/proppertextures/aluminum")
+
+holoCreate(1,holoEntity(0):toWorld(vec(0,0,-3)),vec(0.9,0.1,1),holoEntity(0):toWorld(ang(0,0,0)),vec(255),"models/sprops/geometry/hdisc_12.mdl")
+holoParent(1,holoEntity(0))
+holoMaterial(1,"models/proppertextures/aluminum")
+
+holoCreate(2,holoEntity(0):toWorld(vec(0,0,-11)),vec(0.9,0.85,0.1),holoEntity(0):toWorld(ang(0,0,90)),vec(255),"models/sprops/rectangles/size_2/rect_12x12x3.mdl")
+holoParent(2,holoEntity(0))
+holoMaterial(2,"models/proppertextures/aluminum")
+
+holoCreate(3,holoEntity(0):toWorld(vec(0,0,-19)),vec(0.9,0.1,1),holoEntity(0):toWorld(ang(0,0,180)),vec(255),"models/sprops/geometry/hdisc_12.mdl")
+holoParent(3,holoEntity(0))
+holoMaterial(3,"models/proppertextures/aluminum")
+
+holoCreate(4,E:toWorld(vec(0,-1.1,-5)),vec(1,1,3),E:toWorld(ang(0,90,0)),vec(255),"models/sprops/rectangles/size_1/rect_3x3x3.mdl")
+holoParent(4,E)
+holoMaterial(4,"models/proppertextures/aluminum")
+
+timer("clk",100)
+P:setAlpha(0)
+
+}
+if(On&A<3){A+=0.5
+    interval(50)}
+if(A>2){A=0}
+if(A>1){A2=A*-1}else{A2=A*1}
+
+if(0+On*RealNotch+A2+Clag*2<A1){A1-=0.5
+    
+    interval(50)}
+if(0+On*RealNotch+A2+Clag*2 >A1){A1+=0.5
+    
+      interval(50)}
+
+
+holoAng(0,entity():toWorld(ang(0,0,90+A1*8)))
+
+
+if(!On){A=0}
+
+if(clk("clk")){P:parentTo(holoEntity(3))
+    stoptimer("clk")}

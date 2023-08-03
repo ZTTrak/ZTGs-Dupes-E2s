@@ -1,0 +1,14 @@
+@name Great Wolf Lodge By ZTG LETS FUCKING GO!
+@inputs 
+@outputs 
+@persist 
+@trigger 
+
+holoCreate(1)
+holoModel(1, "models/sprops/cuboids/height24/size_1/cube_24x72x24.mdl")
+holoPos(1, entity():pos() +vec(0,0,10))
+holoScale(1, vec(1,1,1))
+holoAng(1, ang(0,0,0))
+holoMaterial(1, "bobsters_trains/br_pullman_brown")
+
+print("SCRAPPED PROJECT")

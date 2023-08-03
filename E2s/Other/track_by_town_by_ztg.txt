@@ -1,0 +1,70 @@
+@name Track By Town By ZTG
+@inputs 
+@outputs 
+@persist 
+@trigger 
+holoCreate(1)
+holoModel(1, "models/sprops/cuboids/height48/size_1/cube_48x48x48.mdl")
+holoPos(1, entity():pos() +vec(0,0,10))
+holoScale(1, vec(1,1,1))
+holoAng(1, ang(0,0,0))
+holoMaterial(1, "models/XQM//WoodTexture_1")
+
+holoCreate(2)
+holoModel(2, "models/trakpak3_rsg/straights/s0768_2lt_14pg_+0768x-0384x+012up.mdl")
+holoPos(2, entity():pos() +vec(18,23,35))
+holoScale(2, vec(0.05,0.05,0.05))
+holoAng(2, ang(0,63,1.5))
+
+
+holoCreate(5)
+holoModel(5, "models/sprops/rectangles_thin/size_2/rect_12x42x1_5.mdl")
+holoPos(5, entity():pos() +vec(5,1.5,33.8))
+holoScale(5, vec(1.2,1,1))
+holoAng(5, ang(0,90,0))
+holoMaterial(5, "bobsters_trains/br_dirty_black")
+
+holoCreate(4)
+holoModel(4, "models/joe/props_commonwealth/buildings/hotel_1.mdl")
+holoPos(4, entity():pos() +vec(-12,-10,33.8))
+holoScale(4, vec(0.05,0.05,0.05))
+holoAng(4, ang(0,0,0))
+
+holoCreate(3)
+holoModel(3, "models/joe/buildings/store_1.mdl")
+holoPos(3, entity():pos() +vec(-12,12,33.8))
+holoScale(3, vec(0.05,0.05,0.05))
+holoAng(3, ang(0,270,0))
+
+holoCreate(6)
+holoModel(6, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(6, entity():pos() +vec(-1,1.5,34.5))
+holoScale(6, vec(1.2,0.2,0.5))
+holoAng(6, ang(0,90,0))
+holoMaterial(6, "bobsters_trains/br_yellow")
+
+holoCreate(7)
+holoModel(7, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(7, entity():pos() +vec(11,1.5,34.5))
+holoScale(7, vec(1.2,0.2,0.5))
+holoAng(7, ang(0,90,0))
+holoMaterial(7, "bobsters_trains/br_yellow")
+
+holoCreate(8)
+holoModel(8, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(8, entity():pos() +vec(5,1.5,34.5))
+holoScale(8, vec(1.2,0.2,0.5))
+holoAng(8, ang(0,90,0))
+holoMaterial(8, "bobsters_trains/br_yellow")
+
+holoCreate(9)
+holoModel(9, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(9, entity():pos() +vec(4.5,1.5,34.5))
+holoScale(9, vec(1.2,0.2,0.5))
+holoAng(9, ang(0,90,0))
+holoMaterial(9, "bobsters_trains/br_yellow")
+
+print("ZTG's Track By Town Spawned In")
+
+
+

@@ -1,0 +1,74 @@
+@name ZTG's Road Signals E2 (For Windowsoft Only)
+@inputs RXR DoNotEnter Stop Yield OneWayRight OneWayLeft
+@outputs 
+@persist 
+@trigger
+Signal = entity()
+interval(1)
+holoCreate(2)
+holoModel(2, "models/sprops/misc/alphanum/alphanum_arrow_b.mdl")
+holoAng(2, ang(0,90,90))
+holoPos(2,entity():pos() +vec(0,0,-2))
+holoParent(2,Signal)
+
+
+
+
+if(RXR){
+holoCreate(1)
+holoModel(1, "models/trakpak3_us/signage/road/rrxing.mdl")
+Signal:setAlpha(0)
+holoPos(1, entity():pos() +vec(0,0,87))
+holoAlpha(2, 0)
+holoParent(2,Signal)
+}
+
+if(DoNotEnter){
+holoCreate(1)
+holoModel(1, "models/trakpak3_us/signage/road/donotenter.mdl")
+Signal:setAlpha(0)
+holoPos(1, entity():pos() +vec(0,0,87))
+holoAlpha(2, 0)
+holoParent(2,Signal)
+}
+
+if(Stop){
+holoCreate(1)
+holoModel(1, "models/trakpak3_us/signage/road/stop.mdl")
+holoPos(1, entity():pos() +vec(0,0,87))
+Signal:setAlpha(0)
+holoAlpha(2, 0)
+holoParent(2,Signal)
+}
+
+if(Yield){
+holoCreate(1)
+holoModel(1, "models/trakpak3_us/signage/road/yield.mdl")
+Signal:setAlpha(0)
+holoPos(1, entity():pos() +vec(0,0,87))
+holoAlpha(2, 0)
+holoParent(2,Signal)
+}
+
+if(OneWayRight){
+holoCreate(1)
+holoModel(1, "models/trakpak3_us/signage/road/1way_right.mdl")
+Signal:setAlpha(0)
+holoPos(1, entity():pos() +vec(0,0,87))
+holoAlpha(2, 0)
+holoParent(2,Signal)
+}
+
+if(OneWayLeft){
+holoCreate(1)
+holoModel(1, "models/trakpak3_us/signage/road/1way_left.mdl")
+Signal:setAlpha(0)
+holoPos(1, entity():pos() +vec(0,0,87))
+holoAlpha(2, 0)
+holoParent(2,Signal)
+}
+
+
+
+
+

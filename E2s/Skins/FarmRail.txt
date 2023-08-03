@@ -1,0 +1,18 @@
+@name ENRL Logo Placer v.1.5
+@inputs M:string
+@outputs 
+@persist 
+@trigger 
+
+if(first() | duped()){
+}
+Alpha=1
+holoCreate(Alpha)
+holoPos(Alpha,entity():toWorld(vec(0,0,1))) #leave this as it is unless you know what your doing.
+holoParent(Alpha, entity())
+print("ENRL Logo Placer Version 1.5")
+holoModel(Alpha, "plane") #This is your base holo model
+holoAng(Alpha, entity():toWorld(ang(0,0,0)) ) #This var adjusts the angle relative to the world spawn in X, Y, Z
+holoScale(Alpha, vec(10, 25, 10)) #This var adjusts the scale of the logo in X, Y, Z
+holoMaterial(Alpha,"logos/reallogos/frmrlorng") #Change this varible to whatever logo file name you want.
+#holoColor(Alpha, vec(64,127,0)) #Enable this line IF you want to color a logo that spawns white.

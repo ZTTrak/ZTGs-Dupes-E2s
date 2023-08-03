@@ -1,0 +1,362 @@
+@name Army's Randomized Troublesome Truck
+@inputs WheelBrake Wheels:entity
+@outputs 
+@persist Freight Turn
+interval(50)
+if(first() | dupefinished()){
+Freight=round(random(16),0)
+#Freight=2
+
+#Hook1
+holoCreate(2)
+holoPos(2,entity():toWorld(vec(130,0,0)))
+holoParent(2, entity())
+holoModel(2, "models/bobsters_trains/coupling/hook.mdl")
+holoAng(2, entity():toWorld(ang(0,0,0)) )
+holoColor(2,vec(36,36,36))
+holoMaterial(2,"jazzie/trains/wall01")
+#Hook2
+holoCreate(3)
+holoPos(3,entity():toWorld(vec(-130,0,0)))
+holoParent(3, entity())
+holoModel(3, "models/bobsters_trains/coupling/hook.mdl")
+holoAng(3, entity():toWorld(ang(0,180,0)) )
+holoColor(3,vec(36,36,36))
+holoMaterial(3,"jazzie/trains/wall01")
+#TRUCK entity() (Edit this if you want to change the entity() model of the wagon.)
+entity():setAlpha(0)
+holoCreate(6)
+holoPos(6,entity():toWorld(vec(0,0,0)))
+holoParent(6, entity())
+holoAng(6, entity():toWorld(ang(0,0,0)) )
+holoColor(6, vec(36, 36, 36))
+holoEntity(6):setSubMaterial(1,"jazzie/trains/wall01")
+holoEntity(6):setSubMaterial(2,"jazzie/trains/grey_metal")
+#holoEntity(6):setSubMaterial(3,"jazzie/trains/grey_metal")
+
+holoEntity(6):setSubMaterial(5,"jazzie/trains/grey_metal")
+holoEntity(6):setSubMaterial(6,"jazzie/trains/wall01")
+#
+#Chain1
+holoCreate(7)
+holoPos(7,entity():toWorld(vec(133,0,0)))
+holoParent(7, entity())
+holoModel(7, "models/bobsters_trains/coupling/3link_chain/chain.mdl")
+holoAng(7, entity():toWorld(ang(90,0,0)) )
+holoMaterial(7,"jazzie/trains/wall01")
+holoColor(7,vec(36,36,36))
+#Chain2
+holoCreate(8)
+holoPos(8,entity():toWorld(vec(-133,0,1)))
+holoParent(8, entity())
+holoModel(8, "models/bobsters_trains/coupling/3link_chain/chain.mdl")
+holoAng(8, entity():toWorld(ang(90,0,0)) )
+holoMaterial(8,"jazzie/trains/wall01")
+holoColor(8,vec(36,36,36))
+#This is the different visual changes for the amount of load.
+    
+    
+if(Freight==0){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+    holoCreate(0,entity():toWorld(vec(0,0,10)),vec(1.4,2.5,1.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/bobsters_trains/loads/coil/coil_cradle_2x2x2.mdl")
+    holoColor(0,vec(50,50,50))
+    holoParent(0,entity())}
+if(Freight==1){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+    holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"bobsters_trains/coal")
+    holoParent(0,entity())}
+if(Freight==2){holoModel(6, "models/bobsters_trains/uk/stock/freight/tanks/type_a_tank_wagon.mdl")
+    holoScale(6,vec(0.885,1,1))
+    holoEntity(6):setSubMaterial(3,"bobsters_trains/entity()")
+    #Hook1
+holoPos(2,entity():toWorld(vec(138,0,0)))
+#Hook2
+holoPos(3,entity():toWorld(vec(-138,0,0)))
+#Chain1
+holoPos(7,entity():toWorld(vec(142,0,0)))
+#Chain2
+holoPos(8,entity():toWorld(vec(-142,0,1)))}
+    if(Freight==3){holoModel(6, "models/bobsters_trains/uk/stock/freight/tanks/type_a_tank_wagon.mdl")
+    holoScale(6,vec(0.885,1,1))
+    holoEntity(6):setSubMaterial(3,"bobsters_trains/br_engineers_grey")
+    holoColor(6, vec(36, 36, 36))
+   #Hook1
+holoPos(2,entity():toWorld(vec(138,0,0)))
+#Hook2
+holoPos(3,entity():toWorld(vec(-138,0,0)))
+#Chain1
+holoPos(7,entity():toWorld(vec(142,0,0)))
+#Chain2
+holoPos(8,entity():toWorld(vec(-142,0,1)))}
+if(Freight==4){holoModel(6, "models/bobsters_trains/uk/stock/freight/2plank/2_plank_wagon.mdl")
+    holoCreate(1)
+holoPos(1,entity():toWorld(vec(-134,0,94)))
+holoParent(1, entity())
+holoScale(1,vec(0.9,0.9,2.82))
+holoModel(1, "models/PHXtended/tri2x2x2solid.mdl")
+holoAng(1, entity():toWorld(ang(135,90,90)) )
+holoMaterial(1,"models/props_c17/FurnitureFabric003a")}
+if(Freight==5){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+    holoCreate(1)
+holoPos(1,entity():toWorld(vec(0,0,32)))
+holoParent(1, entity())
+holoScale(1,vec(0.9,0.38,0.8))
+holoModel(1, "models/props_gulch/logpile.mdl")
+holoAng(1, entity():toWorld(ang(0,90,0)) )}
+if(Freight==6){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+    holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_gulch/scrapmetal1")
+    holoParent(0,entity())}
+    if(Freight==7){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+    holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_gulch/scrapmetal2")
+    holoParent(0,entity())}
+if(Freight==8){
+    #TRUCK entity()
+    holoModel(6, "models/bobsters_trains/uk/stock/freight/conflat_a/conflat_a.mdl")
+    #TRUCK entity()
+holoCreate(1)
+holoPos(1,entity():toWorld(vec(0,0,7)))
+holoParent(1, entity())
+holoModel(1, "models/bobsters_trains/uk/stock/freight/container_a/container_a.mdl")
+holoAng(1, entity():toWorld(ang(0,0,0)) )
+holoSkin(1,7)
+holoEntity(1):setSubMaterial(1,"jazzie/trains/wall01")
+holoEntity(1):setSubMaterial(2,"jazzie/trains/grey_metal")
+holoEntity(1):setSubMaterial(3,"jazzie/trains/grey_metal")
+holoScale(1,vec(1.08,1.06,1))
+holoEntity(1):setSubMaterial(5,"jazzie/trains/grey_metal")
+holoEntity(1):setSubMaterial(6,"jazzie/trains/wall01")}
+if(Freight==9){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+    holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_gulch/scrapmetal1")
+    holoParent(0,entity())}
+    if(Freight==10){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoParent(0,entity())}
+    if(Freight==11){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_metaladon/woodchips")
+    holoParent(0,entity())}    
+    if(Freight==12){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_metaladon/taconite_pebbles")
+    holoParent(0,entity())}        
+    if(Freight==13){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_metaladon/rock_chunks")
+    holoParent(0,entity())}    
+        if(Freight==14){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+            holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_metaladon/ore_pebbles")
+    holoParent(0,entity())}    
+        if(Freight==15){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+            holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_metaladon/trash")
+    holoParent(0,entity())}    
+    if(Freight==16){holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+        holoCreate(0,entity():toWorld(vec(0,0,0)),vec(1,0.83,0.5),entity():toWorld(ang(0,90,0)),vec(255,255,255),"models/magtrains/jenny1_load.mdl")
+    holoMaterial(0,"models/props_metaladon/scrap")
+    holoParent(0,entity())}
+holoCreate(10)
+holoPos(10,entity():toWorld(vec(76,0,-32)))
+holoParent(10, entity())
+holoModel(10, "models/bobsters_trains/wheels/standard/wheel_48_double.mdl")
+holoAng(10, entity():toWorld(ang(0,0,0)) )
+holoCreate(11)
+holoPos(11,entity():toWorld(vec(-76,0,-32)))
+holoParent(11, entity())
+holoModel(11, "models/bobsters_trains/wheels/standard/wheel_48_double.mdl")
+holoAng(11, entity():toWorld(ang(0,0,0)) )
+holoMaterial(10,"sprops/textures/sprops_rubber2")
+holoMaterial(11,"sprops/textures/sprops_rubber2")
+
+if(Freight==0|Freight==1|Freight==5|Freight==6|Freight==7|Freight>=9){
+#Face
+holoCreate(20)
+holoPos(20,entity():toWorld(vec(135,0,30)))
+holoParent(20, entity())
+holoModel(20, "models/hunter/plates/plate1x1.mdl")
+holoMaterial(20,"bobsters_trains/br_intercity_grey")
+holoScale(20, vec(1,1.1,1))
+holoAng(20, entity():toWorld(ang(90,0,0)) )
+#EyeL
+holoCreate(21)
+holoModel(21, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(21,entity():toWorld(vec(134,-12,41)))
+holoAng(21, entity():toWorld(ang(-10,90,90)) )
+holoScale(21, vec(0.18,0.12,1))
+holoMaterial(21,"bobsters_trains/base")
+holoColor(21, vec(255,255,255))
+holoParent(21, entity())
+#EyeR
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(12,entity():toWorld(vec(134,12,41)))
+holoAng(12, entity():toWorld(ang(10,90,90)) )
+holoScale(12, vec(0.18,0.12,1))
+holoMaterial(12,"bobsters_trains/base")
+holoColor(12, vec(255,255,255))
+holoParent(12, entity())
+#Eye Pupil Left
+holoCreate(13)
+holoModel(13, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(13,entity():toWorld(vec(135,-11.5,41)))
+holoAng(13, entity():toWorld(ang(90,0,0)) )
+holoScale(13, vec(0.09,0.08,1))
+holoMaterial(13,"bobsters_trains/base")
+holoColor(13, vec(0,0,0))
+holoParent(13, entity())
+#Eye Pupil Right
+holoCreate(14)
+holoModel(14, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(14,entity():toWorld(vec(135,11.5,41)))
+holoAng(14, entity():toWorld(ang(90,0,0)) )
+holoScale(14, vec(0.09,0.08,1))
+holoMaterial(14,"bobsters_trains/base")
+holoColor(14, vec(0,0,0))
+holoParent(14, entity())
+#Eyebrow Left
+holoCreate(15)
+holoModel(15, "models/XQM/deg45single.mdl")
+holoPos(15,entity():toWorld(vec(137,-4,47)))
+holoAng(15, entity():toWorld(ang(0,0,50)) )
+holoScale(15, vec(0.1,0.8,0.7))
+holoColor(15, vec(0,0,0))
+holoMaterial(15,"bobsters_trains/base")
+holoParent(15, entity())
+#Eyebrow Left
+holoCreate(16)
+holoModel(16, "models/XQM/deg45single.mdl")
+holoPos(16,entity():toWorld(vec(134,4,47)))
+holoAng(16, entity():toWorld(ang(0,180,50)) )
+holoScale(16, vec(0.13,0.8,0.7))
+holoColor(16, vec(0,0,0))
+holoMaterial(16,"bobsters_trains/base")
+holoParent(16, entity())
+#Mouthaaa
+holoCreate(17)
+holoModel(17, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(17,entity():toWorld(vec(137,0,20)))
+holoAng(17, entity():toWorld(ang(-90,90,90)))
+holoScale(17, vec(0.09,0.12,1))
+holoColor(17, vec(0,0,0))
+holoMaterial(17,"bobsters_trains/base")
+holoParent(17, entity())
+#Teethaaa
+holoCreate(18)
+holoModel(18, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(18,entity():toWorld(vec(137.3,0,20.2)))
+holoAng(18, entity():toWorld(ang(-90,90,90)))
+holoScale(18, vec(0.02,0.12,1))
+holoMaterial(18,"bobsters_trains/base")
+holoParent(18, entity())
+#Nose
+holoCreate(19)
+holoModel(19, "models/sprops/misc/pyramids/rsize_1/rpyr_12x24.mdl")
+holoPos(19,entity():toWorld(vec(136,0,22)))
+holoAng(19, entity():toWorld(ang(0,45,0)) )
+holoScale(19, vec(0.5,0.5,0.8))
+holoMaterial(19,"bobsters_trains/br_intercity_grey")
+holoParent(19, entity())}
+
+if(Freight==8){#Face
+holoCreate(20)
+holoPos(20,entity():toWorld(vec(130,0,60)))
+holoParent(20, entity())
+holoModel(20, "models/hunter/plates/plate2x2.mdl")
+holoMaterial(20,"bobsters_trains/br_intercity_grey")
+holoScale(20, vec(0.65,0.65,1))
+holoAng(20, entity():toWorld(ang(90,0,0)) )
+#EyeL
+holoCreate(21)
+holoModel(21, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(21,entity():toWorld(vec(130,-12,75)))
+holoAng(21, entity():toWorld(ang(-5,90,90)) )
+holoScale(21, vec(0.18,0.12,1))
+holoMaterial(21,"bobsters_trains/base")
+holoColor(21, vec(255,255,255))
+holoParent(21, entity())
+#EyeR
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(12,entity():toWorld(vec(130,16,73)))
+holoAng(12, entity():toWorld(ang(10,90,90)) )
+holoScale(12, vec(0.18,0.12,1))
+holoMaterial(12,"bobsters_trains/base")
+holoColor(12, vec(255,255,255))
+holoParent(12, entity())
+#Eye Pupil Left
+holoCreate(13)
+holoModel(13, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(13,entity():toWorld(vec(131,-12,74)))
+holoAng(13, entity():toWorld(ang(90,0,0)) )
+holoScale(13, vec(0.09,0.08,1))
+holoMaterial(13,"bobsters_trains/base")
+holoColor(13, vec(0,0,0))
+holoParent(13, entity())
+#Eye Pupil Right
+holoCreate(14)
+holoModel(14, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(14,entity():toWorld(vec(131,16,72)))
+holoAng(14, entity():toWorld(ang(90,0,0)) )
+holoScale(14, vec(0.09,0.08,1))
+holoMaterial(14,"bobsters_trains/base")
+holoColor(14, vec(0,0,0))
+holoParent(14, entity())
+#Eyebrow Left
+holoCreate(15)
+holoModel(15, "models/XQM/deg45single.mdl")
+holoPos(15,entity():toWorld(vec(132,-6,83)))
+holoAng(15, entity():toWorld(ang(0,0,50)) )
+holoScale(15, vec(1,0.8,0.7))
+holoColor(15, vec(0,0,0))
+holoMaterial(15,"bobsters_trains/base")
+holoParent(15, entity())
+#Eyebrow Left
+holoCreate(16)
+holoModel(16, "models/XQM/deg45single.mdl")
+holoPos(16,entity():toWorld(vec(110,10,83)))
+holoAng(16, entity():toWorld(ang(0,180,65)) )
+holoScale(16, vec(1,0.8,0.7))
+holoColor(16, vec(0,0,0))
+holoMaterial(16,"bobsters_trains/base")
+holoParent(16, entity())
+#Mouthaaa
+holoCreate(17)
+holoModel(17, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(17,entity():toWorld(vec(131,1,50)))
+holoAng(17, entity():toWorld(ang(-85,90,90)))
+holoScale(17, vec(0.12,0.15,1))
+holoColor(17, vec(0,0,0))
+holoMaterial(17,"bobsters_trains/base")
+holoParent(17, entity())
+#Teethaaa
+holoCreate(18)
+holoModel(18, "models/hunter/tubes/circle4x4c.mdl")
+holoPos(18,entity():toWorld(vec(132,1,50.1)))
+holoAng(18, entity():toWorld(ang(-85,90,90)))
+holoScale(18, vec(0.03,0.15,1))
+holoMaterial(18,"WTP/paint_1")
+holoParent(18, entity())
+#Nose
+holoCreate(19)
+holoModel(19, "models/sprops/misc/pyramids/rsize_1/rpyr_12x24.mdl")
+holoPos(19,entity():toWorld(vec(131,1,56)))
+holoAng(19, entity():toWorld(ang(0,45,-5)) )
+holoScale(19, vec(0.8,0.8,0.8))
+holoMaterial(19,"bobsters_trains/br_intercity_grey")
+holoParent(19, entity())}
+
+
+
+}
+if(WheelBrake==0){Wheels:propPhysicalMaterial("Ice")}
+if(WheelBrake==1){Wheels:propPhysicalMaterial("solidmetal")}
+#Wheelentity() animation.
+if(WheelBrake==0){Turn+=(entity():velL():x())*0.1}
+if(Turn>=360){Turn-360}
+if(Turn<=0){Turn+360}
+holoAng(10, entity():toWorld(ang(Turn,0,0)) )
+holoAng(11, entity():toWorld(ang(Turn,0,0)) )

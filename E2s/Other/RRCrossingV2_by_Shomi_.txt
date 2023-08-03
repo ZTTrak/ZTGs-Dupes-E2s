@@ -1,0 +1,49 @@
+@name RRCrossingV2 by railroader3921
+@inputs  
+@outputs 
+@persist Crossing:entity Spawned On
+@trigger 
+@persist S T
+@model models/trakpak/misc/crossbuck2.mdl 
+
+interval(500)
+
+    
+
+if(first()){S=0}
+
+Crossing = entity()
+
+A=1
+holoCreate(A,Crossing:toWorld(vec(0,0,0)),vec(1,1,1),Crossing:toWorld(ang(0,0,0)),vec(255),"models/trakpak/misc/crossbuck_gate.mdl")
+holoParent(A,Crossing)
+holoMaterial(A,"")
+holoAlpha(A,255)
+
+
+    findInSphere(Crossing:pos(),1512)
+    findIncludeModel("models/gsgtrainprops/") 
+    findIncludeModel("models/magtrains/")
+    findIncludeModel("models/magtrainslocos/")
+    findIncludeModel("models/jazzie/")
+    findIncludeModel("models/flak/")
+    findIncludeModel("models/unionslocos/")
+    if(findResult(1))
+    {
+        On = 1
+        holoAng(1,Crossing:toWorld(ang(0,0,0)))
+        if(S==0){Crossing:soundPlay("crossing",0,"gsgtrainsounds/misc/cp_crossing.wav"),S=1}
+        Crossing:setSkin(1)
+    }
+    else
+    {
+        On = 0
+        holoAng(1,Crossing:toWorld(ang(0,0,-80)))
+        soundStop("crossing",1)
+        S=0
+        Crossing:setSkin(0)
+    }
+
+
+
+   

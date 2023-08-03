@@ -1,0 +1,69 @@
+@name Classification Flag
+@inputs Cycle
+@outputs State:string
+@persist [Red White Green BaseColor]:vector C E:entity
+@trigger 
+@model models/sprops/cylinders/size_1/cylinder_1_5x30.mdl
+if(first()|duped()){
+    E = entity()
+    local A = E:angles()
+    holoCreate(1,E:toWorld(vec(0,1,-80)),vec(0.1875),A,vec(255),"models/props_fairgrounds/fairgrounds_flagpole01.mdl")
+    #holoCreate(1,E:toWorld(vec(0,0,-8)),vec(0.125),A,vec(255),"models/props_fairgrounds/fairgrounds_flagpole01.mdl")
+    holoParent(1,E)
+    holoClipEnabled(1,1,1)
+    holoClipEnabled(1,2,1)
+    holoClip(1,1,vec(0,0,72),vec(0,0,1),0)
+    holoClip(1,2,vec(0,-1,0),vec(0,-1,0),0)
+    holoAnim(1,"idle")
+    #wtp/cloth_1
+    holoMaterial(1,"models/debug/debugwhite")
+    
+    BaseColor = vec(255)
+    
+    White = vec(255,255,255)
+    Red = vec(150,0,0)
+    Green = vec(100,200,100)
+    setName("Classification Flag\n-N/A-")
+    
+    E:setColor(BaseColor)
+    E:setMaterial("sprops/textures/sprops_chrome")
+    
+}
+if(dupefinished()){
+    holoAlpha(1,0)
+    E:setColor(BaseColor,0)
+    
+}
+if(Cycle & ~Cycle){
+    soundPlay(0,1,"buttons/lever7.wav")
+    C++
+    if(C>3){C=0}
+    
+    switch(C){
+        case 0,
+            holoColor(1,White,0)
+            E:setAlpha(0)
+            State = "N/A"
+            setName("Classification Flag\n-N/A-")
+            break
+        case 1,
+            
+            holoColor(1,White,255)
+            E:setAlpha(255)
+            State = "Unscheduled Train"
+            setName("Classification Flag\n-Unscheduled Train-")
+            break
+        case 2,
+            holoColor(1,Red,255)
+            E:setAlpha(255)
+            State = "Rear of Train"
+            setName("Classification Flag\n-Rear of Train-")
+            break
+        case 3,
+            holoColor(1,Green,255)
+            E:setAlpha(255)
+            State = "Extra Train Following"
+            setName("Classification Flag\n-Extra Train Following-")
+            break
+    }
+}

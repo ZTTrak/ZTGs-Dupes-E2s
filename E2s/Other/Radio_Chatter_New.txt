@@ -1,0 +1,28 @@
+@name Radio Chatter
+@inputs On
+@outputs 
+@persist T Time N
+@trigger 
+@model models/props_lab/reciever01d.mdl
+
+if(first() | duped()){
+    Time = 3 #The time, in seconds, between sounds. You can change this if you want.
+}
+interval(Time*1000)
+
+if(On){
+    N = randint(1,8)
+
+    Sound = select(N,"gsgtrainsounds/misc/radio/dispatcher_call.wav"
+    ,"gsgtrainsounds/misc/radio/radio_standby.wav"
+    ,"gsgtrainsounds/misc/radio/radio_set.wav"
+    ,"gsgtrainsounds/misc/radio/radio_train1.wav"
+    ,"gsgtrainsounds/misc/radio/radio_yardley.wav"
+    ,"gsgtrainsounds/misc/radio/radio_release.wav"
+    ,"gsgtrainsounds/misc/radio/radio_switching1.wav",
+    "gsgtrainsounds/misc/radio/radio_switching3.wav")
+
+    entity():soundPlay(0,Time-1,Sound)
+}else{
+    soundStop(0)
+}

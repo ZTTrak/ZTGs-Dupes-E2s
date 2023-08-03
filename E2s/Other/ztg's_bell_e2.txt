@@ -1,0 +1,16 @@
+@name ZTG's Bell E2
+@inputs Bell
+@outputs 
+@persist 
+@trigger 
+@model models/jazzie/trains/emd_bell.mdl
+Model = entity()
+Model:setColor(164,36,36)
+
+if(Bell){
+soundPlay("bell",0,"foxs_train_sound_pack2/bells/steelbell_4.wav")
+soundStop("bell2")    
+}else{
+soundPlay("bell2",0,"gsgtrainsounds/misc/air_off.wav")
+soundStop("bell")    
+}

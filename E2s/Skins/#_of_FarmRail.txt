@@ -1,0 +1,120 @@
+@name Text Jazzlok
+@inputs ParentTo:entity
+@outputs 
+@persist N
+@trigger 
+timer("spawn",400)
+
+if(clk("spawn"))
+{
+    
+    Text =  "2302"
+    Alligment = "centerlr"       #the way it will draw to: centerlr, left, right, centerud, up, down
+    Font = 3                     #the font it will draw
+    Size = 0.8                     #the size
+    Space = 12                    #the space between every caracter
+    Color = vec(255,68,0)           #the color... duhhh
+    Material = "WTP/paint_2"     #i think you get it
+    Parent = "e2"                #the prop the text will parent to: e2, e2weld, input 
+    
+    if(Parent == "e2"){
+        E = entity()
+    } elseif(Parent == "e2weld"){
+        E = entity():isWeldedTo()
+    } elseif(Parent == "input"){
+        E = ParentTo
+    }
+    
+    if(Alligment == "up" || Alligment == "left"){
+        Text = Text:reverse()
+    }
+    
+    for(T = 1, Text:length()){
+        if(Text:index(T) == " "){continue}
+        holoCreate(T)
+        if(Alligment == "centerlr"){
+            holoPos(T, entity():toWorld(vec(0, T*Size*Space - Text:length()*Size*Space/2 - Size*Space/2, 0)))
+        } elseif(Alligment == "left"){
+            holoPos(T, entity():toWorld(vec(0, -T*Size*Space + Size*Space, 0)))
+        } elseif(Alligment == "right"){
+            holoPos(T, entity():toWorld(vec(0, T*Size*Space - Size*Space, 0)))
+        } elseif(Alligment == "centerud"){
+            holoPos(T, entity():toWorld(vec(T*Size*Space - Text:length()*Size*Space/2 - Size*Space/2, 0, 0)))
+        } elseif(Alligment == "up"){
+            holoPos(T, entity():toWorld(vec(-T*Size*Space + Size*Space, 0, 0)))
+        } elseif(Alligment == "down"){
+            holoPos(T, entity():toWorld(vec(T*Size*Space - Size*Space, 0, 0)))
+        } 
+        if("QWERTYUIOPASDFGHJKLZXCVBNM1234567890":find(Text:index(T))){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_"+Text:index(T)+".mdl")
+        } elseif("qwertyuiopasdfghjklzxcvbnm":find(Text:index(T))){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_l_"+Text:index(T)+".mdl")
+        } elseif(Text:index(T) == "."){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_prd.mdl")
+        } elseif(Text:index(T) == ","){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_com.mdl")
+        } elseif(Text:index(T) == ":"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_colon.mdl")
+        } elseif(Text:index(T) == ";"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_scolon.mdl")
+        } elseif(Text:index(T) == "?"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_qmark.mdl")
+        } elseif(Text:index(T) == "!"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_xmark.mdl")
+        } elseif(Text:index(T) == "~"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_tilde.mdl")
+        } elseif(Text:index(T) == "<"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_lessthan.mdl")
+        } elseif(Text:index(T) == ">"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_greaterthan.mdl")
+        } elseif(Text:index(T) == "_"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_underscore.mdl")
+        } elseif(Text:index(T) == "@"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_atsign.mdl")
+        } elseif(Text:index(T) == "#"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_pdsign.mdl")
+        } elseif(Text:index(T) == "$"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_dlsign.mdl")
+        } elseif(Text:index(T) == "%"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_pcnt.mdl")
+        } elseif(Text:index(T) == "^"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_crt.mdl")
+        } elseif(Text:index(T) == "&"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_and.mdl")
+        } elseif(Text:index(T) == "'"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_apost.mdl")
+        } elseif(Text:index(T) == "("){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_lpar.mdl")
+        } elseif(Text:index(T) == ")"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_rpar.mdl")
+        } elseif(Text:index(T) == "["){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_lbracket.mdl")
+        } elseif(Text:index(T) == "]"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_rbracket.mdl")
+        } elseif(Text:index(T) == "{"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_lcbracket.mdl")
+        } elseif(Text:index(T) == "}"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_rcbracket.mdl")
+        } elseif(Text:index(T) == "|"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_bar.mdl")
+        } elseif(Text:index(T) == "+"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_plu.mdl")
+        } elseif(Text:index(T) == "-"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_min.mdl")
+        } elseif(Text:index(T) == "*"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_ast.mdl")
+        } elseif(Text:index(T) == "/"){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_div.mdl")
+        } elseif(Text:index(T) == "="){
+            holoModel(T, "models/sprops/misc/alphanum/alphanum_equal.mdl")
+        }
+        holoAng(T, entity():toWorld(ang(0, -90, 90)))
+        holoColor(T, Color)
+        holoMaterial(T, Material)
+        holoScale(T, vec(Size,0.01,Size))
+        holoBodygroup(T, 0, Font-1)
+        holoParent(T, E)
+    }
+    stopAllTimers()        
+}
+

@@ -1,0 +1,29 @@
+@name when the small tp56
+@inputs In
+@outputs Out
+@persist 
+@trigger
+@model models/hunter/blocks/cube05x05x05.mdl
+Base = entity()
+Base:setAlpha(0)
+
+holoCreate(1)
+holoModel(1, "models/engines/traction_power_corp/tp56.mdl")
+holoPos(1, entity():pos() +vec(0,0,3))
+holoScale(1, vec(0.05,0.05,0.05))
+holoAng(1, ang(0,270,0))
+holoParent(1,Base)
+
+holoCreate(2)
+holoModel(2, "models/gsgtrainprops/parts/headlights/headlight_twinbeam_large.mdl")
+holoPos(2, entity():pos() +vec(0,-7.4,5))
+holoScale(2, vec(0.05,0.05,0.05))
+holoAng(2, ang(90,270,0))
+holoParent(2,Base)
+
+holoCreate(3)
+holoModel(3, "models/magtrainslocos/trucks/htcr_1_early_phx.mdl")
+holoPos(3, entity():pos() +vec(0,0,2))
+holoScale(3, vec(0.05,0.05,0.05))
+holoAng(3, ang(0,360,0))
+holoParent(3,Base)

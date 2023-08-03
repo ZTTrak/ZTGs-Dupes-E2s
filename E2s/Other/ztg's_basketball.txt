@@ -1,0 +1,23 @@
+@name ZTG's Basketball
+@inputs 
+@outputs 
+@persist 
+@trigger 
+@model models/sprops/geometry/sphere_30.mdl
+
+entity():setAlpha(0)
+
+
+A=1
+holoCreate(A)
+holoPos(A,entity():toWorld(vec(0,0,0)))
+holoModel(A, "models/props_phx/misc/soccerball.mdl")
+holoAng(A, entity():toWorld(ang(0,0,0)) )
+holoScale(A, vec(1.6))
+holoParent(A, entity())
+holoMaterial(A,"")
+holoBodygroup(A, 1,2)
+holoEntity(A):setSubMaterial(2, "bobsters_trains/br_copper")
+holoEntity(A):setSubMaterial(4, "bobsters_trains/br_copper")
+
+

@@ -1,0 +1,34 @@
+@name Passengers
+@inputs
+@outputs 
+@persist 
+@trigger 
+@model models/props_trainstation/bench_indoor001a.mdl
+#By Armystuntman
+#Usable animation list - https://facepunch.com/showthread.php?t=524700
+holoCreate(1)
+holoModel(1,"models/Player/Group01/Female_01.mdl")
+holoAng(1,entity():toWorld(ang(0,0,0)))
+holoPos(1,entity():toWorld(vec(0,20,-3)))
+holoParent(1,entity())
+holoAnim(1,"ACT_HL2MP_SIT")
+
+holoCreate(2)
+holoModel(2,"models/Player/Group01/male_01.mdl")
+holoAng(2,entity():toWorld(ang(0,0,0)))
+holoPos(2,entity():toWorld(vec(0,-20,-3)))
+holoParent(2,entity())
+holoAnim(2,"ACT_HL2MP_SIT")
+
+holoCreate(3)
+holoModel(3,"models/Player/Group01/male_05.mdl")
+holoAng(3,entity():toWorld(ang(0,20,0)))
+holoPos(3,entity():toWorld(vec(50,-50,-18.7)))
+holoParent(3,entity())
+holoAnim(3,"ACT_HL2MP_IDLE")
+holoCreate(4)
+holoModel(4,"models/humans/group01/male_cheaple.mdl")
+holoAng(4,entity():toWorld(ang(0,-50,0)))
+holoPos(4,entity():toWorld(vec(30,50,-18.7)))
+holoParent(4,entity())
+holoAnim(4,"ACT_HL2MP_IDLE")

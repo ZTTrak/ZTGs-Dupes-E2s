@@ -1,0 +1,45 @@
+@name Fyres RP Speech E2 V5
+@persist Prefix:string Color:vector Name:string
+
+###################
+### INSTRUCTIONS #####################################################
+## In Order to use this E2 properly, please read the Context Below. #############################
+## 1. In order to change the Prefix, goto the Prefix Variable at line 16 (Defualt is .rp). ######
+## 2. In order to change the Name, goto the Name Variable at line 17. ###########################
+## 3. In order to change the Color, goto the Color Variable at line 18. #########################
+## 4. You must ALWAYS enter the Prefix before typing your message. Or Else it will not work. ####
+## 5. Other Information regarding Set up is shown at Instructions 1-3. ##########################
+#################################################################################################
+if(first()|dupefinished()|duped()){
+runOnChat(1)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        chatPrint(vec(25,180,0),""+ owner():toString() +  " Has Spawned in Fyres RP Speech E2!")
+##############################################################################################
+###### Configs ###############################################################################
+Prefix= ".rp" #Change the Prefix Here in the Quotations.  ####################################
+Name= "ZT6.1" #Change the Name here in Quotations.  ########################################
+Color= vec(164,36,36) #Change the Color here by entering the Color Code in the Parentheses.   ####
+##############################################################################################
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        chatPrint(vec(40,25,215), owner():toString() + "'s ", vec(255,95,0), "Role Play name is Currently "+ Name + ".") printColor(vec(255,0,0), "Do NOT Distribute. " + "You may face PUNISHMENTS")
+##################
+# Do Not Touch! ###
+##################################################################
+}elseif(chatClk(owner())){                                       #
+local Spoke=lastSaid():explode(" ")                              #
+if(Spoke[1,string]==Prefix){                                     #
+local Spoke=lastSaid():sub(Prefix:length()+1)                    #
+chatPrint(Color, Name, vec(255), ":", vec(255), Spoke)           #
+hideChat(1)                                                      #
+}                                                                #
+}                                                                #                                                                 
+##################################################################
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        setName("Fyres RP Speech E2 V5 " +" ( " + Name + " ) ")
+################################
+### W A R N I N G ##############
+# Do NOT Distrbute. ############
+# If you are caught ############
+# you may face Punishments. ####
+# Be Mature with this E2. ######
+# Do not Abuse #################
+################################
+
+

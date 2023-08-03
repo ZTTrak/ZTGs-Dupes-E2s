@@ -1,0 +1,624 @@
+@name gm_sunsetgulch_2 (ZTG's Extremly Private E2)
+@inputs CrossingOn
+@outputs On1
+@persist BridgeTrain IntervalOn
+@persist RoadLength Pos Pos2 Height TrainPos TrainPos2 TrainPos3 TrainPos4 CumLake WARMSWEETOIL
+@trigger
+IntervalOn = 1
+BridgeTrain = 1
+Height = 34.9
+TrainPos4--
+TrainPos3--
+TrainPos2--
+TrainPos--
+Pos2++
+Pos--
+Crossing = holoCreate(20)
+Crossing2 = holoCreate(19)
+Crossing:setBodygroup(3,1)
+Crossing:setBodygroup(2,3)
+Crossing2:setBodygroup(3,1)
+Crossing2:setBodygroup(2,3)
+RoadLength = 22.8
+Car = holoCreate(27)
+Car2 = holoCreate(28)
+Train = holoCreate(45)
+Train2 = holoCreate(46)
+CumLake = 0
+WARMSWEETOIL = 0
+
+holoCreate(1)
+holoModel(1, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(1, entity():pos() +vec(0,0,10))
+holoScale(1, vec(2,1,1))
+holoAng(1, ang(0,90,0))
+holoMaterial(1, "models/XQM//WoodTexture_1")
+
+holoCreate(2)
+holoModel(2, "models/trakpak3_rsg/straights/s8192_4lt_221pg_+8192x-8192x+256up.mdl")
+holoPos(2, entity():pos() +vec(18,100,35.2))
+holoScale(2, vec(0.05,0.05,0.05))
+holoAng(2, ang(0,45,1.8))
+
+
+holoCreate(3)
+holoModel(3, "models/sprops/rectangles_thin/size_2/rect_12x42x1_5.mdl")
+holoPos(3, entity():pos() +vec(5,1.5,33.8))
+holoScale(3, vec(RoadLength,1,1))
+holoAng(3, ang(0,90,0))
+holoMaterial(3, "bobsters_trains/br_dirty_black")
+
+holoCreate(4)
+holoModel(4, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(4, entity():pos() +vec(-1,1.5,34.5))
+holoScale(4, vec(RoadLength,0.2,0.5))
+holoAng(4, ang(0,90,0))
+holoMaterial(4, "bobsters_trains/br_yellow")
+
+holoCreate(5)
+holoModel(5, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(5, entity():pos() +vec(11,1.5,34.5))
+holoScale(5, vec(RoadLength,0.2,0.5))
+holoAng(5, ang(0,90,0))
+holoMaterial(5, "bobsters_trains/br_yellow")
+
+holoCreate(6)
+holoModel(6, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(6, entity():pos() +vec(5,1.5,34.5))
+holoScale(6, vec(RoadLength,0.2,0.5))
+holoAng(6, ang(0,90,0))
+holoMaterial(6, "bobsters_trains/br_yellow")
+
+holoCreate(7)
+holoModel(7, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(7, entity():pos() +vec(4.5,1.5,34.5))
+holoScale(7, vec(RoadLength,0.2,0.5))
+holoAng(7, ang(0,90,0))
+holoMaterial(7, "bobsters_trains/br_yellow")
+
+holoCreate(8)
+holoModel(8, "models/trakpak3_rsg/straights/s8192_4lt_221pg_+8192x-8192x+256up.mdl")
+holoPos(8, entity():pos() +vec(18,480,35.2))
+holoScale(8, vec(0.05,0.05,0.05))
+holoAng(8, ang(0,45,1.8))
+
+holoCreate(9)
+holoModel(9, "models/trakpak3_rsg/arcs/r4096/a0fw_1lt_left_-163pg_+1216x-0160x-020dn.mdl")
+holoPos(9, entity():pos() +vec(10.02,410,35.2))
+holoScale(9, vec(0.05,0.05,0.05))
+holoAng(9, ang(0.92,255,0))
+
+holoCreate(10)
+holoModel(10, "models/trakpak3_rsg/straights/s0768_2rt_0pg_+0768x+0384x0000.mdl")
+holoPos(10, entity():pos() +vec(10.23,410.55,35.23))
+holoScale(10, vec(0.05,0.05,0.05))
+holoAng(10, ang(-0.92,100,1.8))
+
+holoCreate(11)
+holoModel(11, "models/trakpak3_rsg/arcs/r4096/a0fw_1lt_left_-163pg_+1216x-0160x-020dn.mdl")
+holoPos(11, entity():pos() +vec(-1.7,370.8,35.2))
+holoScale(11, vec(0.05,0.05,0.05))
+holoAng(11, ang(0.92,435,0))
+
+holoCreate(12)
+holoModel(12, "models/trakpak3_rsg/straights/s4096_4lt_0pg_+4096x-4096x0000.mdl")
+holoPos(12, entity():pos() +vec(-9.71,310,35.2))
+holoScale(12, vec(0.05,0.05,0.05))
+holoAng(12, ang(-0.03,45,0))
+
+holoCreate(13)
+holoModel(13, "models/trakpak3_us/switchstands/racor_112e_left.mdl")
+holoPos(13, entity():pos() +vec(22,459,34.2))
+holoScale(13, vec(0.05,0.05,0.05))
+holoAng(13, ang(0,90,0))
+
+holoCreate(14)
+holoModel(14, "models/joe/props_commonwealth/buildings/shoe_factory/shoe_factory.mdl")
+holoPos(14, entity():pos() +vec(-55,330,36.4))
+holoScale(14, vec(0.05,0.05,0.05))
+holoAng(14, ang(0,0,0))
+
+holoCreate(15)
+holoModel(15, "models/animals/msts_deer.mdl")
+holoPos(15, entity():pos() +vec(-20,200,34))
+holoScale(15, vec(0.05,0.05,0.05))
+holoAng(15, ang(0,32,0))
+
+holoCreate(16)
+holoModel(16, "models/joe/buildings/interlocking_tower_2.mdl")
+holoPos(16, entity():pos() +vec(-10,445,35.15))
+holoScale(16, vec(0.05,0.05,0.05))
+holoAng(16, ang(0,0,0))
+
+holoCreate(17)
+holoModel(17, "models/joe/buildings/station_building_2.mdl")
+holoPos(17, entity():pos() +vec(24,0,34.2))
+holoScale(17, vec(0.05,0.01,0.05))
+holoAng(17, ang(0,90,0))
+
+holoCreate(18)
+holoModel(18, "models/sprops/rectangles_thin/size_1_5/rect_6x108x1_5.mdl")
+holoPos(18, entity():pos() +vec(23,0,34.2))
+holoScale(18, vec(1,1,1))
+holoAng(18, ang(0,90,0))
+holoMaterial(18, "anytrains/cbar/textures/sandpaper_black")
+
+holoCreate(19)
+holoModel(19, "models/trakpak3_us/signals/xing/post_gated_lh.mdl")
+holoPos(19, entity():pos() +vec(12,470,34.2))
+holoScale(19, vec(0.05,0.05,0.05))
+holoAng(19, ang(0,90,0))
+holoBodygroup(19, 3,1)
+holoBodygroup(19, 2,3)
+
+holoCreate(20)
+holoModel(20, "models/trakpak3_us/signals/xing/post_gated_lh.mdl")
+holoPos(20, entity():pos() +vec(-2,330,34.2))
+holoScale(20, vec(0.05,0.05,0.05))
+holoAng(20, ang(0,270,0))
+holoBodygroup(20, 3,1)
+holoBodygroup(20, 2,3)
+
+holoCreate(21)
+holoModel(21, "models/trakpak3_us/signals/generic/mast_type0_06ft.mdl")
+holoPos(21, entity():pos() +vec(23,230,34.8))
+holoScale(21, vec(0.05,0.05,0.05))
+holoAng(21, ang(0,270,0))
+
+holoCreate(22)
+holoModel(22, "models/trakpak3_us/signals/colorlight/ryg.mdl")
+holoPos(22, entity():pos() +vec(23,230,38.8))
+holoScale(22, vec(0.05,0.05,0.05))
+holoAng(22, ang(0,270,0))
+holoBodygroup(22, 1,6)
+
+holoCreate(23)
+holoModel(23, "models/trakpak3_rsg/spl/trackends/end_ang2rt.mdl")
+holoPos(23, entity():pos() +vec(-9.72,21,35.1))
+holoScale(23, vec(0.05,0.05,0.05))
+holoAng(23, ang(0,116.5,0))
+
+holoCreate(24)
+holoModel(24, "models/props_gulch/oldhopper.mdl")
+holoPos(24, entity():pos() +vec(-9.72,200,34.7))
+holoScale(24, vec(0.038,0.038,0.038))
+holoAng(24, ang(0,0,0))
+
+holoCreate(25)
+holoModel(25, "models/props_gulch/oldhopper.mdl")
+holoPos(25, entity():pos() +vec(-9.72,178.4,34.7))
+holoScale(25, vec(0.038,0.038,0.038))
+holoAng(25, ang(0,0,0))
+
+holoCreate(26)
+holoModel(26, "models/props_gulch/gulchhouse2_skybox.mdl")
+holoPos(26, entity():pos() +vec(-39,98.4,21))
+holoScale(26, vec(0.5,0.5,0.5))
+holoAng(26, ang(0,270,0))
+
+holoCreate(29)
+holoModel(29, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(29, entity():pos() +vec(-85,0,-24))
+holoScale(29, vec(2,3,1))
+holoAng(29, ang(0,90,0))
+holoMaterial(29, "Zell_material_pack/water_z")
+
+holoCreate(30)
+holoModel(30, "models/animals/msts_deer.mdl")
+holoPos(30, entity():pos() +vec(-85,0,-2))
+holoScale(30, vec(0.05))
+holoAng(30, ang(45,90,0))
+
+holoCreate(31)
+holoModel(31, "models/rika/loco/alco_rsd5.mdl")
+holoPos(31, entity():pos() +vec(-85,-410,-2))
+holoScale(31, vec(0.05))
+holoAng(31, ang(15,90,5))
+holoMaterial(31, "Zell_material_pack/metal_rust_z")
+
+holoCreate(32)
+holoModel(32, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(32, entity():pos() +vec(-50,320,10))
+holoScale(32, vec(0.5,1.5,1))
+holoAng(32, ang(0,90,0))
+holoMaterial(32, "models/XQM//WoodTexture_1")
+
+holoCreate(33)
+holoModel(33, "models/joe/buildings/corner_shop_2.mdl")
+holoPos(33, entity():pos() +vec(-13,0,34.7))
+holoScale(33, vec(0.05))
+holoAng(33, ang(0,0,0))
+
+holoCreate(34)
+holoModel(34, "models/joe/buildings/store_3.mdl")
+holoPos(34, entity():pos() +vec(-13,-19,34.7))
+holoScale(34, vec(0.05))
+holoAng(34, ang(0,0,0))
+
+
+holoCreate(35)
+holoModel(35, "models/joe/buildings/store_4.mdl")
+holoPos(35, entity():pos() +vec(-13,-35,34.7))
+holoScale(35, vec(0.05))
+holoAng(35, ang(0,0,0))
+
+holoCreate(36)
+holoModel(36, "models/joe/buildings/store_5.mdl")
+holoPos(36, entity():pos() +vec(-13,-50,34.7))
+holoScale(36, vec(0.05))
+holoAng(36, ang(0,0,0))
+
+
+holoCreate(37)
+holoModel(37, "models/joe/props_commonwealth/buildings/unfinished_building_1.mdl")
+holoPos(37, entity():pos() +vec(-13.5,-75,34.7))
+holoScale(37, vec(0.05))
+holoAng(37, ang(0,90,0))
+
+holoCreate(38)
+holoModel(38, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(38, entity():pos() +vec(-229,0,-24))
+holoScale(38, vec(2,3,1))
+holoAng(38, ang(0,90,0))
+holoMaterial(38, "Zell_material_pack/water_z")
+
+holoCreate(39)
+holoModel(39, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(39, entity():pos() +vec(-194,-480,10))
+holoScale(39, vec(0.45,2,1))
+holoAng(39, ang(0,0,0))
+holoMaterial(39, "models/XQM//WoodTexture_1")
+
+holoCreate(40)
+holoModel(40, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(40, entity():pos() +vec(-140,480,10))
+holoScale(40, vec(0.68,0.1,1))
+holoAng(40, ang(0,0,0))
+holoMaterial(40, "models/XQM//WoodTexture_1")
+
+holoCreate(41)
+holoModel(41, "models/props_gulch/trussbridge3.mdl")
+holoPos(41, entity():pos() +vec(-50,451,24))
+holoScale(41, vec(0.038))
+holoAng(41, ang(0,90,0))
+
+holoCreate(42)
+holoModel(42, "models/props_gulch/trussbridge3.mdl")
+holoPos(42, entity():pos() +vec(-50,470,24))
+holoScale(42, vec(0.038))
+holoAng(42, ang(0,90,0))
+
+holoCreate(43)
+holoModel(43, "models/sprops/rectangles_thin/size_2/rect_12x30x1_5.mdl")
+holoPos(43, entity():pos() +vec(-50,440,27))
+holoScale(43, vec(1))
+holoAng(43, ang(180,0,90))
+holoMaterial(43, "bobsters_trains/br_dirty_black")
+
+holoCreate(44)
+holoModel(44, "models/sprops/rectangles_thin/size_2/rect_12x30x1_5.mdl")
+holoPos(44, entity():pos() +vec(-50,478,27))
+holoScale(44, vec(1))
+holoAng(44, ang(180,0,90))
+holoMaterial(44, "bobsters_trains/br_dirty_black")
+
+holoCreate(49)
+holoModel(49, "models/props_gulch/woodpile_512.mdl")
+holoPos(49, entity():pos() +vec(-50,220,35.4))
+holoScale(49, vec(0.05))
+holoAng(49, ang(0,0,0))
+
+holoCreate(50)
+holoModel(50, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(50, entity():pos() +vec(0,-916,10))
+holoScale(50, vec(1.25,1,1))
+holoAng(50, ang(0,90,0))
+holoMaterial(50, "models/XQM//WoodTexture_1")
+
+holoCreate(51)
+holoModel(51, "models/trakpak3_rsg/spl/bridges/strauss/2048_single.mdl")
+holoPos(51, entity():pos() +vec(18.1,-515,34.9))
+holoScale(51, vec(0.05))
+holoAng(51, ang(0,270,0))
+
+holoCreate(52)
+holoModel(52, "models/trakpak3_rsg_bridge/straights/s2048_1lt_0pg_+2048x-0512x0000.mdl")
+holoPos(52, entity():pos() +vec(18.15,-475,35.2))
+holoScale(52, vec(0.05,0.05,0.05))
+holoAng(52, ang(0,76,0))
+
+holoCreate(53)
+holoModel(53, "models/trakpak3_rsg_bridge/straights/s2048_1lt_0pg_+2048x-0512x0000.mdl")
+holoPos(53, entity():pos() +vec(18.15,-511,35.2))
+holoScale(53, vec(0.05,0.05,0.05))
+holoAng(53, ang(0,76,0))
+
+holoCreate(54)
+holoModel(54, "models/trakpak3_rsg/straights/s8192_4lt_221pg_+8192x-8192x+256up.mdl")
+holoPos(54, entity():pos() +vec(18.18,-617,35.2))
+holoScale(54, vec(0.05,0.05,0.05))
+holoAng(54, ang(0,45,1.8))
+
+holoCreate(55)
+holoModel(55, "models/sprops/rectangles_thin/size_2/rect_12x42x1_5.mdl")
+holoPos(55, entity():pos() +vec(5,-720,33.8))
+holoScale(55, vec(RoadLength,1,1))
+holoAng(55, ang(0,90,0))
+holoMaterial(55, "bobsters_trains/br_dirty_black")
+
+holoCreate(56)
+holoModel(56, "models/sprops/rectangles_thin/size_2/rect_12x42x1_5.mdl")
+holoPos(56, entity():pos() +vec(5,-720,33.1))
+holoScale(56, vec(RoadLength,1.2,1))
+holoAng(56, ang(0,90,0))
+holoMaterial(56, "models/props_canal/canal_bridge_railing_01c")
+
+holoCreate(57)
+holoModel(57, "models/sprops/rectangles_thin/size_2/rect_12x42x1_5.mdl")
+holoPos(57, entity():pos() +vec(5,-720,33.8))
+holoScale(57, vec(RoadLength,1,1))
+holoAng(57, ang(0,90,0))
+holoMaterial(57, "bobsters_trains/br_dirty_black")
+
+holoCreate(58)
+holoModel(58, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(58, entity():pos() +vec(-1,-720,34.5))
+holoScale(58, vec(RoadLength,0.2,0.5))
+holoAng(58, ang(0,90,0))
+holoMaterial(58, "bobsters_trains/br_yellow")
+
+holoCreate(59)
+holoModel(59, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(59, entity():pos() +vec(11,-720,34.5))
+holoScale(59, vec(RoadLength,0.2,0.5))
+holoAng(59, ang(0,90,0))
+holoMaterial(59, "bobsters_trains/br_yellow")
+
+holoCreate(60)
+holoModel(60, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(60, entity():pos() +vec(5,-720,34.5))
+holoScale(60, vec(RoadLength,0.2,0.5))
+holoAng(60, ang(0,90,0))
+holoMaterial(60, "bobsters_trains/br_yellow")
+
+holoCreate(61)
+holoModel(61, "models/sprops/rectangles_superthin/size_0/rect_1_5x42.mdl")
+holoPos(61, entity():pos() +vec(4.5,-720,34.5))
+holoScale(61, vec(RoadLength,0.2,0.5))
+holoAng(61, ang(0,90,0))
+holoMaterial(61, "bobsters_trains/br_yellow")
+
+
+holoCreate(62)
+holoModel(62, "models/Player/Group01/male_05.mdl")
+holoPos(62, entity():pos() +vec(-2.5,435,39.1))
+holoScale(62, vec(0.05))
+holoAng(62, ang(0,90,0))
+holoAnim(62,"ACT_HL2MP_IDLE")
+
+holoCreate(63)
+holoModel(63, "models/Player/Group01/male_05.mdl")
+holoPos(63, entity():pos() +vec(-4,9,39.2))
+holoScale(63, vec(0.05))
+holoAng(63, ang(0,65,0))
+holoAnim(63,"ACT_HL2MP_IDLE")
+
+holoCreate(64)
+holoModel(64, "models/sprops/cuboids/height96/size_1/cube_96x96x96.mdl")
+holoPos(64, entity():pos() +vec(-45,-550,-48))
+holoScale(64, vec(1.5,3,1))
+holoAng(64, ang(0,0,0))
+holoMaterial(64, "Zell_material_pack/water_z")
+
+holoCreate(65)
+holoModel(65, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(65, entity():pos() +vec(-194,-570,10))
+holoScale(65, vec(0.45,2,1))
+holoAng(65, ang(0,0,0))
+holoMaterial(65, "models/XQM//WoodTexture_1")
+
+holoCreate(66)
+holoModel(66, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(66, entity():pos() +vec(-120,-665,10))
+holoScale(66, vec(0.45,2,1))
+holoAng(66, ang(0,0,0))
+holoMaterial(66, "models/XQM//WoodTexture_1")
+
+holoCreate(67)
+holoModel(67, "models/props_gulch/apartment1.mdl")
+holoPos(67, entity():pos() +vec(-175,-650,34.9))
+holoScale(67, vec(0.05))
+holoAng(67, ang(0,23,0))
+
+holoCreate(68)
+holoModel(68, "models/props_gulch/dragonsign.mdl")
+holoPos(68, entity():pos() +vec(-3,-350,34.9))
+holoScale(68, vec(0.05))
+holoAng(68, ang(0,90,0))
+
+holoCreate(69)
+holoModel(69, "models/props_gulch/picnictable.mdl")
+holoPos(69, entity():pos() +vec(-12,-150,35.7))
+holoScale(69, vec(0.05))
+holoAng(69, ang(0,67,0))
+
+holoCreate(70)
+holoModel(70, "models/props_gulch/picnictable.mdl")
+holoPos(70, entity():pos() +vec(-12,-180,35.7))
+holoScale(70, vec(0.05))
+holoAng(70, ang(0,67,0))
+
+holoCreate(71)
+holoModel(71, "models/props_gulch/picnictable.mdl")
+holoPos(71, entity():pos() +vec(-12,-210,35.7))
+holoScale(71, vec(0.05))
+holoAng(71, ang(0,67,0))
+
+holoCreate(72)
+holoModel(72, "models/props_gulch/picnictable.mdl")
+holoPos(72, entity():pos() +vec(-12,-240,35.7))
+holoScale(72, vec(0.05))
+holoAng(72, ang(0,67,0))
+
+holoCreate(73)
+holoModel(73, "models/props_gulch/picnictable.mdl")
+holoPos(73, entity():pos() +vec(-12,-270,35.7))
+holoScale(73, vec(0.05))
+holoAng(73, ang(0,67,0))
+
+holoCreate(74)
+holoModel(74, "models/sprops/cuboids/height48/size_1/cube_48x480x48.mdl")
+holoPos(74, entity():pos() +vec(-320,0,10))
+holoScale(74, vec(2,1,1))
+holoAng(74, ang(0,90,0))
+holoMaterial(74, "models/XQM//WoodTexture_1")
+
+holoCreate(75)
+holoModel(75, "models/props_fireside/treeline_skybox_512.mdl")
+holoPos(75, entity():pos() +vec(-320,350,34))
+holoScale(75, vec(0.5))
+holoAng(75, ang(0,0,0))
+
+holoCreate(76)
+holoModel(76, "models/props_fireside/treeline_skybox_512.mdl")
+holoPos(76, entity():pos() +vec(-320,150,34))
+holoScale(76, vec(0.5))
+holoAng(76, ang(0,0,0))
+
+holoCreate(77)
+holoModel(77, "models/props_fireside/treeline_skybox_512.mdl")
+holoPos(77, entity():pos() +vec(-320,-70,34))
+holoScale(77, vec(0.5))
+holoAng(77, ang(0,0,0))
+
+holoCreate(78)
+holoModel(78, "models/props_fireside/treeline_skybox_512.mdl")
+holoPos(78, entity():pos() +vec(-320,-270,34))
+holoScale(78, vec(0.5))
+holoAng(78, ang(0,0,0))
+
+holoCreate(79)
+holoModel(79, "models/props_fireside/treeline_skybox_512.mdl")
+holoPos(79, entity():pos() +vec(-320,-470,34))
+holoScale(79, vec(0.5))
+holoAng(79, ang(0,0,0))
+
+##########################
+if(CrossingOn){
+holoSkin(19, 5)
+holoSkin(20, 5)
+soundPlay("crossing",0,"scotttrains/crossings/usa/wch_ebell1.wav")
+holoAnim(19,"open",0.04)
+holoAnim(20,"open",0.04)
+
+}else{
+holoAnim(19,"close",0.05)
+holoAnim(20,"close",0.05)
+holoSkin(20, 0)
+holoSkin(19, 0)
+soundStop("crossing",1)
+}
+if(CrossingOn){On1=1
+
+
+
+}else{On1=0
+
+}
+
+
+#interval(30)
+#holoCreate(27)
+#holoModel(27, "models/trakpak3_us/automotive/1990s/labrador_sedan.mdl")
+#holoPos(27, entity():pos() +vec(2,-470,34.9))
+#holoPos(27, entity():pos() +vec(2,Pos,34.9))
+#holoScale(27, vec(0.038,0.038,0.038))
+#holoAng(27, ang(0,270,0))
+
+#holoCreate(28)
+#holoModel(28, "models/trakpak3_us/automotive/1990s/labrador_sedan.mdl")
+#holoPos(28, entity():pos() +vec(8,420,34.9))
+#holoPos(28, entity():pos() +vec(8,Pos2,34.9))
+#holoScale(28, vec(0.038,0.038,0.038))
+#holoAng(28, ang(0,90,0))
+
+
+#timer("resetcars",37500)
+#if(clk("resetcars")){  
+#holoPos(28, entity():pos() +vec(8,0,34.9)) 
+#holoPos(27, entity():pos() +vec(2,0,34.9))  
+#Pos = 420
+#Pos2 = -1400
+#}
+
+timer("trainz",2000)
+if(clk("trainz")){
+holoPos(45, entity():pos() +vec(-54.8,485,24.3)) 
+TrainPos = 485
+
+}
+timer("trainz2",2500)
+if(clk("trainz2")){
+holoPos(45, entity():pos() +vec(-54.8,485,24.3)) 
+
+TrainPos2 = 506.8
+
+}
+timer("trainz3",3000)
+if(clk("trainz3")){
+holoPos(45, entity():pos() +vec(-54.8,485,24.3)) 
+
+TrainPos3 = 528.6
+}
+
+timer("trainz4",3500)
+if(clk("trainz4")){
+holoPos(45, entity():pos() +vec(-54.8,485,24.3)) 
+
+TrainPos4 = 548.6
+}
+holoCreate(45)
+holoModel(45, "models/props_gulch/oldhopper.mdl")
+holoPos(45, entity():pos() +vec(-54.8,TrainPos,24.3))
+holoScale(45, vec(0.038,0.038,0.038))
+holoAng(45, ang(0,0,0))
+
+holoCreate(46)
+holoModel(46, "models/props_gulch/oldhopper.mdl")
+holoPos(46, entity():pos() +vec(-54.8,TrainPos2,24.3))
+holoScale(46, vec(0.038,0.038,0.038))
+holoAng(46, ang(0,0,0))
+
+holoCreate(47)
+holoModel(47, "models/props_gulch/oldhopper.mdl")
+holoPos(47, entity():pos() +vec(-54.8,TrainPos3,24.3))
+holoScale(47, vec(0.038,0.038,0.038))
+holoAng(47, ang(0,0,0))
+
+holoCreate(48)
+holoModel(48, "models/props_gulch/oldhopper.mdl")
+holoPos(48, entity():pos() +vec(-54.8,TrainPos4,24.3))
+holoScale(48, vec(0.038,0.038,0.038))
+holoAng(48, ang(0,0,0))
+if(CumLake){
+#29, 38, 64
+holoColor(29, vec(255,255,255))    
+holoColor(38, vec(255,255,255))  
+holoMaterial(29,"bobsters_trains/base")   
+holoMaterial(38,"bobsters_trains/base")
+holoColor(64, vec(255,255,255))  
+holoMaterial(64,"bobsters_trains/base")    
+}
+if(WARMSWEETOIL){
+#29, 38, 64
+holoColor(29, vec(0))    
+holoColor(38, vec(0))  
+holoMaterial(29,"bobsters_trains/base")   
+holoMaterial(38,"bobsters_trains/base")
+holoColor(64, vec(0))  
+holoMaterial(64,"bobsters_trains/base")    
+}
+
+if(IntervalOn){
+interval(30)    
+}

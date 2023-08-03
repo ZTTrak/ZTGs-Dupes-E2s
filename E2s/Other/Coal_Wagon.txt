@@ -1,0 +1,56 @@
+@name Coal Wagon
+@inputs Fill 
+@outputs 
+@persist E:entity
+@trigger 
+@model models/bobsters_trains/uk/stock/freight/tanks/type_a_tank_wagon.mdl
+
+#Hook1
+holoCreate(2)
+holoPos(2,entity():toWorld(vec(160,0,0)))
+holoParent(2, entity())
+holoModel(2, "models/bobsters_trains/coupling/hook.mdl")
+holoAng(2, entity():toWorld(ang(0,0,0)) )
+holoMaterial(2,"bobsters_trains/br_dirty_black")
+#Hook2
+holoCreate(3)
+holoPos(3,entity():toWorld(vec(-160,0,0)))
+holoParent(3, entity())
+holoModel(3, "models/bobsters_trains/coupling/hook.mdl")
+holoAng(3, entity():toWorld(ang(0,180,0)) )
+holoMaterial(3,"bobsters_trains/br_dirty_black")
+#Wheel1
+holoCreate(4)
+holoPos(4,entity():toWorld(vec(-88,0,-32)))
+holoParent(4, entity())
+holoModel(4, "models/bobsters_trains/wheels/standard/wheel_48_double.mdl")
+holoAng(4, entity():toWorld(ang(0,0,0)) )
+holoMaterial(4,"bobsters_trains/br_dirty_black")
+#Wheel2
+holoCreate(5)
+holoPos(5,entity():toWorld(vec(88,0,-32)))
+holoParent(5, entity())
+holoModel(5, "models/bobsters_trains/wheels/standard/wheel_48_double.mdl")
+holoAng(5, entity():toWorld(ang(0,0,0)) )
+holoMaterial(5,"bobsters_trains/br_dirty_black")
+#TRUCK BASE (Unused because I need the proper collision, enable if you can handle lone bogeys.)
+#holoCreate(6)
+#holoPos(6,entity():toWorld(vec(0,0,0)))
+#holoParent(6, entity())
+#holoModel(6, "models/bobsters_trains/uk/stock/freight/4plank/4_plank_wagon.mdl")
+#holoAng(6, entity():toWorld(ang(0,0,0)) )
+#holoColor(6, vec(72, 72, 72))
+#Chain1
+holoCreate(7)
+holoPos(7,entity():toWorld(vec(163,0,0)))
+holoParent(7, entity())
+holoModel(7, "models/bobsters_trains/coupling/3link_chain/chain.mdl")
+holoAng(7, entity():toWorld(ang(90,0,0)) )
+holoMaterial(7,"bobsters_trains/br_dirty_black")
+#Chain2
+holoCreate(8)
+holoPos(8,entity():toWorld(vec(-163,0,1)))
+holoParent(8, entity())
+holoModel(8, "models/bobsters_trains/coupling/3link_chain/chain.mdl")
+holoAng(8, entity():toWorld(ang(90,0,0)) )
+holoMaterial(8,"bobsters_trains/br_dirty_black")

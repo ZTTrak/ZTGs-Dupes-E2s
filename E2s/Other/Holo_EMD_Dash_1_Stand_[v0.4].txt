@@ -1,0 +1,755 @@
+@name Holo EMD Dash 1 Stand [v0.4]
+@inputs MU_Master RLCPT:entity Override:entity Horn BellToggle LightToggle MiscToggle Sanding
+@outputs Bell Light Misc
+@persist RLCPTWlk:wirelink E:entity AirBrakeType 
+@trigger 
+@model models/magtrainslocos/controlstands/stand_dash2.mdl
+#[
+ _________  ________  ________  ________  _________  ___  ___  ________     
+|\___   ___\\   __  \|\   __  \|\   ____\|\___   ___\\  \|\  \|\   __  \    
+\|___ \  \_\ \  \|\  \ \  \|\  \ \  \___|\|___ \  \_\ \  \\\  \ \  \|\  \   
+     \ \  \ \ \  \\\  \ \   __  \ \_____  \   \ \  \ \ \  \\\  \ \   _  _\  
+      \ \  \ \ \  \\\  \ \  \ \  \|____|\  \   \ \  \ \ \  \\\  \ \  \\  \| 
+       \ \__\ \ \_______\ \__\ \__\____\_\  \   \ \__\ \ \_______\ \__\\ _\ 
+        \|__|  \|_______|\|__|\|__|\_________\   \|__|  \|_______|\|__|\|__|
+                                  \|_________|                                                                                                     
+]#
+
+if(first() | dupefinished() | ~Override){
+    
+    AirBrakeType = 0 #0 for 16M, 1 for 26L
+    
+    BaseMaterial = "models/magtrainslocos/cabmetal_gray"
+    BaseColor = vec(255,255,255)
+    
+    LeverMaterial = "models/magtrainslocos/train_metal2"
+    LeverColor = vec(255,255,255)
+    
+    
+    if(Override){E = Override Override:setAlpha(0) entity():setAlpha(255)}else{Override = entity() E = entity() E:setAlpha(0)}
+    
+    
+    A = 1
+    holoCreate(A, E:toWorld(vec(8,4,24)), vec(1),
+    E:toWorld(ang(90,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cuboids/height06/size_3/cube_18x48x6.mdl")
+    holoScale(A, vec(1,0.9,1.3))
+    holoParent(A,E)  
+    holoMaterial(A,BaseMaterial) 
+    
+    A = 2
+    holoCreate(A, E:toWorld(vec(-12,7.1,30.2)), vec(1),
+    E:toWorld(ang(90,76,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cuboids/height06/size_4/cube_24x24x6.mdl")
+    holoScale(A, vec(0.83,1.1,1.3))
+    holoParent(A, E)  
+    holoMaterial(A,BaseMaterial) 
+    
+    A = 3
+    holoCreate(A, holoEntity(2):toWorld(vec(-13.9,0,-1.5)), vec(1),
+    holoEntity(2):toWorld(ang(0,90,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cuboids/height06/size_1/cube_6x24x6.mdl")
+    holoScale(A, vec(1.1,0.8,1.3))
+    holoParent(A, holoEntity(2))  
+    holoMaterial(A,BaseMaterial) 
+    
+    A = 4
+    holoCreate(A, holoEntity(2):toWorld(vec(-13,0,0.21)), vec(1),
+    holoEntity(2):toWorld(ang(0,90,70)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cuboids/height06/size_1/cube_6x24x6.mdl")
+    holoScale(A, vec(1.1,0.8,1.4))
+    holoParent(A, holoEntity(2))  
+    holoMaterial(A,BaseMaterial) 
+    
+    A = 5
+    holoCreate(A, holoEntity(2):toWorld(vec(18.2,-3,-1.8)), vec(1),
+    holoEntity(2):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cuboids/height06/size_4/cube_24x24x6.mdl")
+    holoScale(A, vec(1,1,0.7))
+    holoParent(A, holoEntity(2))  
+    holoMaterial(A,BaseMaterial) 
+    
+    #Brakes
+    
+    #Indipendent
+    A = 6
+    holoCreate(A, holoEntity(1):toWorld(vec(0,0,3)), vec(1),
+    holoEntity(1):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1_5/rect_6x18x3.mdl")
+    holoScale(A, vec(0.8,1,1))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,BaseMaterial) 
+    
+    A = 7
+    holoCreate(A, holoEntity(1):toWorld(vec(1,0,7)), vec(1),
+    holoEntity(1):toWorld(ang(0,90,0)))
+    holoColor(A, LeverColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.4,0.4,0.4))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 8
+    holoCreate(A, holoEntity(1):toWorld(vec(-1,0,7)), vec(1),
+    holoEntity(1):toWorld(ang(0,90,0)))
+    holoColor(A, LeverColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.4,0.4,0.4))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 9
+    holoCreate(A, holoEntity(1):toWorld(vec(0,-0.9,6.1)), vec(1),
+    holoEntity(1):toWorld(ang(-135,90,0)))
+    holoColor(A, LeverColor)
+    holoModel(A, "models/sprops/misc/tubes/size_1/h_tube_12x6.mdl")
+    holoScale(A, vec(0.4,0.4,0.4))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 10
+    holoCreate(A, holoEntity(1):toWorld(vec(0,0,7)), vec(1),
+    holoEntity(1):toWorld(ang(90,0,0)))
+    holoColor(A, LeverColor)
+    holoModel(A, "models/sprops/cylinders/size_3/cylinder_6x6.mdl")
+    holoScale(A, vec(0.4,0.4,0.4))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 11
+    holoCreate(A, holoEntity(10):toWorld(vec(1,0,0)), vec(1),
+    holoEntity(10):toWorld(ang(0,90,0)))
+    holoColor(A, LeverColor)
+    holoModel(A, "models/monkcabdetailpack/alco/alco_rs3_reverser.mdl")
+    holoScale(A, vec(1,1,1))
+    holoParent(A, holoEntity(10))  
+    holoMaterial(A,LeverMaterial)
+    
+    #Automatic Brake
+    
+    A = 12
+    holoCreate(A, holoEntity(1):toWorld(vec(-10,-1.15,3.8)), vec(1),
+    holoEntity(1):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_2/rect_12x12x1_5.mdl")
+    holoScale(A, vec(1,1,1))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial) 
+    
+    A = 13
+    holoCreate(A, holoEntity(1):toWorld(vec(-16,-1.15,3.8)), vec(1),
+    holoEntity(1):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x6x1_5.mdl")
+    holoScale(A, vec(1.16,0.6,1))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 14
+    holoCreate(A, holoEntity(1):toWorld(vec(-15.59,-5.55,3.8)), vec(1),
+    holoEntity(1):toWorld(ang(0,-70,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x3x1_5.mdl")
+    holoScale(A, vec(0.9,0.6,1))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 15
+    holoCreate(A, holoEntity(1):toWorld(vec(-15.59,3.35,3.8)), vec(1),
+    holoEntity(1):toWorld(ang(0,70,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x3x1_5.mdl")
+    holoScale(A, vec(0.9,0.6,1))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 16
+    holoCreate(A, holoEntity(12):toWorld(vec(0,-2,2.9)), vec(1),
+    holoEntity(12):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_5/cylinder_12x6.mdl")
+    holoScale(A, vec(0.4,0.4,1.3))
+    holoParent(A, holoEntity(12))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 17
+    holoCreate(A, holoEntity(12):toWorld(vec(0,-1.6,2.9)), vec(1),
+    holoEntity(12):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_4/cylinder_9x6.mdl")
+    holoScale(A, vec(0.4,0.4,1.3))
+    holoParent(A, holoEntity(12))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 18
+    holoCreate(A, holoEntity(12):toWorld(vec(0,-5.59,1)), vec(1),
+    holoEntity(12):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1_5/rect_6x12x3.mdl")
+    holoScale(A, vec(0.4,0.1,1.3))
+    holoParent(A, holoEntity(12))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 19
+    holoCreate(A, holoEntity(12):toWorld(vec(0,2.5,2)), vec(1),
+    holoEntity(12):toWorld(ang(180,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/misc/tubes/size_1/h_tube_12x6.mdl")
+    holoScale(A, vec(0.3,0.3,0.3))
+    holoParent(A, holoEntity(12))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 20
+    holoCreate(A, holoEntity(12):toWorld(vec(0,4,2.9)), vec(1),
+    holoEntity(12):toWorld(ang(0,0,-90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/misc/fittings/cred_9_6_short.mdl")
+    holoScale(A, vec(0.4,0.4,0.2))
+    holoParent(A, holoEntity(12))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 21
+    holoCreate(A, holoEntity(12):toWorld(vec(0,3,2.9)), vec(1),
+    holoEntity(12):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_3/cylinder_6x12.mdl")
+    holoScale(A, vec(0.3,0.3,0.3))
+    holoParent(A, holoEntity(12))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 22
+    holoCreate(A, holoEntity(21):toWorld(vec(0,1.1,0.15)), vec(1),
+    holoEntity(21):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x6x1_5.mdl")
+    holoScale(A, vec(0.4,0.3,0.5))
+    holoParent(A, holoEntity(21))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 23
+    holoCreate(A, holoEntity(21):toWorld(vec(0,3,0.51)), vec(1),
+    holoEntity(21):toWorld(ang(180,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/qring_12.mdl")
+    holoScale(A, vec(0.25,0.3,0.25))
+    holoParent(A, holoEntity(21))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 24
+    holoCreate(A, holoEntity(21):toWorld(vec(0,3.2,0.7)), vec(1),
+    holoEntity(21):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1/rect_3x3x3.mdl")
+    holoScale(A, vec(0.4,0.3,0.4))
+    holoParent(A, holoEntity(21))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 25
+    holoCreate(A, holoEntity(21):toWorld(vec(0,3.2,0.7)), vec(1),
+    holoEntity(21):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1/rect_3x3x3.mdl")
+    holoScale(A, vec(0.4,0.3,0.4))
+    holoParent(A, holoEntity(21))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 26
+    holoCreate(A, holoEntity(21):toWorld(vec(0,3.8,0.7)), vec(1),
+    holoEntity(21):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.2,0.1,0.2))
+    holoParent(A, holoEntity(21))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 27
+    holoCreate(A, holoEntity(21):toWorld(vec(0,-0.7,0.7)), vec(1),
+    holoEntity(21):toWorld(ang(0,0,0)))
+    holoColor(A, vec(150,0,0))
+    holoModel(A, "models/monkcabdetailpack/alco/alco_rs3_reverser.mdl")
+    holoScale(A, vec(1,1,1))
+    holoParent(A, holoEntity(21))  
+    holoMaterial(A,"WTP/metal_2")
+    holoClipEnabled(A,1,1)
+    holoClip(A,1,vec(0,4.5,0),vec(0,1,0),0)
+    
+    #Guages
+    #Loadmeter
+    A = 28
+    holoCreate(A, holoEntity(4):toWorld(vec(8,2.5,0)), vec(1),
+    holoEntity(4):toWorld(ang(0,90,180)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/gauge_01.mdl")
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(4))  
+    holoMaterial(A,"") 
+    #Loadmeter Needle 
+    
+    A = 29
+    holoCreate(A, holoEntity(28):toWorld(vec(0,0,0)), vec(1),
+    holoEntity(28):toWorld(ang(0,0,0)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/needle_load.mdl")
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(28))  
+    holoMaterial(A,"")
+    
+    #Air Gauges
+    #Air Guage 1
+    A = 30
+    holoCreate(A, holoEntity(4):toWorld(vec(-8,2.5,0)), vec(1),
+    holoEntity(4):toWorld(ang(0,90,180)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/gauge_01.mdl")
+    holoSkin(A,1)
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(4))  
+    holoMaterial(A,"")
+    #Needles
+    A = 31
+    holoCreate(A, holoEntity(30):toWorld(vec(0,0,0)), vec(1),
+    holoEntity(30):toWorld(ang(0,0,145)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/needle_brake_white.mdl")
+    holoSkin(A,1)
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(30))  
+    holoMaterial(A,"")
+    
+    A = 32
+    holoCreate(A, holoEntity(30):toWorld(vec(-0.05,0,0)), vec(1),
+    holoEntity(30):toWorld(ang(0,0,145)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/needle_brake_red.mdl")
+    holoSkin(A,1)
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(30))  
+    holoMaterial(A,"")
+    
+    #Air Guage 2
+    A = 33
+    holoCreate(A, holoEntity(4):toWorld(vec(-2,2.5,0)), vec(1),
+    holoEntity(4):toWorld(ang(0,90,180)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/gauge_01.mdl")
+    holoSkin(A,1)
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(4))  
+    holoMaterial(A,"")
+    
+    #Needles
+    A = 34
+    holoCreate(A, holoEntity(33):toWorld(vec(0,0,0)), vec(1),
+    holoEntity(33):toWorld(ang(0,0,145)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/needle_brake_white.mdl")
+    holoSkin(A,1)
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(33))  
+    holoMaterial(A,"")
+    
+    A = 35
+    holoCreate(A, holoEntity(33):toWorld(vec(-0.05,0,0)), vec(1),
+    holoEntity(33):toWorld(ang(0,0,145)))
+    holoColor(A, vec(255))
+    holoModel(A, "models/gsgtrainprops/parts/cab/needle_brake_red.mdl")
+    holoSkin(A,1)
+    holoScale(A, vec(1))
+    holoParent(A, holoEntity(33))  
+    holoMaterial(A,"")
+    
+    #Power Levers
+    A = 36
+    holoCreate(A, holoEntity(2):toWorld(vec(0,0,3)), vec(1),
+    holoEntity(2):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_2_5/rect_18x18x3.mdl")
+    holoScale(A, vec(1,1,1))
+    holoParent(A, holoEntity(2))  
+    holoMaterial(A,BaseMaterial) 
+    
+    A = 37
+    holoCreate(A, holoEntity(36):toWorld(vec(-6,4.7,0.3)), vec(1),
+    holoEntity(36):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1_5/rect_6x12x3.mdl")
+    holoScale(A, vec(0.7,0.6,1))
+    holoParent(A, holoEntity(36))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 38
+    holoCreate(A, holoEntity(36):toWorld(vec(-2.2,2.9,0.3)), vec(1),
+    holoEntity(36):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1_5/rect_6x12x3.mdl")
+    holoScale(A, vec(1,0.6,1))
+    holoParent(A, holoEntity(36))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 39
+    holoCreate(A, holoEntity(36):toWorld(vec(2,2.9,0.3)), vec(1),
+    holoEntity(36):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1_5/rect_6x12x3.mdl")
+    holoScale(A, vec(0.7,0.6,1))
+    holoParent(A, holoEntity(36))  
+    holoMaterial(A,LeverMaterial)
+    
+    #Dynamics
+    A = 40
+    holoCreate(A, holoEntity(37):toWorld(vec(-1,1.2,1.3)), vec(1),
+    holoEntity(37):toWorld(ang(-15,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1/rect_3x6x3.mdl")
+    holoScale(A, vec(1,0.4,0.4))
+    holoParent(A, holoEntity(37))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 41
+    holoCreate(A, holoEntity(40):toWorld(vec(1,0.1,0.6)), vec(1),
+    holoEntity(40):toWorld(ang(0,180,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_5/rect_48x48x1_5.mdl")
+    holoScale(A, vec(0.02,0.02,0.1))
+    holoParent(A, holoEntity(40))  
+    holoMaterial(A,"models/magtrainslocos/notch0")
+    
+    A = 42
+    holoCreate(A, holoEntity(37):toWorld(vec(0,0.7,0)), vec(1),
+    holoEntity(37):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.6,0.2,0.6))
+    holoParent(A, holoEntity(37))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 43
+    holoCreate(A, holoEntity(37):toWorld(vec(0,-0.8,0)), vec(1),
+    holoEntity(37):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.6,0.2,0.6))
+    holoParent(A, holoEntity(37))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 44
+    holoCreate(A, holoEntity(37):toWorld(vec(0,-0.1,0)), vec(1),
+    holoEntity(37):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_4/cylinder_9x3.mdl")
+    holoScale(A, vec(0.7,0.7,0.5))
+    holoParent(A, holoEntity(37))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 45
+    holoCreate(A, holoEntity(44):toWorld(vec(0,0.2,0)), vec(1),
+    holoEntity(44):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/monkcabdetailpack/alco/alco_rs3_reverser.mdl")
+    holoScale(A, vec(0.8))
+    holoParent(A, holoEntity(44))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 46
+    holoCreate(A, holoEntity(44):toWorld(vec(0,3.7,0)), vec(1),
+    holoEntity(44):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x3x1_5.mdl")
+    holoScale(A, vec(0.5,0.5,0.1))
+    holoParent(A, holoEntity(44))  
+    holoMaterial(A,LeverMaterial)
+    
+    
+    #Throttle
+    A = 47
+    holoCreate(A, holoEntity(38):toWorld(vec(0,1.2,1.3)), vec(1),
+    holoEntity(38):toWorld(ang(-15,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1/rect_3x6x3.mdl")
+    holoScale(A, vec(1,0.4,0.4))
+    holoParent(A, holoEntity(38))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 48
+    holoCreate(A, holoEntity(47):toWorld(vec(1,0.1,0.6)), vec(1),
+    holoEntity(47):toWorld(ang(0,180,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_5/rect_48x48x1_5.mdl")
+    holoScale(A, vec(0.02,0.02,0.1))
+    holoParent(A, holoEntity(47))  
+    holoMaterial(A,"models/magtrainslocos/notch0a")
+    
+    A = 49
+    holoCreate(A, holoEntity(38):toWorld(vec(0,0.7,0)), vec(1),
+    holoEntity(38):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.7,0.2,0.7))
+    holoParent(A, holoEntity(38))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 50
+    holoCreate(A, holoEntity(38):toWorld(vec(0,-0.8,0)), vec(1),
+    holoEntity(38):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.7,0.2,0.7))
+    holoParent(A, holoEntity(38))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 51
+    holoCreate(A, holoEntity(38):toWorld(vec(0,-0.1,0)), vec(1),
+    holoEntity(38):toWorld(ang(50,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_4/cylinder_9x3.mdl")
+    holoScale(A, vec(0.8,0.8,0.5))
+    holoParent(A, holoEntity(38))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 52
+    holoCreate(A, holoEntity(51):toWorld(vec(0,0,0)), vec(1),
+    holoEntity(51):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/monkcabdetailpack/alco/alco_rs3_reverser.mdl")
+    holoScale(A, vec(1,1,0.8))
+    holoParent(A, holoEntity(51))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 53
+    holoCreate(A, holoEntity(51):toWorld(vec(0,4.3,0)), vec(1),
+    holoEntity(51):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x3x1_5.mdl")
+    holoScale(A, vec(0.6,0.6,0.1))
+    holoParent(A, holoEntity(51))  
+    holoMaterial(A,LeverMaterial)
+    
+    #Reverser
+    A = 54
+    holoCreate(A, holoEntity(39):toWorld(vec(0,0.7,0)), vec(1),
+    holoEntity(39):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.6,0.2,0.6))
+    holoParent(A, holoEntity(39))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 55
+    holoCreate(A, holoEntity(39):toWorld(vec(0,-0.8,0)), vec(1),
+    holoEntity(39):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.6,0.2,0.6))
+    holoParent(A, holoEntity(39))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 56
+    holoCreate(A, holoEntity(39):toWorld(vec(0,-0.1,0)), vec(1),
+    holoEntity(39):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_4/cylinder_9x3.mdl")
+    holoScale(A, vec(0.7,0.7,0.5))
+    holoParent(A, holoEntity(39))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 57
+    holoCreate(A, holoEntity(56):toWorld(vec(0,0.2,0)), vec(1),
+    holoEntity(56):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/monkcabdetailpack/alco/alco_rs3_reverser.mdl")
+    holoScale(A, vec(0.8))
+    holoParent(A, holoEntity(56))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 58
+    holoCreate(A, holoEntity(56):toWorld(vec(0,3.7,0)), vec(1),
+    holoEntity(56):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles_thin/size_1/rect_3x3x1_5.mdl")
+    holoScale(A, vec(0.5,0.5,0.1))
+    holoParent(A, holoEntity(56))  
+    holoMaterial(A,LeverMaterial)
+    
+    #Horn
+    A = 59
+    holoCreate(A, holoEntity(1):toWorld(vec(-21,6,4)), vec(1),
+    holoEntity(1):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.2,0.1,0.2))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 60
+    holoCreate(A, holoEntity(1):toWorld(vec(-21,6,4)), vec(1),
+    holoEntity(1):toWorld(ang(0,0,90)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/cylinders/size_2/cylinder_3x6.mdl")
+    holoScale(A, vec(0.4,0.4,0.2))
+    holoParent(A, holoEntity(1))  
+    holoMaterial(A,LeverMaterial)  
+    
+    A = 61
+    holoCreate(A, holoEntity(60):toWorld(vec(0,0.6,0)), vec(1),
+    holoEntity(60):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1/rect_3x12x3.mdl")
+    holoScale(A, vec(0.2,0.2,0.2))
+    holoParent(A, holoEntity(60))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 62
+    holoCreate(A, holoEntity(60):toWorld(vec(-0.3,1.5,0)), vec(1),
+    holoEntity(60):toWorld(ang(0,0,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/rectangles/size_1/rect_3x6x3.mdl")
+    holoScale(A, vec(0.2,0.2,0.2))
+    holoParent(A, holoEntity(60))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 63
+    holoCreate(A, holoEntity(60):toWorld(vec(-1,1.5,0)), vec(1),
+    holoEntity(60):toWorld(ang(0,90,0)))
+    holoColor(A, BaseColor)
+    holoModel(A, "models/sprops/geometry/t_fdisc_12.mdl")
+    holoScale(A, vec(0.15,0.1,0.15))
+    holoParent(A, holoEntity(60))  
+    holoMaterial(A,LeverMaterial)
+    
+    A = 64
+    holoCreate(A, holoEntity(60):toWorld(vec(3.5,1.5,0)), vec(1),
+    holoEntity(60):toWorld(ang(0,90,0)))
+    holoColor(A,vec(30,30,30))
+    holoModel(A, "models/monkcabdetailpack/alco/alco_rs3_reverser.mdl")
+    holoScale(A, vec(0.8,1,0.8))
+    holoParent(A, holoEntity(60))  
+    holoMaterial(A,"wtp/metal_2")
+    holoClipEnabled(A,1,1)
+    holoClip(A,1,vec(0,4.5,0),vec(0,1,0),0)
+    
+    #Indicator Board
+    
+    A = 65
+    holoCreate(A, E:toWorld(vec(9,8,45)), vec(1),
+    E:toWorld(ang(0,0,0)))
+    holoColor(A, vec4(255,255,255,255))
+    holoModel(A, "models/monkcabdetailpack/misc/ind_waffle.mdl")
+    holoScale(A, vec(1,1,1))
+    holoParent(A, E)  
+    holoMaterial(A,"") 
+
+    holoEntity(65):setSubMaterial(2,"models/monkcabdetailpack/indwaffle/ind_brk_unlit")
+    holoEntity(65):setSubMaterial(3,"models/monkcabdetailpack/indwaffle/ind_PCS_unlit")
+    holoEntity(65):setSubMaterial(4,"models/monkcabdetailpack/indwaffle/ind_WS_unlit")
+    holoEntity(65):setSubMaterial(7,"models/monkcabdetailpack/indwaffle/ind_sd_unlit")
+    
+    
+    function void setControlAng(
+    IndipendentIndex,IndipendentAng,LocoBrakePressure,
+    AutomaticIndex,AutomaticAng,TrainBrakePressure,
+    LoadNeedleIndex,LoadNeedleAng,
+    Air1Needle1Index,Air1Needle1Ang,
+    Air1Needle2Index,Air1Needle2Ang,
+    Air2Needle1Index,Air2Needle1Ang,
+    Air2Needle2Index,Air2Needle2Ang,
+    SelectorIndex,SelectorAng,
+    ThrottleIndex,ThrottleAng,Dynamics,
+    ReverserIndex,ReverserAng,
+    HornIndex,HornAng
+    ){
+    holoAng(IndipendentIndex,E:toWorld(ang(0,AirBrakeType ? -90+LocoBrakePressure : -60+IndipendentAng*40,0)))
+    holoAng(AutomaticIndex,E:toWorld(ang(180,AirBrakeType ? -TrainBrakePressure : -10+AutomaticAng*40,0))) 
+    holoAng(LoadNeedleIndex,holoEntity(28):toWorld(ang(0,0,-LoadNeedleAng)))
+    holoAng(Air1Needle1Index,holoEntity(30):toWorld(ang(0,0,145-Air1Needle1Ang*1.75))) 
+    holoAng(Air1Needle2Index,holoEntity(30):toWorld(ang(0,0,145-Air1Needle2Ang*1.75)))
+    holoAng(Air2Needle1Index,holoEntity(30):toWorld(ang(0,0,145-Air2Needle1Ang*1.75))) 
+    holoAng(Air2Needle2Index,holoEntity(30):toWorld(ang(0,0,145-Air2Needle2Ang*1.75))) 
+    holoAng(SelectorIndex,holoEntity(37):toWorld(ang(0,0,90))) 
+    holoAng(ThrottleIndex,holoEntity(38):toWorld(ang(50-(Dynamics > 0 ?  ThrottleAng*12.5 : ThrottleAng*12.5),0,90))) 
+    holoAng(ReverserIndex,holoEntity(39):toWorld(ang(ReverserAng*45,0,90)))
+    holoAng(HornIndex,holoEntity(1):toWorld(ang(Horn*10,0,90)))
+    }
+}
+
+
+if(MU_Master){
+    
+    timer("refresh",100)
+    local RLCPTWlk = RLCPT:wirelink()
+    local Reverser = RLCPTWlk["Reverser",number]
+    local Notch = RLCPTWlk["Notch",number]
+    local Dynamics = RLCPTWlk["Dynamics",number]
+    local AB16M_Notch = RLCPTWlk["AB16M_Notch",number]
+    local LB16M_Notch = RLCPTWlk["LB16M_Notch",number]
+    local AB26L = RLCPTWlk["AB26L",number]
+    local LB26L = RLCPTWlk["LB26L",number]
+    local Emergency = RLCPTWlk["Emergency",number] 
+    local BrakeInfo = RLCPTWlk["BrakeInfo",array]
+    local Load = RLCPTWlk["Load",number]
+    local DynaNotch = RLCPTWlk["DynaNotch",number]
+    local RealNotch = RLCPTWlk["RealNoth",number]
+    local WheelSlip = RLCPTWlk["WheelSlip",number]
+    local Emergency = RLCPTWlk["Emergency",number]
+    local Sanding = RLCPTWlk["Sanding",number]
+
+    if(Dynamics){timer("pospulse",100)}
+    if(!Dynamics){timer("negpulse",100)}
+    
+    if(clk("pospulse")){SelectorChange = 1}else{SelectorChange = 0}
+    if(clk("negpulse")){SelectorChange = -1}else{SelectorChange = 0}
+    
+    setControlAng(
+    10,LB16M_Notch,BrakeInfo[4,number],
+    21,AB16M_Notch,BrakeInfo[2,number],
+    29,Load > 0 ? Load : Load/2,
+    31,BrakeInfo[2,number],
+    32,BrakeInfo[1,number],
+    34,BrakeInfo[3,number],
+    35,BrakeInfo[5,number],
+    44,SelectorChange*45,
+    51,Notch,Dynamics,
+    56,Reverser,
+    60,Horn)
+    
+    ThrottleArray = array(
+    "models/magtrainslocos/notch0a",
+    "models/magtrainslocos/notch1",
+    "models/magtrainslocos/notch2",
+    "models/magtrainslocos/notch3",
+    "models/magtrainslocos/notch4",
+    "models/magtrainslocos/notch5",
+    "models/magtrainslocos/notch6",
+    "models/magtrainslocos/notch7",
+    "models/magtrainslocos/notch8"
+    )
+    
+    SelectorArray = array(
+    "models/magtrainslocos/notch0",
+    "models/magtrainslocos/notch1"
+    )
+    holoMaterial(41,MU_Master ? (Dynamics ? "models/magtrainslocos/notchb" : "models/magtrainslocos/notch1") : "models/magtrainslocos/notch0b")
+    holoMaterial(48,ThrottleArray[Notch+1,string])
+    
+    holoEntity(65):setSubMaterial(2,Load <-35 ? "models/monkcabdetailpack/indwaffle/ind_brk_lit" : "models/monkcabdetailpack/indwaffle/ind_brk_unlit")
+    holoEntity(65):setSubMaterial(3,Emergency ? "models/monkcabdetailpack/indwaffle/ind_PCS_lit" : "models/monkcabdetailpack/indwaffle/ind_PCS_unlit")
+    holoEntity(65):setSubMaterial(4,WheelSlip ? "models/monkcabdetailpack/indwaffle/ind_WS_lit" : "models/monkcabdetailpack/indwaffle/ind_WS_unlit")
+    holoEntity(65):setSubMaterial(7,Sanding ? "models/monkcabdetailpack/indwaffle/ind_sd_unlit" : "models/monkcabdetailpack/indwaffle/ind_sd_unlit")
+}
+
+if(LightToggle & ~LightToggle){
+    Light = !Light
+    E:soundPlay(0,1,"buttons/lightswitch2.wav")
+}
+if(BellToggle & ~BellToggle){
+    Bell = !Bell
+    E:soundPlay(0,1,Bell ? "gsgtrainsounds/misc/air_on.wav" : "gsgtrainsounds/misc/air_off.wav")
+}
+if(MiscToggle & ~MiscToggle){
+    Misc = !Misc
+}

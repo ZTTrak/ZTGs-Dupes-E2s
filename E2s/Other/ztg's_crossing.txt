@@ -1,0 +1,37 @@
+@name ZTG's Crossing New (Private)
+@inputs CrossingOn
+@persist CrossingSound
+#American Crossings
+#@model models/trakpak3_us/signals/xing/post_gated_rh.mdl
+@model models/trakpak3_us/signals/xing/post_gated_lh.mdl
+#@model models/trakpak3_us/signals/xing/cantilever_rh.mdl
+#@model models/trakpak3_us/signals/xing/cantilever_lh.mdl
+#@model models/trakpak3_us/signals/xing/griswold.mdl
+#By armystuntman.
+##Bells:
+"scotttrains/crossings/usa/wch_bell3.wav"
+"scotttrains/crossings/usa/wch_ebell_broken.wav"
+"scotttrains/crossings/usa/wch_ebell1.wav"
+"scotttrains/crossings/usa/usa_crossing4.wav"
+"scotttrains/crossings/usa/wch_mechanical_bell2.wav"
+"scotttrains/crossings/usa/wrrs_motorizedbell.wav"
+"scotttrains/crossings/usa/wch_bell3_echo.wav"
+"scotttrains/crossings/usa/safetran_type2_ebell1.wav"
+"scotttrains/crossings/usa/safetran_type1_bell.wav"
+CrossingBase = entity()
+CrossingBase:setBodygroup(3,1)
+CrossingBase:setBodygroup(2,3)
+if(CrossingOn>=1){
+entity():setSkin(5)
+soundPlay("crossing",0,"scotttrains/crossings/usa/wch_bell3_echo.wav") 
+entity():animate("close",1)
+}
+
+if(CrossingOn==0){
+entity():setSkin(2)
+soundStop("crossing")
+entity():animate("open",0.9)
+entity():soundPlay(0,10000,"scotttrains/crossings/usa/gatemotor_up.wav")
+}
+
+

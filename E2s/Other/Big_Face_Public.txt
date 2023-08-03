@@ -1,0 +1,158 @@
+@name Big Face Public
+@inputs Frown Whistle Right Left Up Down Angry Sad
+@outputs 
+@persist
+@trigger 
+@model models/props_phx/construct/plastic/plastic_angle_360.mdl
+#Face by Pokesnorlax with permission, holo'd by Armystuntman. Public, please do not remove this tag.
+entity():setMaterial("bobsters_trains/br_intercity_grey")
+#Eye Right
+holoCreate(1)
+holoModel(1, "models/props_c17/streetsign001c.mdl")
+holoPos(1,entity():toWorld(vec(15,18,3)))
+holoAng(1, entity():toWorld(ang(0,0,90)) )
+holoScale(1, vec(1,5,1))
+holoMaterial(1,"WTP/paint_1")
+holoColor(1, vec(255,255,255))
+holoParent(1, entity())
+#Eye Left
+holoCreate(2)
+holoModel(2, "models/props_c17/streetsign001c.mdl")
+holoPos(2,entity():toWorld(vec(15,-18,3)))
+holoAng(2, entity():toWorld(ang(0,0,90)) )
+holoScale(2, vec(1,5,1))
+holoMaterial(2,"bobsters_trains/base")
+holoParent(2, entity())
+#Nose
+holoCreate(3)
+holoModel(3, "models/sprops/geometry/hhex_18.mdl")
+holoPos(3,entity():toWorld(vec(-6,0,4)))
+holoAng(3, entity():toWorld(ang(0,0,0)) )
+holoScale(3, vec(1,1,1))
+holoMaterial(3,"bobsters_trains/br_intercity_grey")
+holoColor(3, vec(255,255,255))
+holoParent(3, entity())
+#Mouth
+holoCreate(4)
+holoModel(4, "models/sprops/geometry/qring_48.mdl")
+holoPos(4,entity():toWorld(vec(-22,0,3)))
+holoAng(4, entity():toWorld(ang(0,-45,90)) )
+holoScale(4, vec(1,1,1))
+holoMaterial(4,"WTP/paint_1")
+holoColor(4, vec(0,0,0))
+holoParent(4, entity())
+#Pupil Right
+holoCreate(5)
+holoModel(5, "models/sprops/cylinders/size_4/cylinder_9x3.mdl")
+holoPos(5,entity():toWorld(vec(15,18,3)))
+holoAng(5, entity():toWorld(ang(0,0,0)) )
+holoScale(5, vec(1,1,1))
+holoMaterial(5,"WTP/paint_1")
+holoColor(5, vec(0,0,0))
+holoParent(5, entity())
+#Pupil Left
+holoCreate(6)
+holoModel(6, "models/sprops/cylinders/size_4/cylinder_9x3.mdl")
+holoPos(6,entity():toWorld(vec(15,-18,3)))
+holoAng(6, entity():toWorld(ang(0,0,0)) )
+holoScale(6, vec(1,1,1))
+holoMaterial(6,"WTP/paint_1")
+holoColor(6, vec(0,0,0))
+holoParent(6, entity())
+#Eyebrow Left
+holoCreate(7)
+holoModel(7, "models/items/item_item_crate_chunk01.mdl")
+holoPos(7,entity():toWorld(vec(27,-20,4)))
+holoAng(7, entity():toWorld(ang(0,180,180)) )
+holoScale(7, vec(1,1,2))
+holoMaterial(7,"WTP/paint_1")
+holoColor(7, vec(0,0,0))
+holoParent(7, entity())
+#Eyebrow Right
+holoCreate(8)
+holoModel(8, "models/items/item_item_crate_chunk01.mdl")
+holoPos(8,entity():toWorld(vec(27,20,4)))
+holoAng(8, entity():toWorld(ang(180,0,180)) )
+holoScale(8, vec(1,1,2))
+holoMaterial(8,"WTP/paint_1")
+holoColor(8, vec(0,0,0))
+holoParent(8, entity())
+#Eyelid Right
+holoCreate(9)
+holoModel(9, "models/sprops/cuboids/height06/size_1/cube_6x24x6.mdl")
+holoPos(9,entity():toWorld(vec(5,20,2)))
+holoAng(9, entity():toWorld(ang(0,90,0)) )
+holoScale(9, vec(1,1,1))
+holoMaterial(9,"bobsters_trains/br_intercity_grey")
+holoColor(9, vec(255,255,255))
+holoParent(9, entity())
+#Eyelid Left
+holoCreate(10)
+holoModel(10, "models/sprops/cuboids/height06/size_1/cube_6x24x6.mdl")
+holoPos(10,entity():toWorld(vec(5,-20,2)))
+holoAng(10, entity():toWorld(ang(0,90,0)) )
+holoScale(10, vec(1,1,1))
+holoMaterial(10,"bobsters_trains/br_intercity_grey")
+holoColor(10, vec(255,255,255))
+holoParent(10, entity())
+#Eyeclose Right
+holoCreate(11)
+holoModel(11, "models/props_c17/streetsign001c.mdl")
+holoPos(11,entity():toWorld(vec(15,18,-2.5)))
+holoAng(11, entity():toWorld(ang(0,0,90)) )
+holoScale(11, vec(1,20,1))
+holoMaterial(11,"bobsters_trains/br_intercity_grey")
+holoColor(11, vec(255,255,255))
+holoParent(11, entity())
+#Eyeclose Left
+holoCreate(12)
+holoModel(12, "models/props_c17/streetsign001c.mdl")
+holoPos(12,entity():toWorld(vec(15,-18,-2.5)))
+holoAng(12, entity():toWorld(ang(0,0,90)) )
+holoScale(12, vec(1,20,1))
+holoMaterial(12,"bobsters_trains/br_intercity_grey")
+holoColor(12, vec(255,255,255))
+holoParent(12, entity())
+#Base2, for if it doesn't quite fit right.
+#entity():setAlpha(0)
+#holoCreate(13)
+#holoModel(13, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+#holoPos(13,entity():toWorld(vec(0,0,0)))
+#holoAng(13, entity():toWorld(ang(0,0,0)) )
+#holoMaterial(13,"bobsters_trains/br_intercity_grey")
+#holoScale(13, vec(0.9,0.9,1))
+#holoParent(13, entity())
+if(Up == 1){
+holoPos(6,entity():toWorld(vec(20,-18,3)))
+holoPos(5,entity():toWorld(vec(20,18,3)))
+}
+if(Down == 1){
+holoPos(6,entity():toWorld(vec(11,-18,3)))
+holoPos(5,entity():toWorld(vec(11,18,3)))
+}
+if(Left == 1){
+holoPos(6,entity():toWorld(vec(13,-24,3)))
+holoPos(5,entity():toWorld(vec(13,13,3)))
+}
+if(Right == 1){
+holoPos(6,entity():toWorld(vec(13,-13,3)))
+holoPos(5,entity():toWorld(vec(13,24,3)))
+}
+if(Frown == 1){
+holoPos(4,entity():toWorld(vec(-26,0,3)))
+holoAng(4, entity():toWorld(ang(0,130,90)) )
+}
+if(Whistle == 1){
+holoPos(11,entity():toWorld(vec(15,18,2.5)))
+holoPos(12,entity():toWorld(vec(15,-18,2.5)))
+holoAng(7, entity():toWorld(ang(0,190,180)) )
+holoAng(8, entity():toWorld(ang(180,-10,180)) )
+}
+if(Angry == 1){
+holoAng(7, entity():toWorld(ang(0,200,180)) )
+holoAng(8, entity():toWorld(ang(180,-20,180)) )
+}
+if(Sad == 1){
+holoAng(7, entity():toWorld(ang(0,170,180)) )
+holoAng(8, entity():toWorld(ang(180,10,180)) )
+}

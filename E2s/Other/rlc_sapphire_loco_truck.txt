@@ -1,0 +1,83 @@
+@name RLC Sapphire LOCO Truck
+@inputs  [RLCSHTrucks]:array Baseplate:entity 
+@outputs On On2 E:entity 
+@persist [WheelSlip Emergency MPH Load Reverser Dynamics]:number E:entity Angle Speed Angset Charge_A Cur Yaw2 Yaw1 Yaw3 Yaw
+@trigger 
+@model models/magtrainslocos/trucks/htcr_2_44_phx.mdl
+@outputs PercentGrade:string Angle Grade Yaw
+@persist O:entity WheelSliptimer 
+@trigger 
+if(first()|duped()){
+    O = owner()
+}
+
+Angle = entity():angles():roll()
+if(20>round(tan(Angle)*100,2)){
+    Grade = round(tan(Angle)*100,2)
+    
+}else{
+  
+    Grade = 0
+}
+if(first()|dupefinished()){
+
+    soundPlay(1,0,"gsgtrainsounds/wheels/tractionmotor1_loud.wav")
+    soundPlay(0,0,"_jazzlok/traction_motor/abb_inverter_phase1_low.wav")
+    E = entity()
+    E:setAlpha(0)
+
+    holoCreate(0,E:toWorld(vec(0,0,0)),vec(1),E:angles(),vec(90),"models/magtrainslocos/trucks/htcr_2_44_phx.mdl")
+    holoParent(0,E)
+    holoEntity(0):setSubMaterial(4,"models/proppertextures/invisible")
+    holoEntity(0):setSubMaterial(5,"models/proppertextures/invisible")
+    holoEntity(0):setSubMaterial(6,"models/proppertextures/invisible")
+    holoCreate(1,E:toWorld(vec(0,99,-20.02)),vec(1.04),E:angles(),vec(255),"models/props_metaladon/parts/wheelset_40.mdl")
+    holoParent(1,E)
+    holoCreate(2,E:toWorld(vec(0,-65.5,-20.02)),vec(1.04),E:angles(),vec(255),"models/props_metaladon/parts/wheelset_40.mdl")
+    holoParent(2,E)
+    holoCreate(3,E:toWorld(vec(0,14,-20.02)),vec(1.04),E:angles(),vec(255),"models/props_metaladon/parts/wheelset_40.mdl")
+    holoParent(3,E)
+
+
+}
+
+Load=RLCSHTrucks[1,number] 
+MPH=RLCSHTrucks[2,number]  
+Dynamics=RLCSHTrucks[3,number] 
+
+Cur=RLCSHTrucks[5,number] 
+Reverser=RLCSHTrucks[6,number] 
+if(MPH<1|Reverser==0){timer("run",2000)}else{timer("run",400)}
+
+
+if(RLCSHTrucks[4,number]){WheelSlip=1}
+if(WheelSlip==1){On2 = 1 WheelSliptimer+=0.5}
+if(WheelSliptimer>40){WheelSliptimer=0 WheelSlip=0 On2=0}
+if(Cur==36&MPH >2){On = 1}else{On=0}
+soundPitch(1,MPH*2.3)
+soundPitch(0,MPH*2.3)
+if(Angle >= 180){Angset = 0}
+else{Angset += Speed}
+Charge_A = Charge_A + ( Angset - Charge_A /4) /  max( 50, 0 )     
+
+
+if(Load>0){soundVolume(1,Load*0.01)}else{soundVolume(0,Load*-0.01)}
+if(Reverser==-1){Speed = -7*MPH}
+if(Reverser==1){Speed = 7*MPH}
+if(MPH<0.5){Speed = 0
+holoAng(1,entity():toWorld(ang(0,0,0)))
+holoAng(2,entity():toWorld(ang(0,0,0)))
+holoAng(3,entity():toWorld(ang(0,0,0)))}else{holoAng(1,entity():toWorld(ang(0,0,0-Charge_A)))
+holoAng(2,entity():toWorld(ang(0,0,0-Charge_A)))
+holoAng(3,entity():toWorld(ang(0,0,0-Charge_A)))}
+if(Reverser==-1&WheelSlip){Speed = -200*MPH}
+if(Reverser==1&WheelSlip){Speed = 200*MPH}
+
+#[RLCSHTrucks = array(Load,MPH,Dynamics,WheelSlip,BrakeCyl)]#
+
+
+Yaw1 = entity():angles():yaw()
+Yaw2 = Baseplate:angles():yaw()
+Yaw3=+90-Yaw2+Yaw1
+
+Yaw=Yaw3*3

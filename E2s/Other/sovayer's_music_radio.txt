@@ -1,0 +1,95 @@
+@name Sovayer's Music Radio
+@inputs On
+@outputs 
+@persist T Time N
+@trigger 
+@model models/titus's_propper_model_pack_2.4/propper/cabradios/cabradionew.mdl
+
+if(first() | duped()){
+    Time = 480 #The time, in seconds, between sounds. You can change this if you want.
+}
+interval(Time*1000)
+
+if(On){
+    N = randint(1,72)
+
+    Sound = select(N
+    ,"andyspack/music/back and forth.mp3"
+    ,"andyspack/music/big iron.mp3"
+    ,"andyspack/music/blood on the saddle.mp3"
+    ,"andyspack/music/break my stride thomas.mp3"
+    ,"andyspack/music/build the robots.mp3"
+    ,"andyspack/music/buttercup.mp3"
+    ,"andyspack/music/canadian pacific song.mp3"
+    ,"andyspack/music/cargo moving people nwsong.mp3"
+    ,"andyspack/music/cheese.mp3"
+    ,"andyspack/music/convoy.mp3"
+    ,"andyspack/music/cotton fields.mp3"
+    ,"andyspack/music/crocodile rock.mp3"
+    ,"andyspack/music/devils train.mp3"
+    ,"andyspack/music/electric avenue 12inch version.mp3"
+    ,"andyspack/music/electric avenue.mp3"
+    ,"andyspack/music/electric feel.mp3"
+    ,"andyspack/music/endgame.mp3"
+    ,"andyspack/music/five eyes on you.mp3"
+    ,"andyspack/music/foggy mountain breakdown.mp3"
+    ,"andyspack/music/funkytown.mp3"
+    ,"andyspack/music/ghost trains.mp3"
+    ,"andyspack/music/ghosts of the rails.mp3"
+    ,"andyspack/music/grunts lair.mp3"
+    ,"andyspack/music/gruntys furnace fun.mp3"
+    ,"andyspack/music/hidden in the sand.mp3"
+    ,"andyspack/music/home sweet home.mp3"
+    ,"andyspack/music/i wont back down.mp3"
+    ,"andyspack/music/iron horse.mp3"
+    ,"andyspack/music/island.mp3"
+    ,"andyspack/music/johnny b goode.mp3"
+    ,"andyspack/music/kids 2008.mp3"
+    ,"andyspack/music/kids.mp3"
+    ,"andyspack/music/lady madonna beatles.mp3"
+    ,"andyspack/music/legends of the rails.mp3"
+    ,"andyspack/music/log theme.mp3"                              #35
+    ,"andyspack/music/midnight flyer.mp3"
+    ,"andyspack/music/miners silver ghost.mp3"
+    ,"andyspack/music/music goes round and around.mp3"
+    ,"andyspack/music/nkp587 shes a survivor.mp3"
+    ,"andyspack/music/of the wooooooorld.mp3"
+    ,"andyspack/music/old slew foot buck owens.mp3"
+    ,"andyspack/music/ole slew foot.mp3"
+    ,"andyspack/music/other friends but its a sans theme.mp3"
+    ,"andyspack/music/polar express main theme song.mp3"
+    ,"andyspack/music/rebel rouser.mp3"
+    ,"andyspack/music/rock and roll is here to stay.mp3"
+    ,"andyspack/music/rocky top.mp3"
+    ,"andyspack/music/santa fe all the way.mp3"
+    ,"andyspack/music/santa fe super chief.mp3"
+    ,"andyspack/music/self destruct.mp3"                           #50
+    ,"andyspack/music/silent partner.mp3"
+    ,"andyspack/music/southern pacific roll on.mp3"
+    ,"andyspack/music/the ballad of 611.mp3"
+    ,"andyspack/music/the devil went down to georgia.mp3"
+    ,"andyspack/music/the lion sleeps tonight.mp3"
+    ,"andyspack/music/the polar express hot chocolate.mp3"
+    ,"andyspack/music/the power of love.mp3"
+    ,"andyspack/music/the silver ghost.mp3"
+    ,"andyspack/music/the silverton.mp3"
+    ,"andyspack/music/thedore tugboat theme.mp3"
+    ,"andyspack/music/thomas and james are racing.mp3"
+    ,"andyspack/music/turn the lights off.mp3"
+    ,"andyspack/music/twist and shout.mp3"
+    ,"andyspack/music/wabash cannonball.mp3"
+    ,"andyspack/music/walk like an egyptian.mp3"
+    ,"andyspack/music/we didnt start the fire.mp3"
+    ,"andyspack/music/were on our way.mp3"
+    ,"andyspack/music/who can it be now.mp3"
+    ,"andyspack/music/wolfpack 5.mp3"
+    ,"andyspack/music/you spin me round murdermix.mp3"
+    ,"andyspack/music/you spin me round.mp3"
+    ,"andyspack/music/a hat in time/conductors train.mp3" #72
+    
+)
+
+    entity():soundPlay(0,Time-1,Sound)
+}else{
+    soundStop(0)
+}

@@ -1,0 +1,187 @@
+@name Wyv & Klapek's Coupler V3.1
+@outputs Global Lock IsLocked Unlock Master
+@persist Sound Lock Base:entity Trigger Unlock Master
+@trigger none
+@model models/gsgtrainprops/parts/couplers/type_e_coupler.mdl
+
+interval(200)
+
+if(first() | dupefinished()){   
+    
+    Base = entity()
+    Base:setMass(1000)
+    runOnChat(1)
+    
+    holoCreate(1,Base:toWorld(vec(-1,0,-10)),vec(1,1,1),Base:toWorld(ang(-90,0,0)),vec(50),"models/sprops/geometry/qring_42.mdl")
+    
+    holoCreate(2,Base:toWorld(vec(12.5,0,-19)),vec(0.8,0.8,1),Base:toWorld(ang(-90,0,0)),vec(60,160,200),"models/sprops/trans/air/pcone_2b_s.mdl")
+
+    holoCreate(3,Base:toWorld(vec(3,0,6)),vec(0.5,0.5,0.55),Base:toWorld(ang(0,0,90)),vec(60),"models/sprops/cylinders/size_2/cylinder_3x18.mdl")
+    
+    holoCreate(4,Base:toWorld(vec(3,0,6)),vec(0.3,0.5,0.6),Base:toWorld(ang(0,90,15)),vec(60),"models/props_c17/playground_teetertoter_stan.mdl")
+
+    
+    for(I=1,4){
+        holoParent(I,Base)
+        holoMaterial(I,"WTP/metal_2")
+        }
+       
+    holoParent(4,3)
+    
+    function lock(On){
+        holoAng(3,Base:toWorld(ang(30*!On,0,90)))
+        Base:setBodygroup(1,!On)
+    }
+    
+    timer("Clk",1000)
+    
+}  
+
+
+
+##########
+
+
+if(chatClk(owner())){
+
+    LS=lastSaid():lower()
+    
+    if(LS==".global"){Global=1} 
+    elseif(LS==".local"){Global=0}
+    elseif(LS==".lock"){
+        Lock=!IsLocked
+        Unlock=0
+        }
+    elseif(LS==".unlock"){
+        Lock=0
+        Unlock=IsLocked
+        }
+   # print("chat clk")
+    
+}elseif(clk("Clk")){
+    timer("Clk",1000)
+    if(Global){
+        Players=players()
+            for(I=1,Players:count()){
+                Player=Players[I,entity]
+                if(Player:aimEntity()==entity()){
+                      if(Player:keyUse()){
+                        Use=1        
+                    }
+                
+                
+            }
+        }
+    }else{
+        if(owner():aimEntity()==entity()){
+            Use=owner():keyUse()
+        }
+    }
+
+############
+    
+    
+    if(Lock&!IsLocked){
+
+        findIncludeModel("models/gsgtrainprops/parts/couplers/type_e_coupler.mdl")
+        findInSphere(Base:pos(),16)
+        findSortByDistance(Base:pos())
+        
+        Entity=findResult(1)
+        
+       # hint("search clk",1)
+
+    }
+    
+    
+    
+    
+    
+    IsLocked=entity():isWeldedTo():isValid()
+    
+    if(changed(Use)&Use){
+        if(IsLocked){
+            Unlock=1
+            Lock=0
+        }else{
+            Lock=!Lock
+            Unlock=0
+        }
+        
+        
+       # hint("LockSet:"+Lock+" UnLockSet:"+Unlock,2)
+    }
+    
+    elseif(Unlock&IsLocked){
+        Unlock=Master=IsLocked=0
+        hint("Unlock Now",1)
+        entity():constraintBreak("weld")
+        
+    
+    }
+    elseif(changed(IsLocked)){
+        if(Lock|Unlock){Lock=0
+            soundPlay(1,1,"_jazzlok/misc/couple.wav")
+        }
+        }
+    elseif(IsLocked){
+    #    Lock=IsLocked
+        }
+    
+    
+    
+        
+    
+    Trigger=Lock+IsLocked*2+Unlock
+    
+    if(changed(Trigger)|(Lock)){
+               
+    
+             
+        if(!IsLocked & Lock &Entity:isValid() & !Unlock){
+                Base:setPos(Entity:toWorld(vec(20, 0, 0)))
+                Base:setAng(Entity:toWorld(ang(0,180,0)))
+                Master=1
+                weld(entity(),Entity)
+                hint("Locked",1)
+                lock(1)
+    }
+        
+        
+        lock(IsLocked)
+        
+        
+        setName("Wyv & Klapek's Coupler V3.3"+"\nLock:"+Lock+"\nIsLocked:"+IsLocked+"\nUnlock:"+Unlock+"\nMater:"+Master)
+       # print("Trigger")
+    }
+
+
+}
+
+
+if(IsLocked){
+
+    if(Master){
+        if(changed(Master)){
+            
+            soundPlay(2,0,"_jazzlok/traction/wheel_rolling_03_loop.wav")
+        }
+        Vel=abs(Base:velL():x())
+        
+        soundPitch(2,Vel/5)
+        
+    }
+    else{soundPurge()}
+}
+
+
+
+    
+    
+    
+
+
+
+
+
+

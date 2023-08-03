@@ -1,0 +1,335 @@
+@name Now where could my pipe be
+@inputs [Table Chair Odessa]:entity EGP:wirelink
+@outputs Weld WeldB
+@persist Def:vector A B On Time Orange:vector Wood:string [Cat Catbase Go]:entity
+if(first()|duped())
+{   
+    Weld = 1
+    WeldB = 1
+    Def = vec(127,111,63)
+    Orange = vec(255,150,0)
+    Mouth = vec(255,198,148)
+    Wood = "phoenix_storms/Fender_wood"
+           
+    #Table
+    holoCreate(0,Table:toWorld(vec(4.7,10.6,-12)),vec(0.2,0.2,2.2),Table:toWorld(ang(0,0,0)),Def, "cube") holoMaterial(0, Wood) holoParent(0,Table)
+    holoCreate(1,Table:toWorld(vec(-4.7,10.6,-12)),vec(0.2,0.2,2.2),Table:toWorld(ang(0,0,0)),Def, "cube") holoMaterial(1, Wood) holoParent(1,Table)
+    holoCreate(2,Table:toWorld(vec(4.7,-10.6,-12)),vec(0.2,0.2,2.2),Table:toWorld(ang(0,0,0)),Def, "cube") holoMaterial(2, Wood) holoParent(2,Table)
+    holoCreate(3,Table:toWorld(vec(-4.7,-10.6,-12)),vec(0.2,0.2,2.2),Table:toWorld(ang(0,0,0)),Def, "cube") holoMaterial(3, Wood) holoParent(3,Table)
+    
+    #Cat
+    Catbase = holoCreate(50, entity():toWorld(vec(0,0,0)), vec(), entity():toWorld(ang(0,-90,0)), vec(),"cube") holoAlpha(50,0)
+    Cat = holoCreate(10, entity():toWorld(vec(0,0,0)), vec(0.3,0.3,0.3), entity():toWorld(ang(0,180,0)), vec(),"cube") holoAlpha(10,255) holoParent(10,Catbase)
+    holoCreate(11, Cat:toWorld(vec(0,0,5)), vec(0.9,1.1,1.6), Cat:toWorld(ang(0,0,-45)), Orange,"hq_sphere") holoAlpha(11,255) holoParent(11,Cat)
+    holoCreate(12, Cat:toWorld(vec(0,3.2,8.5)), vec(0.5,0.7,1.1), Cat:toWorld(ang(0,0,-60)), Orange,"hq_sphere") holoAlpha(12,255) holoParent(12,Cat)
+    holoCreate(13, Cat:toWorld(vec(0,7.6,10.3)), vec(0.7,0.2,0.5), Cat:toWorld(ang(0,0,0)), Orange,"hq_sphere") holoAlpha(13,255) holoParent(13,Cat)
+    #eyes
+    holoCreate(14, Cat:toWorld(vec(0.65,8.2,12.5)), vec(0.1,0.1,0.1), Cat:toWorld(ang(0,0,0)), vec(255,255,255),"hq_sphere") holoAlpha(14,255) holoParent(14,Cat)
+    holoCreate(15, Cat:toWorld(vec(-0.65,8.2,12.5)), vec(0.1,0.1,0.1), Cat:toWorld(ang(0,0,0)), vec(255,255,255),"hq_sphere") holoAlpha(15,255) holoParent(15,Cat)
+    holoCreate(21, Cat:toWorld(vec(0.65,8.2,12.5)), vec(0.12,0.12,0.12), Cat:toWorld(ang(0,0,20)), Orange,"hq_sphere") holoAlpha(21,255) holoParent(21,Cat)
+    holoClipEnabled(21,1)
+    holoClip(21,vec(0,0,0),vec(0,0,1),0)
+    holoCreate(22, Cat:toWorld(vec(-0.65,8.2,12.5)), vec(0.12,0.12,0.12), Cat:toWorld(ang(0,0,20)), Orange,"hq_sphere") holoAlpha(22,255) holoParent(22,Cat)
+    holoClipEnabled(22,1)
+    holoClip(22,vec(0,0,0),vec(0,0,1),0)
+    holoCreate(23, Cat:toWorld(vec(0.65,8.65,12.4)), vec(0.03,0.03,0.03), Cat:toWorld(ang(0,0,0)), vec(),"hq_sphere") holoAlpha(23,255) holoParent(23,Cat)
+    holoCreate(24, Cat:toWorld(vec(-0.65,8.65,12.4)), vec(0.03,0.03,0.03), Cat:toWorld(ang(0,0,0)), vec(),"hq_sphere") holoAlpha(24,255) holoParent(24,Cat)
+    #ears
+    holoCreate(16, Cat:toWorld(vec(-1,7.8,13.5)), vec(0.15,0.01,0.3), Cat:toWorld(ang(-10,0,-30)), Orange,"prism") holoAlpha(16,255) holoParent(16,Cat)
+    holoCreate(17, Cat:toWorld(vec(1,7.8,13.5)), vec(0.15,0.01,0.3), Cat:toWorld(ang(10,0,-30)), Orange,"prism") holoAlpha(17,255) holoParent(17,Cat)
+    #mouth
+    holoCreate(18, Cat:toWorld(vec(-1,8.7,11)), vec(0.25,0.1,0.15), Cat:toWorld(ang(-20,0,0)), Mouth,"hq_sphere") holoAlpha(18,255) holoParent(18,Cat)
+    holoCreate(19, Cat:toWorld(vec(1,8.7,11)), vec(0.25,0.1,0.15), Cat:toWorld(ang(20,0,0)), Mouth,"hq_sphere") holoAlpha(19,255) holoParent(19,Cat)
+    holoCreate(20, Cat:toWorld(vec(0,8.8,10.5)), vec(0.2,0.1,0.15), Cat:toWorld(ang(0,0,0)), Mouth,"hq_sphere") holoAlpha(20,255) holoParent(20,Cat)
+    #nose
+    holoCreate(25, Cat:toWorld(vec(0,8.9,11.9)), vec(0.07,0.05,0.05), Cat:toWorld(ang(0,0,0)), vec(255,220,242),"hq_sphere") holoAlpha(25,255) holoParent(25,Cat)
+    #pipe
+    holoCreate(26, Cat:toWorld(vec(0,10,11.2)), vec(0.05,0.05,0.5), Cat:toWorld(ang(0,0,90)), vec(127,0,255),"hq_cone") holoAlpha(26,255) holoParent(26,Cat)
+    holoCreate(27, Cat:toWorld(vec(0,13,12.6)), vec(0.15,0.15,0.3), Cat:toWorld(ang(0,0,180)), vec(127,0,255),"hq_hdome") holoAlpha(27,255) holoParent(27,Cat)
+    #Legs
+    holoCreate(28, Cat:toWorld(vec(4.5,0,-0.5)), vec(0.2,0.6,1.5), Cat:toWorld(ang(0,-10,0)), Orange,"hq_dome") holoAlpha(28,255) holoParent(28,Cat)
+    holoCreate(29, Cat:toWorld(vec(-4.5,0,-0.5)), vec(0.2,0.6,1.5), Cat:toWorld(ang(0,10,0)), Orange,"hq_dome") holoAlpha(29,255) holoParent(29,Cat)
+    holoCreate(30, Cat:toWorld(vec(-2.6,5.4,3)), vec(0.23,0.23,1), Cat:toWorld(ang(3,0,0)), Orange,"hq_rcylinder") holoAlpha(30,255) holoParent(30,Cat)
+    holoCreate(31, Cat:toWorld(vec(2.6,5.4,3)), vec(0.23,0.23,1), Cat:toWorld(ang(-3,0,0)), Orange,"hq_rcylinder") holoAlpha(31,255) holoParent(31,Cat)
+    
+    #tail
+    holoCreate(32, Cat:toWorld(vec(4.3,-5,0)), vec(1,1,1.1), Cat:toWorld(ang(0,0,0)), Orange,"hq_torus") holoAlpha(32,255) holoParent(32,Cat)
+    holoClipEnabled(32,1)
+    holoClip(32,vec(0,0,0),vec(0,-1,0),0)
+    holoCreate(33, Cat:toWorld(vec(9.55,-5.1,0.01)), vec(0.125,0.137,0.5), Cat:toWorld(ang(0,0,-90)), Orange,"hq_dome") holoAlpha(33,255) holoParent(33,Cat)
+    
+    #altface
+    holoCreate(34, Cat:toWorld(vec(0,8.6,12.3)), vec(0.65,0.65,0.8), Cat:toWorld(ang(0,90,0)), vec(50,50,50),"sphere") holoMaterial(34, "models/monk/grigori_head") holoAlpha(34,255) holoParent(34,Cat)
+    holoCreate(35, Cat:toWorld(vec(1.3,11.45,13.57)), vec(0.015,0.015,0.015), Cat:toWorld(ang(0,0,0)), vec(255,255,255),"hq_sphere") holoAlpha(35,255) holoParent(35,Cat)
+    holoCreate(36, Cat:toWorld(vec(-1.45,11.4,13.57)), vec(0.015,0.015,0.015), Cat:toWorld(ang(0,0,0)), vec(255,255,255),"hq_sphere") holoAlpha(36,255) holoParent(36,Cat)
+    
+    #specialstar
+    holoCreate(37, Chair:toWorld(vec(-12.59,-16.99,-18)), vec(0.28,11,0.1), Chair:toWorld(ang(0,54,0)), vec(), "hq_cylinder") holoAlpha(37,0)
+    holoCreate(38, Chair:toWorld(vec(12.59,-16.99,-18)), vec(0.28,11,0.1), Chair:toWorld(ang(0,-54,0)), vec(), "hq_cylinder") holoAlpha(38,0)
+    holoCreate(39, Chair:toWorld(vec(0,21.84,-18)), vec(0.28,11,0.1), Chair:toWorld(ang(0,90,0)), vec(), "hq_cylinder") holoAlpha(39,0)
+    holoCreate(40, Chair:toWorld(vec(-20.42,7,-18)), vec(0.28,11,0.1), Chair:toWorld(ang(0,-18,0)), vec(), "hq_cylinder") holoAlpha(40,0)
+    holoCreate(41, Chair:toWorld(vec(20.42,7,-18)), vec(0.28,11,0.1), Chair:toWorld(ang(0,18,0)), vec(), "hq_cylinder") holoAlpha(41,0)
+    holoCreate(42, Chair:toWorld(vec(0,0,-18)), vec(12.8,12.7,0.1), Chair:toWorld(ang()), vec(150,0,0), "hq_tube_thin") holoAlpha(42,0) holoMaterial(42, "effects/breenscreen_static01_")
+    holoCreate(43, Chair:toWorld(vec(0,0,-18)), vec(25,25,1), Chair:toWorld(ang()), vec(150,0,0), "cplane") holoAlpha(43,0) holoMaterial(43, "models/effects/portalrift_sheet")
+
+    holoCreate(44, Chair:toWorld(vec(66,22,-19)), vec(), Chair:toWorld(ang()), vec(), "cube") holoAlpha(44,0) 
+    holoCreate(45, Chair:toWorld(vec(40,-55,-19)), vec(), Chair:toWorld(ang()), vec(), "cube") holoAlpha(45,0) 
+    holoCreate(46, Chair:toWorld(vec(-40,-55,-19)), vec(), Chair:toWorld(ang()), vec(), "cube") holoAlpha(46,0) 
+    holoCreate(47, Chair:toWorld(vec(-65.7,21.6,-19)), vec(), Chair:toWorld(ang()), vec(), "cube") holoAlpha(47,0)
+    holoCreate(48, Chair:toWorld(vec(0.1,68.2,-19)), vec(), Chair:toWorld(ang()), vec(), "cube") holoAlpha(48,0)
+    holoCreate(49, holoEntity(43):toWorld(vec(0,0,0)), vec(), holoEntity(43):toWorld(ang(0,0,0)), vec(60,60,60),"sphere") holoAlpha(49,0) holoMaterial(49, "models/monk/grigori_head") holoParent(49,43)
+      
+     for(I=10,36)
+    {
+        holoAlpha(I,0)
+    }
+    
+    #EGPH######################
+    EGP:egpClear()
+    EGP:egpCircle(4,vec2(0,255),vec2(100,60))
+    EGP:egpCircle(3,vec2(-100,300),vec2(11,11))
+    EGP:egpCircle(2,vec2(-130,320),vec2(7,7))
+    EGP:egpCircle(1,vec2(-160,330),vec2(5,5))
+    
+    EGP:egpText(5, "Now where",vec2(0,230))
+    EGP:egpText(6, "could my",vec2(0,253))
+    EGP:egpText(7, "pipe be?",vec2(0,280))
+    for(I=5,7)
+    {
+        
+        EGP:egpColor(I,vec())
+        EGP:egpAlign(I,1,1)
+        EGP:egpFont(I,"ChatFont",30)
+    }
+    EGP:egpTriangle(8,vec2(300,430),vec2(300,450),vec2(-150,350))
+    EGP:egpRoundedBox(9, vec2(340,440),vec2(170,40))
+    EGP:egpText(10, "GARFIELD!",vec2(340,440))
+    EGP:egpColor(10,vec())
+    EGP:egpAlign(10,1,1)
+    EGP:egpFont(10,"ChatFont",30)
+    for(I=1,10)
+    {
+        EGP:egpAlpha(I,0)
+    }
+    timer("reset",1000)
+    reset()
+    
+}
+interval(100)
+Time+=1
+
+switch(Time)
+{
+    case 50,
+    for(I=1,7)
+    {
+        EGP:egpAlpha(I,255)
+    }
+    Odessa:soundPlay(1,0.7, "vo/coast/odessa/nlo_cub_carry.wav")
+    Weld = 0
+    break
+    
+    case 100,
+    for(I=10,33)
+    {
+        holoAlpha(I,255)
+    }
+    holoEntity(10):soundPlay(2,0, "garrysmod/balloon_pop_cute.wav")
+    break
+    
+    case 120,
+    for(I=1,7)
+    {
+        EGP:egpAlpha(I,0)
+    }
+    for(I=8,10)
+    {
+        EGP:egpAlpha(I,255)
+    }
+    Odessa:soundPlay(3,0, "vo/coast/odessa/male01/nlo_cubdeath02.wav")
+    break
+    
+    case 170,
+    for(I=8,10)
+    {
+        EGP:egpAlpha(I,0)
+    }
+    for(I=12,27)
+    {
+        holoAlpha(I,0)
+    }
+    for(I=34,36)
+    {
+        holoAlpha(I,255)
+    }
+    for(I=11,13)
+    {
+        holoMaterial(I, "models/shadertest/envball_6")
+        holoColor(I,vec(50,50,50))
+    }
+    for(I=28,33)
+    {
+        holoMaterial(I,"models/shadertest/envball_6")
+        holoColor(I,vec(50,50,50))
+    }
+    holoEntity(10):soundPlay(4,0, "ambient/alarms/city_siren_loop2.wav")
+    break
+    
+    case 200,
+    On = 1
+    holoEntity(10):soundPlay(8,0, "physics/concrete/rock_scrape_rough_loop1.wav")
+    break
+    
+    case 412,
+    for(I=37,41)
+    {
+        holoMaterial(I, "effects/breenscreen_static01_")
+        holoColor(I,vec(150,0,0))
+    }
+    for(I=42,43)
+    {
+        holoAlpha(I,255)
+    }
+    holoEntity(43):soundPlay(5,0, "ambient/levels/citadel/zapper_ambient_loop1.wav")
+    holoEntity(43):soundPlay(6,0, "ambient/levels/citadel/citadel_ambient_scream_loop1.wav")
+    break
+    
+    case 500,
+    A = 7
+    WeldB = 0
+    Odessa:soundPlay(7,0, "vo/npc/male01/no02.wav")
+    break
+    
+    case 550,
+    On = 1
+    holoEntity(10):soundPlay(10,0, "physics/concrete/rock_scrape_rough_loop1.wav")
+    break
+    
+    case 620,
+    A = 8
+    holoAlpha(49,255)
+    holoEntity(49):soundPlay(9,0, "vo/ravenholm/monk_death07.wav")
+    soundPitch(9,50)
+    break
+    
+    case 670,
+    selfDestructAll()
+    break
+    
+    
+}
+switch(On)
+{
+    case 0,
+    holoAng(50,entity():toWorld(ang(0,90,0)))
+    break
+    
+    case 1,
+    holoPos(50, (holoEntity(50):pos()+holoEntity(50):forward()*4+vec(0,0,0)))
+    holoAng(50,(-heading(holoEntity(50):pos(),ang(0),Go:pos()+vec(0,0,0.1))))
+    break
+    
+    case 2,
+    holoAng(50,(-heading(holoEntity(50):pos(),ang(0),Go:pos()+vec(0,0,0.1))))
+    break
+    
+    case 3,
+    holoPos(50, (holoEntity(50):pos()+holoEntity(50):up()*-1+vec(0,0,0)))
+    break
+}
+
+switch (A)
+{
+    case 0,
+    Go = holoEntity(44)
+    switch(holoEntity(50):pos():distance(Go:pos()) < 3)
+    {
+        case 1,
+        Go = holoEntity(46)
+        A = 1
+        break
+    }
+    break
+
+    case 1,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 2)
+    {
+        case 1,
+        Go = holoEntity(48)
+        A = 2
+        holoAlpha(38,255)
+        break
+    }
+    break
+    
+    case 2,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 2)
+    {
+        case 1,
+        Go = holoEntity(45)
+        A = 3
+        holoAlpha(40,255)
+        break
+    }
+    break
+    
+    case 3,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 2)
+    {
+        case 1,
+        Go = holoEntity(47)
+        A = 4
+        holoAlpha(41,255)
+        break
+    }
+    break
+    
+    case 4,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 2)
+    {
+        case 1,
+        Go = holoEntity(44)
+        A = 5
+        holoAlpha(37,255)
+        break
+    }
+    break
+    
+    case 5,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 3)
+    {
+        case 1,
+        Go = entity()
+        A = 6
+        holoAlpha(39,255)
+        break
+    }
+    break
+    
+    case 6,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 3)
+    {
+        case 1,
+        On = 2
+        Go = holoEntity(43)
+        soundStop(8)
+        break
+    }
+    break
+    
+    case 7,
+    switch(holoEntity(50):pos():distance(Go:pos()) < 3)
+    {
+        case 1,
+        On = 3
+        break
+    }
+    break
+    
+    case 8,
+    B+=1
+    holoScale(49, vec(B*0.3,B*0.3,B*0.9))
+    holoPos(49, (holoEntity(49):pos()+holoEntity(49):up()*2+vec(0,0,0)))
+    break
+    
+}

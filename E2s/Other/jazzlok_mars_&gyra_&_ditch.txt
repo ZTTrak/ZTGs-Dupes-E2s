@@ -1,0 +1,173 @@
+@name Jazzlok Mars &Gyra & Ditch
+@persist Increment Ditch Ditch2
+@inputs Entity:entity Mars_Gyra_Toggle Ditch_Toggle
+@outputs Circle:vector Increment Increment2 Ditch_T Ditch [DitchLight_Left_RGB DitchLight_Right_RGB]:vector
+@model models/sprops/cuboids/height06/size_1/cube_6x6x6.mdl
+Gyra_Mode = 1
+Speed = 4
+Radius = 30
+Ditch_Color = vec(255,150,0)   
+Scale = 1.55
+if(first() | dupefinished())
+{
+    A = 1
+    holoCreate(A)
+    holoColor(A,vec4(255,150,0,6))
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,Entity)
+    holoModel(A, "hq_cone")
+    holoScale(A, vec(20,20,50))
+    holoPos(A,Entity:toWorld(vec(285,0,0)))
+    holoAng(A,Entity:toWorld(ang(-90,0,0)))  
+    
+    holoClipEnabled(A,1,1)
+    holoClip(A,1,vec(0,0,-270),vec(0,0,1),0)
+
+    A = 2
+    holoCreate(A)
+    holoColor(A,vec4(255,150,0,4))
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,Entity)
+    holoModel(A, "hq_cone")
+    holoScale(A, vec(30,30,50))
+    holoPos(A,Entity:toWorld(vec(285,0,0)))
+    holoAng(A,Entity:toWorld(ang(-90,0,0)))  
+    
+    holoClipEnabled(A,1,1)
+    holoClip(A,1,vec(0,0,-270),vec(0,0,1),0)
+        
+    A = 3
+    holoCreate(A)
+    holoColor(A,vec4(255,150,0,2))
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,Entity)
+    holoModel(A, "hq_cone")
+    holoScale(A, vec(50,50,50))
+    holoPos(A,Entity:toWorld(vec(295,0,0)))
+    holoAng(A,Entity:toWorld(ang(-90,0,0)))  
+    
+    holoClipEnabled(A,1,1)
+    holoClip(A,1,vec(0,0,-280),vec(0,0,1),0)
+    
+    A = 4
+    holoCreate(A)
+    holoColor(A,vec(190,200,200) * 0.75)
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,entity())
+    holoModel(A, "models/sprops/misc/tubes/size_84/tube_84x78.mdl")
+    holoScale(A, vec(0.15) * Scale)
+    holoPos(A,entity():toWorld(vec(0,0,0) * Scale))
+    holoAng(A,entity():toWorld(ang(0,90,0)))  
+    
+    A = 5
+    holoCreate(A)
+    holoColor(A,vec(200))
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,entity())
+    holoModel(A, "models/sprops/misc/tubes/size_5/tube_96x12.mdl")
+    holoScale(A, vec(0.14) * Scale)
+    holoPos(A,entity():toWorld(vec(5,0,0) * Scale))
+    holoAng(A,entity():toWorld(ang(0,90,0)))     
+    
+    A = 6
+    holoCreate(A)
+    holoColor(A,vec(200))
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,entity())
+    holoModel(A, "models/sprops/misc/tubes/size_5/tube_96x12.mdl")
+    holoScale(A, vec(0.135) * Scale)
+    holoPos(A,entity():toWorld(vec(6,0,0) * Scale))
+    holoAng(A,entity():toWorld(ang(0,90,0)))     
+ 
+    A = 7
+    holoCreate(A)
+    holoParent(A,entity())
+    holoModel(A, "models/sprops/trans/lights/light_a4.mdl")
+    holoScale(A, vec(0.8) * Scale)
+    holoSkin(A,4)
+    holoPos(A,entity():toWorld(vec(3,0,0) * Scale))
+    holoAng(A,entity():toWorld(ang(0,0,0)))     
+
+    A = 8
+    holoCreate(A)
+    holoParent(A,entity())
+    holoModel(A, "models/sprops/trans/exhaust/tip_1.mdl")
+    holoScale(A, vec(1,3.76,3.76) * Scale)
+    holoPos(A,entity():toWorld(vec(3,0,0) * Scale))
+    holoAng(A,entity():toWorld(ang(0,0,0)))        
+    
+    A = 9
+    holoCreate(A)
+    holoColor(A,vec4(255,150,0,150))
+    holoMaterial(A, "wtp/metal_2") 
+    holoParent(A,entity())
+    holoModel(A, "models/sprops/geometry/sphere_12.mdl")
+    holoScale(A, vec(0.75,1.1,1.1) * Scale)
+    holoPos(A,entity():toWorld(vec(4.25,0,0) * Scale))
+    holoAng(A,entity():toWorld(ang(0,0,0)))     
+    
+    holoClipEnabled(A,1,1)
+    holoClip(A,1,vec(1,0,0),vec(1,0,0),0)
+}
+
+if(Mars_Gyra_Toggle)
+{
+    interval(10) 
+    Increment += 0.5
+    if (Increment > 360) 
+    {
+        Increment = 1
+    }
+    
+    Increment2 += 0.5    
+    if (Increment2 > 30) 
+    {
+        soundPlay("click",0,"_jazzlok/switches/switch_light_01.wav")
+        soundStop("click",0.5)
+        Increment2 = 1
+    }
+
+    if(Gyra_Mode)
+    {            
+        Rotate = vec(cos(Increment*3*Speed)*Radius,sin(Increment*3*Speed)*Radius,0)
+    }
+    
+    if(!Gyra_Mode)
+    {            
+        Rotate = vec(cos(Increment*2*Speed)*Radius,sin(Increment*4*Speed)*Radius,0)
+    }
+        
+    Entity:setAng(entity():toWorld(ang(Rotate)))
+    Entity:setPos(entity():toWorld(+vec(5,0,0) * Scale )) 
+    holoAng(7,entity():toWorld(ang(Rotate))) 
+     
+}
+
+if(Ditch_Toggle)
+{
+    interval(30) 
+    timer("Ditchlight",2000)
+    
+    if(clk("Ditchlight"))
+    {
+        Ditch_T = !Ditch_T
+    }
+    
+    if(!Ditch_T)
+    {
+        Ditch_T2 = 1
+    }
+    else
+    {
+        Ditch_T2 = 0
+    }
+        
+    Ditch = Ditch + (Ditch_T - Ditch) /  max( 20, 0 ) 
+    
+    Ditch2 = Ditch2 + (Ditch_T2 - Ditch2) /  max( 20, 0 ) 
+        
+    DitchLight_Left_RGB = Ditch_Color * Ditch
+    DitchLight_Right_RGB = Ditch_Color * Ditch2    
+}
+
+

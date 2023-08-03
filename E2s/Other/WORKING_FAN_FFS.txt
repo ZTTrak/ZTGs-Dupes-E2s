@@ -1,0 +1,42 @@
+@name WORKING FAN FFS
+@inputs On
+@outputs 
+@persist E:entity Angle Speed  Angset Charge_A
+@trigger 
+
+if(first()|duped()){
+    E = entity()
+    
+    Scale = vec(1.3,1.3,0.5)
+    Color = vec(45)
+    HousingFanType = 1
+    HousingGrillType = 1
+    FanType = 1
+    
+    holoCreate(0,E:pos(),Scale,E:angles(),Color,"models/gsgtrainprops/parts/fans/emd48_bladeless.mdl")
+    holoMaterial(0,"sprops/textures/sprops_metal5")
+    holoCreate(1,E:pos(),Scale,E:angles(),vec(255),"models/gsgtrainprops/parts/fans/fanblade.mdl")
+    
+    holoParent(0,E)
+    holoParent(1,E)
+    holoBodygroup(0,1,HousingFanType)
+    holoBodygroup(0,2,HousingGrillType)
+    holoBodygroup(1,1,FanType)
+}
+interval(20)
+if(On){Speed = 200}
+else{
+Speed = 0
+
+}
+if(Angle >= 180)
+{
+    Angset = 0
+}
+else
+{
+    Angset += Speed / 4
+}
+
+Charge_A = Charge_A + ( Angset - Charge_A ) /  max( 50, 0 )     
+holoAng(1,entity():toWorld(ang(0,0-Charge_A,0)))

@@ -1,0 +1,14 @@
+@name Shape's RLC Master OLC Bridge V0.4 PUBLIC
+@inputs Reverser Notch Brake Dynamics DynaNotch MPH
+@outputs Throttle_OVR Throttle_OVRNegative
+@persist ThrottleInt
+#If you are reading this, then yay! YOU ARE SMARTER THAN 70% OF THE PEOPLE WHO COME ONTO TRAINBUILD.
+#Made by shapesthepoolcleaner. 
+#For use with Magnums RLC PT
+
+    if(Brake){ThrottleInt=0}
+    if(DynaNotch & Dynamics){ThrottleInt=DynaNotch*Reverser*-1*MPH*0.25}
+    if(!Brake & !Notch &!Dynamics){ThrottleInt=0}
+    if(Notch & !Dynamics){ThrottleInt=Notch*6.25*Reverser}
+    Throttle_OVR=ThrottleInt
+    Throttle_OVRNegative=ThrottleInt*-1

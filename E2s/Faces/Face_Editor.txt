@@ -1,0 +1,6 @@
+@name Face Editor
+@inputs EditFace DeleteFace NoFace
+@outputs Ready Stop Start
+@persist 
+@trigger 
+

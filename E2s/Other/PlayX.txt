@@ -1,0 +1,7 @@
+@name PlayX Editor
+@inputs Command EditVideo Video VideoControl OnOff 
+@outputs Play Stop EditCommand Buttons ToggleOff ToggleOn
+@persist 
+@trigger 
+
+

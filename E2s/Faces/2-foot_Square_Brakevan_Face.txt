@@ -1,0 +1,94 @@
+@name 2-foot Square Brakevan Face
+@inputs
+@outputs 
+@persist
+@trigger 
+@model models/hunter/plates/plate1x1.mdl
+#Made by Armystuntman, please treat this as a PUBLIC, FREE E2. Don't sell it or anything silly like that! Think of the fans!
+entity():setAlpha(0)
+#Face
+holoCreate(1)
+holoModel(1, "models/hunter/plates/plate1x1.mdl")
+holoPos(1,entity():toWorld(vec(0,0,0)))
+holoAng(1, entity():toWorld(ang(0,0,0)) )
+holoScale(1, vec(0.6,0.5,1))
+holoMaterial(1,"bobsters_trains/br_intercity_grey")
+holoColor(1, vec(255,255,255))
+holoParent(1, entity())
+#Eye Left
+holoCreate(2)
+holoModel(2, "models/sprops/geometry/t_fdisc_12.mdl")
+holoPos(2,entity():toWorld(vec(5,6,2)))
+holoAng(2, entity():toWorld(ang(0,0,90)) )
+holoScale(2, vec(0.6,0.9,0.7))
+holoMaterial(2,"bobsters_trains/base")
+holoColor(2, vec(255,255,255))
+holoParent(2, entity())
+#Eye Right
+holoCreate(3)
+holoModel(3, "models/sprops/geometry/t_fdisc_12.mdl")
+holoPos(3,entity():toWorld(vec(5,-6,2)))
+holoAng(3, entity():toWorld(ang(0,0,90)) )
+holoScale(3, vec(0.6,0.9,0.7))
+holoMaterial(3,"bobsters_trains/base")
+holoColor(3, vec(255,255,255))
+holoParent(3, entity())
+#EyePupil Left
+holoCreate(4)
+holoModel(4, "models/sprops/cylinders/size_3/cylinder_6x3.mdl")
+holoPos(4,entity():toWorld(vec(5,6,2)))
+holoAng(4, entity():toWorld(ang(0,0,0)) )
+holoScale(4, vec(0.7,0.6,1))
+holoMaterial(4,"bobsters_trains/base")
+holoColor(4, vec(0,0,0))
+holoParent(4, entity())
+#EyePupil Right
+holoCreate(5)
+holoModel(5, "models/sprops/cylinders/size_3/cylinder_6x3.mdl")
+holoPos(5,entity():toWorld(vec(5,-6,2)))
+holoAng(5, entity():toWorld(ang(0,0,0)) )
+holoScale(5, vec(0.7,0.6,1))
+holoMaterial(5,"bobsters_trains/base")
+holoColor(5, vec(0,0,0))
+holoParent(5, entity())
+#EyeBrow Left
+holoCreate(6)
+holoModel(6, "models/sprops/rectangles/size_1/rect_3x12x3.mdl")
+holoPos(6,entity():toWorld(vec(8,5,2)))
+holoAng(6, entity():toWorld(ang(0,80,0)) )
+holoScale(6, vec(0.8,0.7,1))
+holoMaterial(6,"bobsters_trains/br_intercity_grey")
+holoParent(6, entity())
+#EyeBrow Right
+holoCreate(7)
+holoModel(7, "models/sprops/rectangles/size_1/rect_3x12x3.mdl")
+holoPos(7,entity():toWorld(vec(8,-5,2)))
+holoAng(7, entity():toWorld(ang(0,100,0)) )
+holoScale(7, vec(0.8,0.7,1))
+holoMaterial(7,"bobsters_trains/br_intercity_grey")
+holoParent(7, entity())
+#Nose
+holoCreate(8)
+holoModel(8, "models/sprops/geometry/sphere_9.mdl")
+holoPos(8,entity():toWorld(vec(0,0,2)))
+holoAng(8, entity():toWorld(ang(0,0,0)) )
+holoScale(8, vec(1,0.6,0.7))
+holoMaterial(8,"bobsters_trains/br_intercity_grey")
+holoParent(8, entity())
+#mouth
+holoCreate(9)
+holoModel(9, "models/sprops/geometry/qring_42.mdl")
+holoPos(9,entity():toWorld(vec(-8,0,1)))
+holoAng(9, entity():toWorld(ang(0,120,90)) )
+holoScale(9, vec(0.3,1,0.2))
+holoMaterial(9,"bobsters_trains/br_dirty_black")
+holoParent(9, entity())
+#omouth
+#holoCreate(10)
+holoModel(10, "models/sprops/geometry/t_fdisc_12.mdl")
+holoPos(10,entity():toWorld(vec(-13,0,-20)))
+holoAng(10, entity():toWorld(ang(0,-46,90)) )
+holoScale(10, vec(0.5,1,0.5))
+holoMaterial(10,"bobsters_trains/br_dirty_black")
+holoParent(10, entity())
+

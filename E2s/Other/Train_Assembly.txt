@@ -1,0 +1,380 @@
+@name Train Assembly
+@inputs 
+@outputs C A:angle
+@persist [Cars Bogey1 Bogey2 Loads1 Loads2]:array Q [E O B1 B2 TempCar]:entity C Pos:vector A:angle R:vector [Mount Presets]:table D Nocollide Color:vector BogeyColor:vector RandColor Skin BogeySkin ColorSet:array GravelColor:vector4
+@trigger 
+@model models/magtrains/coachbogey2.mdl
+#[
+    This E2 Requires Constraint Core.
+    
+    
+    
+    Instructions:
+    
+    1- Spawn the E2. Place it onto the tracks and Freeze it. The Green Cone points in the direction that the cars will be spawned.
+    2- Type ".start" without the quotes into the chat.
+    3- Type ".addcar <car>" without quotes to add a car. EXAMPLE: ".addcar boxcar" ".addcar boxcar1" ".addcar boxcar2"
+        Note that the type of car you enter corresponds to the appropriate car body from Magnum's Train Model Pack.
+    4- Type ".finish" (without quotes obviously) to automatically rope the cars and delete the E2.
+    
+    
+    Command                 Syntax                  Description
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    .start                  n/a                     Initializes the e2 to create the consist
+    .nocollide              .nocollide <1 or 0>     If 1, nocollides the bogeys to the body. If 0, disables collisions on body instead. Use .nocollide 0 for long trains.
+    .color                  .color <r> <g> <b>      Picks a color to apply to the body props.
+    .bogeycolor             (Same as .color)        Ditto, but for the bogeys
+    .skin                   .skin <skin number>     Picks a skin to apply to the body props. Remember that the default skin is skin 0!
+    .bogeyskin              (Same as .skin)         Ditto, but for the bogeys
+    .randcolor              .randolor <1 or 0>      If 1, will randomly colorize the body props. If 2, will randomly select a color from the "ColorSet" array. If set to 3, will choose the preset color for that car. If set to 0, will reset the default color to white.
+    .addcar                 .addcar <car name>      Adds the specified car to the consist. LOOK AT THE LIST BELOW FOR ACCEPTABLE CAR NAMES!
+    .load                   n/a                     Loads the last-placed car (Works with hopper1, both gondolas, and flatcar4). Hoppers/gondolas use the "GravelColor" color/skin, while intermodal is psuedo-random.
+    .unload                 n/a                     Unloads the last-placed car
+    .undo                   n/a                     Removes the last car in the consist
+    .cancel                 n/a                     Removes all cars and deletes the E2
+    .finish                 n/a                     Ropes all the cars together and deletes the e2.
+    
+
+    
+    The List of acceptable car names is as follows:
+    boxcar1
+    boxcar2
+    boxcar3
+    boxcar4
+    hopper1
+    hopper2
+    hopper3
+    hopper4
+    flatcar1
+    flatcar2
+    flatcar3
+    flatcar4
+    coach1
+    coach1_baggage
+    coach2
+    coach2_end
+    coach3
+    coach4
+    coach5
+    heavy1
+    heavy1_end
+    heavy1_baggage
+    tanker1
+    tanker2
+    wellcar1
+    autorack1
+    autorack2
+    centerbeam1
+    gondola1
+    gondola2
+    caboose1
+    caboose2
+    jenny1
+    random
+    
+    If you leave out the number at the end of the car name, the chip will assume you mean the "1" version. (The random car option does not follow this rule)
+    
+    
+    
+
+]#
+if(first() | duped()){      #CONFIG
+    
+    Nocollide = 1                   #If set to 1, the bogeys will be nocollided with the body. If 0, the carbodies will have disabled collisions.
+        Color = vec(255)            #This determines the Default color to apply to the cars.
+    BogeyColor = vec(50)            #The Default color for the Bogeys
+    RandColor = 1                   #If set to 1, the cars will be given a random color. If 0, they will use the Color variable.
+    Skin = 0                        #The Default Skin for the Car Bodies
+    BogeySkin = 1                   #The Default Skin for the Bogeys
+    GravelColor = vec4(50,50,50,0) #The Default Color of the Gravel to load into the hopper. The 4th element will be the skin Number.
+    
+    ColorSet = array(   #The Preselected color set for Random Color mode #2
+        vec(80,100,150),
+        vec(150,40,40),
+        vec(150,50,0),
+        vec(40,100,40),
+        vec(40,40,50)
+        )
+        
+        
+    #The preset Color Table for use with the .randcolor 3 setting. The fourth variable is the skin number for that car.
+    
+    Presets["boxcar1",vector4]=vec4(80,100,150,2)
+    Presets["boxcar2",vector4]=vec4(80,150,100,1)
+    Presets["boxcar3",vector4]=vec4(120,60,60,2)
+    Presets["boxcar4",vector4]=vec4(255,220,120,2)
+    Presets["tanker1",vector4]=vec4(30,30,30,1)
+    Presets["tanker2",vector4]=vec4(30,30,30,1)
+    Presets["hopper1",vector4]=vec4(60,120,80,2)
+    Presets["hopper2",vector4]=vec4(200,200,200,0)
+    Presets["hopper3",vector4]=vec4(120,0,0,2)
+    Presets["hopper4",vector4]=vec4(120,60,60,2)
+    Presets["flatcar1",vector4]=vec4(255,191,0,1)
+    Presets["flatcar2",vector4]=vec4(255,191,0,1)
+    Presets["flatcar3",vector4]=vec4(0,120,0,1)
+    Presets["flatcar4",vector4]=vec4(80,100,150,1)
+    Presets["coach1",vector4]=vec4(80,100,150,0)
+    Presets["coach2",vector4]=vec4(80,100,150,0)
+    Presets["coach3",vector4]=vec4(80,100,150,0)
+    Presets["coach4",vector4]=vec4(80,100,150,0)
+    Presets["coach5",vector4]=vec4(40,40,50,0)
+    Presets["coach1_baggage",vector4]=vec4(80,100,150,0)
+    Presets["coach2_end",vector4]=vec4(80,100,150,0)
+    Presets["wellcar1",vector4]=vec4(255,191,0,2)
+    Presets["autorack1",vector4]=vec4(80,100,150,0)
+    Presets["autorack2",vector4]=vec4(50,50,50,1)
+    Presets["centerbeam1",vector4]=vec4(0,120,0,2)
+    Presets["caboose1",vector4]=vec4(80,100,150,0)
+    Presets["caboose2",vector4]=vec4(40,40,50,0)
+    Presets["gondola1",vector4]=vec4(50,50,50,2)
+    Presets["gondola2",vector4]=vec4(120,60,60,2)
+    Presets["heavy1",vector4]=vec4(40,40,50,0)
+    Presets["heavy1_baggage",vector4]=vec4(40,40,50,0)
+    Presets["heavy1_end",vector4]=vec4(40,40,50,0)
+    Presets["jenny1",vector4]=vec4(80,150,100,1)
+    
+    
+    
+    
+    propSpawnEffect(0)
+    
+    Q = 0
+    C = 1
+    
+    
+    
+    Cars = array()
+    Bogey1 = array()
+    Bogey2 = array()
+    Loads1 = array()
+    Loads2 = array()
+    runOnChat(1)
+    O = owner()
+    E = entity()
+    
+    holoCreate(0,E:pos()+48*E:right(),vec(2,2,4),E:angles():rotateAroundAxis(E:forward(),90),vec(0,255,0),"cone")
+    holoParent(0,E)
+    
+    Mount["boxcar1",number]=176
+    Mount["boxcar2",number]=176
+    Mount["boxcar3",number]=304
+    Mount["boxcar4",number]=304
+    Mount["tanker1",number]=208
+    Mount["tanker2",number]=304
+    Mount["hopper1",number]=176
+    Mount["hopper2",number]=176
+    Mount["hopper3",number]=272
+    Mount["hopper4",number]=304
+    Mount["flatcar1",number]=304
+    Mount["flatcar2",number]=304
+    Mount["flatcar3",number]=264
+    Mount["flatcar4",number]=304
+    Mount["coach1",number]=304
+    Mount["coach2",number]=304
+    Mount["coach3",number]=304
+    Mount["coach4",number]=304
+    Mount["coach5",number]=304
+    Mount["coach1_baggage",number]=304
+    Mount["coach2_end",number]=304
+    Mount["wellcar1",number]=368
+    Mount["autorack1",number]=304
+    Mount["autorack2",number]=304
+    Mount["centerbeam1",number]=304
+    Mount["caboose1",number]=176
+    Mount["caboose2",number]=176
+    Mount["gondola1",number]=304
+    Mount["gondola2",number]=304
+    Mount["heavy1",number]=304
+    Mount["heavy1_baggage",number]=304
+    Mount["heavy1_end",number]=304
+    Mount["jenny1",number]=108
+    
+}
+
+if(chatClk(O)){
+    LS = O:lastSaid()
+    if(Q){
+        if(LS:find(".addcar")){
+            
+            Car = LS:sub(9)
+            if(Car:find("random")){
+                X = randint(1,18)
+                Car = select(X,"boxcar1","boxcar2","boxcar3","boxcar4","tanker1","tanker2","hopper1","hopper2","hopper3","hopper4","flatcar1","flatcar2","flatcar3","flatcar4","autorack1","autorack2","gondola1","gondola2","centerbeam1")
+            }
+            #------
+            if("boxcar1 boxcar2 boxcar3 boxcar4 tanker1 tanker2 hopper1 hopper2 hopper3 hopper4 flatcar1 flatcar2 flatcar3 flatcar4 autorack1 autorack2 gondola1 gondola2 centerbeam1 caboose1 caboose2 coach1 coach1_baggage coach2 coach2_end coach3 coach4 coach5 heavy1 heavy1_baggage heavy1_end wellcar1 jennyq1":find(Car)){
+                if(!Car:find("1") & !Car:find("2") & !Car:find("3") & !Car:find("4") & !Car:find("5")){Car += "1"}
+                if(Car:find("coach")){Type="models/magtrains/coachbogey2.mdl"}elseif(Car:find("heavy")){Type = "models/magtrains/heavybogey1.mdl"}else{Type="models/magtrains/freightbogey2.mdl"}
+                D = Mount[Car:sub(1,Car:length()),number]
+                TempCar = Cars[C,entity] = propSpawn("models/magtrains/"+Car+".mdl",Pos,Car == "coach2_end" | Car == "heavy1_end" ? A:rotateAroundAxis(E:up(),180) : A,1)
+                TempCar:soundPlay(0,1,"garrysmod/balloon_pop_cute.wav")
+                TempCar:setSkin(Skin)
+                    if(RandColor==1){
+                        Color = randvec(vec(30),vec(200))
+                    }elseif(RandColor==2){
+                        Color = ColorSet[randint(1,ColorSet:count()),vector]
+                    }elseif(RandColor==3){
+                        Color = Presets[Car,vector4]:dehomogenized()
+                        TempCar:setSkin(Presets[Car,vector4]:w())
+                    }
+                    
+                TempCar:setColor(Color)
+                noCollideAll(TempCar,!Nocollide)
+            
+            
+                Cp = TempCar:boxSize():y()/2 - 4
+                Pos += Cp*R
+                TempCar:setPos(Pos)
+                B1 = Bogey1[C,entity] = propSpawn(Type,Pos+D*R,A,1)
+                   B1:setSkin(BogeySkin)
+                   B1:setColor(BogeyColor)
+                B2 = Bogey2[C,entity] = propSpawn(Type,Pos-D*R,A,1)
+                    B2:setSkin(BogeySkin)
+                    B2:setColor(BogeyColor)
+                V0 = vec()
+                axis(B1,B1:massCenterL(),TempCar,vec(0,-D,0))
+                
+                axis(B2,B2:massCenterL(),TempCar,vec(0,D,0))
+                
+                if(Nocollide){
+                    noCollide(B1,TempCar)
+                    noCollide(B2,TempCar)
+                }
+                Pos += Cp*R
+                C++
+                
+                
+            }else{
+                O:soundPlay(0,1,"buttons/button11.wav")
+                hint("Invalid Car Name!",4)
+            }
+        }elseif(LS:find(".undo")){
+            C--
+            Pos = Cars[C,entity]:pos() - (Cars[C,entity]:boxSize():y()/2 - 4)*R
+            Cars[C,entity]:propDelete()
+            Bogey1[C,entity]:propDelete()
+            Bogey2[C,entity]:propDelete()
+        }elseif(LS:find(".cancel")){
+            for(N=1,C-1){
+                Cars[N,entity]:propDelete()
+                Bogey1[N,entity]:propDelete()
+                Bogey2[N,entity]:propDelete()
+            }
+            E:propDelete()
+        }elseif(LS:find(".finish")){
+            for(N=2,C-1){
+                #Bogey2[N,entity]:ropeTo(Bogey1[N-1,entity],vec(0,42,-24),vec(0,-42,-24),0,0,2,"cable/cable",1)
+                Ent1 = Bogey2[N,entity]
+                Ent2 = Bogey1[N-1,entity]
+                
+                ballsocket(Ent1,Ent2:toLocal((Ent1:massCenter() + Ent2:massCenter())/2),Ent2)
+            }
+            hint("Train Consist Complete! " + (C-1):toString() + " Cars.",7)
+            E:propDelete()
+        }elseif(LS:find(".nocollide")){
+            Nocollide = LS:sub(12):toNumber()
+            if(Nocollide){hint("Bogeys will be Nocollided with Body",7)}else{hint("Body collisions Disabled",7)}
+        }elseif(LS:find(".color")){
+            V = LS:sub(8)
+            
+            S = V:find(" ")
+            Red = V:left(S-1)
+            V = V:sub(S+1)
+        
+            S = V:find(" ")
+            Green = V:left(S-1)
+            Blue = V:sub(S+1)  
+            Color = vec(Red:toNumber(),Green:toNumber(),Blue:toNumber()) 
+        }elseif(LS:find(".randcolor")){
+            RandColor = LS:sub(12):toNumber()
+            if(!RandColor){Color = vec(255),hint("Random Coloration Disabled",7)}elseif(RandColor==2){hint("Custom Random Colors Enabled",7)}elseif(RandColor==3){hint("Preset Colors Selected",7)}else{hint("Random Coloration Enabled",7)}
+        }elseif(LS:find(".skin")){
+            Skin = LS:sub(7):toNumber()
+        }elseif(LS:find(".bogeyskin")){
+            BogeySkin = LS:sub(12):toNumber()
+        }elseif(LS:find(".bogeycolor")){
+            V = LS:sub(13)
+            
+            S = V:find(" ")
+            Red = V:left(S-1)
+            V = V:sub(S+1)
+        
+            S = V:find(" ")
+            Green = V:left(S-1)
+            Blue = V:sub(S+1)  
+            BogeyColor = vec(Red:toNumber(),Green:toNumber(),Blue:toNumber())
+        }elseif(LS:find(".load")){
+            PC = Cars[C-1,entity]
+            if(PC:model() == "models/magtrains/hopper1.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/hopper1_load.mdl",PC:pos(),PC:angles(),1)
+                Load1:setColor(GravelColor:dehomogenized())
+                Load1:setSkin(GravelColor:w())
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+            }elseif(PC:model() == "models/magtrains/hopper4.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/hopper4_load.mdl",PC:pos(),PC:angles(),1)
+                Load1:setColor(GravelColor:dehomogenized())
+                Load1:setSkin(GravelColor:w())
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+            }elseif(PC:model() == "models/magtrains/wellcar1.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/intermodal.mdl",PC:pos(),PC:angles(),1)
+                Load1:setColor(ColorSet[randint(1,ColorSet:count()),vector])
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+                Loads2[C-1,entity] = Load2 = propSpawn("models/magtrains/intermodal.mdl",PC:pos()+vec(0,0,128),PC:angles(),1)
+                Load2:setColor(ColorSet[randint(1,ColorSet:count()),vector])
+                Load2:propNotSolid(1)
+                Load2:parentTo(PC)
+            }elseif(PC:model() == "models/magtrains/gondola1.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/gondola1_load.mdl",PC:pos(),PC:angles(),1)
+                Load1:setColor(GravelColor:dehomogenized())
+                Load1:setSkin(GravelColor:w())
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+            }elseif(PC:model() == "models/magtrains/gondola2.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/gondola1_load.mdl",PC:pos()+vec(0,0,60),PC:angles(),1)
+                Load1:setColor(GravelColor:dehomogenized())
+                Load1:setSkin(GravelColor:w())
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+            }elseif(PC:model() == "models/magtrains/flatcar4.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/trailer1.mdl",PC:pos() + 224*PC:right() + vec(0,0,100),PC:angles(),1)
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+                Loads2[C-1,entity] = Load2 = propSpawn("models/magtrains/trailer1.mdl",PC:pos() - 224*PC:right() + vec(0,0,100),PC:angles(),1)
+                Load2:propNotSolid(1)
+                Load2:parentTo(PC)
+            }elseif(PC:model() == "models/magtrains/jenny1.mdl"){
+                Loads1[C-1,entity] = Load1 = propSpawn("models/magtrains/jenny1_load.mdl",PC:pos(),PC:angles(),1)
+                Load1:setColor(GravelColor:dehomogenized())
+                Load1:setSkin(GravelColor:w())
+                Load1:propNotSolid(1)
+                Load1:parentTo(PC)
+            }else{
+                O:soundPlay(0,1,"buttons/button11.wav")
+                hint("You can't load that!",4)
+            }
+            
+        }elseif(LS:find(".unload")){
+            Loads1[C-1,entity]:propDelete()
+            Loads2[C-1,entity]:propDelete()
+        }
+        
+    }elseif(!Q & LS:find(".start")){
+        O:soundPlay(0,1,"buttons/button9.wav")
+        holoColor(0,vec(255,0,0))
+        E:setAlpha(0)
+        E:propFreeze(1)
+        E:propNotSolid(1)
+        Q = 1
+        A = E:angles()
+        Yaw = A:yaw()
+        Factor = round(Yaw/90,0)
+        A = ang(0,Factor*90,0)
+        E:setAng(A)
+        #if(inrange(Yaw,-30,30)){E:setAng(ang())}elseif(inrange(Yaw,60,120)){E:setAng(ang(0,90,0))}elseif(Yaw > 150 | Yaw < -150){E:setAng(ang(0,180,0))}elseif(inrange(Yaw,-120,-60)){E:setAng(ang(0,-90,0))}
+        Pos = E:pos() + vec(0,0,6)
+        R = A:right()
+    }
+}

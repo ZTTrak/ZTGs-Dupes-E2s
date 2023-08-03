@@ -1,0 +1,97 @@
+@name Pantograph V2
+@inputs Extend
+@outputs Up
+@persist Ang Scale Color:vector E:entity MaxAng MinAng
+@trigger 
+@model models/hunter/plates/plate025x025.mdl
+if(first() | duped()){
+    #Scale size factor for the pantograph. 1 is a good starting value.
+    Scale = 1
+    
+    #The Color that the pantograph will be.
+    Color = vec(150)
+    
+    #The material that the pantograph will be/
+    Mat = "sprops/textures/sprops_metal5"
+    
+    #The maximum and minimum angles between which the pantograph will extend.
+    MaxAng = 50
+    MinAng = 10
+    
+    E = entity()
+    P = E:pos()
+    A = E:angles()
+    F = E:forward()
+    U = E:up()
+    R = E:right()
+    A1 = A:rotateAroundAxis(F,90)
+    A2 = A:rotateAroundAxis(R,90)
+    
+    holoCreate(0,P,Scale*vec(1.5,6,0.3),A,Color/4,"cube")
+        holoParent(0,E)
+    
+    holoCreate(1,P+Scale*(24*R + 3*U),Scale*vec(0.5),A1,Color,"cylinder")
+    holoCreate(2,P+Scale*(-24*R + 3*U),Scale*vec(0.5),A1,Color,"cylinder")
+        holoParent(1,E)
+        holoParent(2,E)
+    
+    holoCreate(3,P+Scale*(24*R + 3*U + 24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+    holoCreate(4,P+Scale*(-24*R + 3*U + 24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+        holoParent(3,1)
+        holoParent(4,1)
+    
+    holoCreate(5,P+Scale*(24*R + 3*U + -24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+    holoCreate(6,P+Scale*(-24*R + 3*U + -24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+        holoParent(5,2)
+        holoParent(6,2)
+    
+    holoCreate(7,P+Scale*(24*R + 4.5*U + 48*F),Scale*vec(0.5),A1,Color,"cylinder")
+    holoCreate(8,P+Scale*(-24*R + 4.5*U + 48*F),Scale*vec(0.5),A1,Color,"cylinder")
+        holoParent(7,1)
+        holoParent(8,1)
+    
+    holoCreate(9,P+Scale*(24*R + 4.5*U + -48*F),Scale*vec(0.5),A1,Color,"cylinder")
+    holoCreate(10,P+Scale*(-24*R + 4.5*U + -48*F),Scale*vec(0.5),A1,Color,"cylinder")
+        holoParent(9,2)
+        holoParent(10,2)
+    
+    holoCreate(11,P+Scale*(4.5*U + 48*F),Scale*vec(0.125,0.125,4),A1,Color/2,"cylinder")
+    holoCreate(12,P+Scale*(4.5*U + -48*F),Scale*vec(0.125,0.125,4),A1,Color/2,"cylinder")
+        holoParent(11,1)
+        holoParent(12,2)
+    
+    holoCreate(13,P+Scale*(24*R + 6*U + 24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+    holoCreate(14,P+Scale*(-24*R + 6*U + 24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+        holoParent(13,7)
+        holoParent(14,7)
+    
+    holoCreate(15,P+Scale*(24*R + 6*U + -24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+    holoCreate(16,P+Scale*(-24*R + 6*U + -24*F),Scale*vec(0.25,0.25,4),A2,Color,"cylinder")
+        holoParent(15,9)
+        holoParent(16,9)
+    
+    holoCreate(17,P+Scale*(7.5*U),Scale*vec(0.75,6,0.25),A,Color/4,"cube")
+    holoCreate(18,P+Scale*(4.5*U + 40.5*R),Scale*vec(0.75),A:rotateAroundAxis(U,90),Color/4,"models/sprops/misc/tubes/size_2/q_tube_24x12.mdl")
+    holoCreate(19,P+Scale*(4.5*U + -40.5*R),Scale*vec(0.75),A:rotateAroundAxis(U,-90),Color/4,"models/sprops/misc/tubes/size_2/q_tube_24x12.mdl")
+        holoParent(17,E)
+        holoParent(18,17)
+        holoParent(19,17)
+        
+    for(N=0,19){
+        holoMaterial(N,Mat)
+    }
+}
+interval(50)
+Ang += (Extend - !Extend)
+Ang = clamp(Ang,MinAng,MaxAng)
+A = E:angles()
+F = E:forward()
+R = E:right()
+U = E:up()
+P = E:pos()
+holoAng(1,A:rotateAroundAxis(F,90):rotateAroundAxis(R,Ang))
+holoAng(2,A:rotateAroundAxis(F,90):rotateAroundAxis(R,-Ang))
+holoAng(9,A:rotateAroundAxis(F,90):rotateAroundAxis(R,Ang))
+holoAng(7,A:rotateAroundAxis(F,90):rotateAroundAxis(R,-Ang))
+
+holoPos(17,P + (Scale*(2*sin(Ang)*48 + 7.5)*U))

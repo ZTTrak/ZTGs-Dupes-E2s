@@ -1,0 +1,232 @@
+@name Female Public Face Outdated
+@inputs Awake Move Danger Whistle Reverse OFace Up Down Left Right Angry Sad Evil Scaredwide Blush
+@outputs 
+@persist
+@trigger 
+@model models/hunter/plates/plate1x1.mdl
+#By Armystuntman, for Taly's weird OC.
+#Eye Left
+holoCreate(1)
+holoModel(1, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(1,entity():toWorld(vec(2,12,10)))
+holoAng(1, entity():toWorld(ang(90,0,0)) )
+holoScale(1, vec(0.17,0.2,0.3))
+holoMaterial(1,"WTP/paint_1")
+holoColor(1, vec(255,255,255))
+holoParent(1, entity())
+#Eye Right
+holoCreate(2)
+holoModel(2, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(2,entity():toWorld(vec(2,-12,10)))
+holoAng(2, entity():toWorld(ang(90,0,0)) )
+holoScale(2, vec(0.17,0.2,0.3))
+holoMaterial(2,"WTP/paint_1")
+holoColor(2, vec(255,255,255))
+holoParent(2, entity())
+#Eye Black Left
+holoCreate(3)
+holoModel(3, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(3,entity():toWorld(vec(2.4,12.5,12)))
+holoAng(3, entity():toWorld(ang(95,0,180)) )
+holoScale(3, vec(0.18,0.21,1))
+holoMaterial(3,"WTP/paint_1")
+holoColor(3, vec(0,0,0))
+holoParent(3, entity())
+#Eye Black Right
+holoCreate(4)
+holoModel(4, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(4,entity():toWorld(vec(2.4,-12.5,12)))
+holoAng(4, entity():toWorld(ang(95,0,180)) )
+holoScale(4, vec(0.18,0.21,1))
+holoMaterial(4,"WTP/paint_1")
+holoColor(4, vec(0,0,0))
+holoParent(4, entity())
+#Eye Pupil Left
+holoCreate(5)
+holoModel(5, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(5,entity():toWorld(vec(2,12,10)))
+holoAng(5, entity():toWorld(ang(90,0,0)) )
+holoScale(5, vec(0.1,0.1,0.5))
+holoMaterial(5,"WTP/paint_1")
+holoColor(5, vec(0,0,0))
+holoParent(5, entity())
+#Eye Pupil Right
+holoCreate(6)
+holoModel(6, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(6,entity():toWorld(vec(2,-12,10)))
+holoAng(6, entity():toWorld(ang(90,0,0)) )
+holoScale(6, vec(0.1,0.1,0.5))
+holoMaterial(6,"WTP/paint_1")
+holoColor(6, vec(0,0,0))
+holoParent(6, entity())
+#Nose
+holoCreate(7)
+holoModel(7, "models/sprops/misc/pyramids/rsize_1/rpyr_12x24.mdl")
+holoPos(7,entity():toWorld(vec(1,1,-5)))
+holoAng(7, entity():toWorld(ang(0,42,0)) )
+holoScale(7, vec(0.5,0.8,1))
+holoMaterial(7,"bobsters_trains/br_intercity_grey")
+holoParent(7, entity())
+#Mouth
+holoCreate(8)
+holoModel(8, "models/XQM/deg45single.mdl")
+holoPos(8,entity():toWorld(vec(3,-7,-13)))
+holoAng(8, entity():toWorld(ang(0,0,-110)) )
+holoScale(8, vec(0.1,0.8,0.8))
+holoColor(8, vec(0,0,0))
+holoMaterial(8,"WTP/paint_1")
+holoParent(8, entity())
+#Eyebrow Left
+holoCreate(9)
+holoModel(9, "models/XQM/deg45single.mdl")
+holoPos(9,entity():toWorld(vec(3,17,22)))
+holoAng(9, entity():toWorld(ang(0,0,65)) )
+holoScale(9, vec(0.5,0.3,0.3))
+holoColor(9, vec(0,0,0))
+holoMaterial(9,"WTP/paint_1")
+holoParent(9, entity())
+#Eyebrow Right
+holoCreate(10)
+holoModel(10, "models/XQM/deg45single.mdl")
+holoPos(10,entity():toWorld(vec(3,-10,22)))
+holoAng(10, entity():toWorld(ang(0,0,70)) )
+holoScale(10, vec(0.5,0.3,0.3))
+holoColor(10, vec(0,0,0))
+holoMaterial(10,"WTP/paint_1")
+holoParent(10, entity())
+#Whistle Mouth
+holoCreate(11)
+holoModel(11, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(11,entity():toWorld(vec(0,0,-14.2)))
+holoAng(11, entity():toWorld(ang(90,0,0)) )
+holoScale(11, vec(0.15,0.24,0.25))
+holoMaterial(11,"WTP/paint_1")
+holoColor(11, vec(0,0,0))
+holoParent(11, entity())
+#Eye Left
+holoCreate(12)
+holoModel(12, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(12,entity():toWorld(vec(2,12,10)))
+holoAng(12, entity():toWorld(ang(90,0,0)) )
+holoScale(12, vec(0.19,0.21,0.6))
+holoMaterial(12,"bobsters_trains/br_intercity_grey")
+holoColor(12, vec(255,255,255))
+holoParent(12, entity())
+#Eye Right
+holoCreate(13)
+holoModel(13, "models/props_phx/construct/plastic/plastic_angle_360.mdl")
+holoPos(13,entity():toWorld(vec(2,-12,10)))
+holoAng(13, entity():toWorld(ang(90,0,0)) )
+holoScale(13, vec(0.19,0.21,0.6))
+holoMaterial(13,"bobsters_trains/br_intercity_grey")
+holoColor(13, vec(255,255,255))
+holoParent(13, entity())
+#Blush Right
+holoCreate(14)
+holoModel(14, "models/hunter/misc/shell2x2a.mdl")
+holoPos(14,entity():toWorld(vec(-1,-15,-7)))
+holoAng(14, entity():toWorld(ang(90,0,0)) )
+holoScale(14, vec(0.1,0.14,0.05))
+holoMaterial(14,"bobsters_trains/base")
+holoColor(14, vec(255,77,77))
+holoParent(14, entity())
+#Blush Left
+holoCreate(15)
+holoModel(15, "models/hunter/misc/shell2x2a.mdl")
+holoPos(15,entity():toWorld(vec(-1,15,-7)))
+holoAng(15, entity():toWorld(ang(90,0,0)) )
+holoScale(15, vec(0.1,0.14,0.05))
+holoMaterial(15,"bobsters_trains/base")
+holoColor(15, vec(255,77,77))
+holoParent(15, entity())
+#face fix
+holoCreate(16)
+holoModel(16, "models/props_trainstation/trainstation_clock001.mdl")
+holoPos(16,entity():toWorld(vec(-1.9,0,3)))
+holoAng(16, entity():toWorld(ang(0,0,0)) )
+holoScale(16, vec(2,0.9,0.9))
+holoMaterial(16,"bobsters_trains/br_intercity_grey")
+holoParent(16, entity())
+
+###FACIAL EXPRESSIONS###
+if(Awake){
+holoScale(12, vec(0.19,0.21,0))
+holoScale(13, vec(0.19,0.21,0))
+}
+if(Evil){
+    holoColor(1, vec(0,0,0))
+    holoColor(2, vec(0,0,0))
+holoPos(8,entity():toWorld(vec(3,-19,-12)))
+holoAng(8, entity():toWorld(ang(0,0,-110)) )
+holoScale(8, vec(2,2,2))
+holoScale(5, vec(0.05,0.04,0.5))
+holoColor(5, vec(255,0,0))
+holoScale(6, vec(0.05,0.04,0.5))
+holoColor(6, vec(255,0,0))
+}
+if(Whistle){
+holoScale(12, vec(0.19,0.21,0.6))
+holoScale(13, vec(0.19,0.21,0.6))
+}
+if(OFace){
+holoPos(11,entity():toWorld(vec(2.2,0,-13.2)))
+}
+    if(Move){
+holoPos(5,entity():toWorld(vec(2,9,12)))  
+holoPos(6,entity():toWorld(vec(2,-15,12)))}
+    if(Reverse){
+holoPos(5,entity():toWorld(vec(2,15,12)))  
+holoPos(6,entity():toWorld(vec(2,-9,12)))
+holoPos(8,entity():toWorld(vec(3,-5,-14)))
+holoAng(8, entity():toWorld(ang(0,0,-105)) )}
+if(Danger){
+holoPos(8,entity():toWorld(vec(3,10,-14)))
+holoAng(8, entity():toWorld(ang(0,0,80)) )
+holoScale(8, vec(0.1,0.3,1))
+holoPos(9,entity():toWorld(vec(3,20,20)))
+holoAng(9, entity():toWorld(ang(0,0,30)) )
+holoPos(10,entity():toWorld(vec(3,-14,23.5)))
+holoAng(10, entity():toWorld(ang(0,0,100)) )
+}
+if(Left == 1){
+holoPos(5,entity():toWorld(vec(2,9,8)))
+holoPos(6,entity():toWorld(vec(2,-15,8)))
+}
+if(Down){
+holoPos(5,entity():toWorld(vec(2,12,7)))
+holoPos(6,entity():toWorld(vec(2,-12,7)))
+}
+if(Right == 1){
+holoPos(5,entity():toWorld(vec(2,14,8)))
+holoPos(6,entity():toWorld(vec(2,-10,8)))
+}
+if(Up){
+holoPos(5,entity():toWorld(vec(2,12,13)))
+holoPos(6,entity():toWorld(vec(2,-12,13)))
+}
+if(Angry){
+holoPos(9,entity():toWorld(vec(3,14,23)))
+holoAng(9, entity():toWorld(ang(0,0,80)) )
+holoPos(10,entity():toWorld(vec(1,-14,23)))
+holoAng(10, entity():toWorld(ang(0,180,80)) )
+holoScale(10, vec(0.1,0.5,0.4))
+holoScale(9, vec(0.1,0.5,0.4))
+}
+if(Sad){
+holoPos(9,entity():toWorld(vec(3,13,23)))
+holoAng(9, entity():toWorld(ang(0,0,-140)) )
+holoPos(10,entity():toWorld(vec(1,-13,23)))
+holoAng(10, entity():toWorld(ang(0,180,-140)) )
+holoScale(10, vec(0.1,0.5,0.4))
+holoScale(9, vec(0.1,0.5,0.4))
+}
+if(Scaredwide){
+holoPos(8,entity():toWorld(vec(3,7,-13)))
+holoAng(8, entity():toWorld(ang(0,0,50)) )
+holoScale(8, vec(0.1,1.2,0.5))
+holoColor(8, vec(0,0,0))
+}
+if(Blush){
+holoPos(14,entity():toWorld(vec(1,-15,-5)))
+holoPos(15,entity():toWorld(vec(1,15,-5)))
+}

@@ -1,0 +1,14 @@
+@name 2nd Coupler chip thing
+@inputs Couple Truck:entity Truck2:entity
+@outputs 
+@persist Truck2:entity Truck:entity 
+
+
+
+if(Couple&~Couple){soundPlay(0,20,"titus's_trainbuild_content_pack_1.1/propper/brakes/auto_min_rud.wav") soundPlay(1,10,"titus's_trainbuild_content_pack_1.1/propper/brakes/couple_4_mph.wav")}
+if(!Couple&~Couple){soundPlay(0,20,"titus's_trainbuild_content_pack_1.1/propper/brakes/air_pipe_break_03.wav") soundPlay(1,20,"titus's_trainbuild_content_pack_1.1/propper/brakes/coupler_rod_02.wav") }
+
+
+if(Couple&~Couple){rope(1,Truck2,Truck2:massCenterL(),Truck,Truck:massCenterL(),0,0,"cable/cable",1)}
+if(!Couple&~Couple){Truck:constraintBreak("rope")}
+

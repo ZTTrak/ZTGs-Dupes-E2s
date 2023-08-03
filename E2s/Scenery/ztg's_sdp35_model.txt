@@ -1,0 +1,49 @@
+@name ZTG's SDP35 Model
+@inputs 
+@outputs Base:entity
+@persist 
+@trigger 
+@model models/gsgtrainprops/trains/propper/emd_sdp35.mdl
+Train = entity()
+Train:setBodygroup(1, 2)
+Base = entity()
+Train:setAlpha(0)
+
+
+
+
+holoCreate(1)
+holoModel(1, "models/gsgtrainprops/parts/headlights/headlight_twinbeam_plate.mdl")
+holoPos(1, entity():pos() +vec(0,-244,121))
+holoScale(1, vec(1,1,1))
+holoAng(1, ang(90,270,0))
+holoParent(1,Train)
+
+
+holoCreate(2)
+holoModel(2, "models/gsgtrainprops/parts/headlights/headlight_twinbeam_plate.mdl")
+holoPos(2, entity():pos() +vec(0,-306,69))
+holoScale(2, vec(1,1,1))
+holoAng(2, ang(90,270,0))
+holoParent(2,Train)
+
+holoCreate(3)
+holoModel(3, "models/gsgtrainprops/parts/headlights/headlight_twinbeam_plate.mdl")
+holoPos(3, entity():pos() +vec(0,348,118))
+holoScale(3, vec(1,1,1))
+holoAng(3, ang(90,90,0))
+holoParent(3,Train)
+
+holoCreate(4)
+holoModel(4, "models/gsgtrainprops/parts/horns/leslie_rs3l.mdl")
+holoPos(4, entity():pos() +vec(0,-240,133.5))
+holoScale(4, vec(1,1,1))
+holoAng(4, ang(0,270,0))
+holoParent(4,Train)
+
+
+
+
+
+
+
